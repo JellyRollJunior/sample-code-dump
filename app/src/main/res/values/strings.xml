@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SampleCodeDump</string>
+    <string name="tvSampleTwoBase">Sample 2</string>
+    <string name="btnSampleOne">Sample 1</string>
+    <string name="btnSampleTwo">Sample 2</string>
+    <string name="tvSampleTwoCount">Count: </string>
+    <string name="btnSampleThree">Sample 3</string>
+</resources>
