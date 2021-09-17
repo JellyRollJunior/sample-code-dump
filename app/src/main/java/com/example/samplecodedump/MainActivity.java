@@ -134,11 +134,14 @@ public class MainActivity extends AppCompatActivity {
 
         // Sample 6: locking orientation
         /*
-            1.
+            1. AndroidManifest
+            2. find activity
+            3. android:screenOrientation="Landscape / portrait / reversePortrait / reverseLandscape"
         */
         /*
             Notes:
-                >
+                >on orientation change, android restarts current activity. can lead to problems
+                    >solution: android:configChanges="keyboard | keyboardHidden | orientation | screenSize"
         */
 
         // Sample
