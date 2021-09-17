@@ -7,4 +7,5 @@
     <string name="btnSampleThree">Sample 3</string>
     <string name="tvSampleFour">Sample 4</string>
     <string name="content_description_sample_4">Sample 4 test</string>
+    <string name="image_button_sample_seven">Changes image on click</string>
 </resources>
