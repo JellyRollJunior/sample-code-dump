@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "SampleCodeDump";     // TAG used to show where log error messages originate from
     private int sampleTwoCount = -1;                        // Can't declare in the scope of onCreate or else problems arise
@@ -91,18 +93,25 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(intent);
 
             // better method
-            Intent intent = SampleThreeActivity.makeIntent(MainActivity.this);
+            Intent intent = SecondActivity.makeIntent(MainActivity.this);
             startActivity(intent);
         });
 
-        // Sample
+        // Sample 4: Create/wire floating action button, material design layout, String Extras
         /*
-            1.
+            import images
+                1. right - click -> new -> import vector/image assets
         */
         /*
             Notes:
-                >
+                >use app:tint=:"@null" to make fab icon the correct color
+                >extras can be accessed by intents
         */
+        FloatingActionButton fabSampleFour = (FloatingActionButton) findViewById(R.id.fabSampleFour);
+        fabSampleFour.setOnClickListener( view -> {
+            Intent intent = SecondActivity.makeIntentSampleFour(MainActivity.this, "hello world!");
+            startActivity(intent);
+        });
 
 
         // Sample 5: Constraints
@@ -110,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             1. drag an object into activity
             2. hover over object
             3. drag dots to other objects or activity to apply constraints
-            4. use Guidelines -> can choose from left, right, or percentage of screen
+            4. use Guidelines -> can choose from left, right, or percentage ~!¡¡of screen
                 a. LEFT: layout_constraintGuide_begin = "250dp"
                 b. RIGHT: layout_constraintGuide_end = "250dp"
                 c. PERCENT: layout_constraintGuide_percent = "0.25"
@@ -124,6 +133,13 @@ public class MainActivity extends AppCompatActivity {
                 >centre an widget on an anchor by lining up top and bottom constraints on anchor
         */
 
-
+        // Sample
+        /*
+            1.
+        */
+        /*
+            Notes:
+                >
+        */
     }
 }

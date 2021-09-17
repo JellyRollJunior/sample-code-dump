@@ -5,4 +5,6 @@
     <string name="btnSampleTwo">Sample 2</string>
     <string name="tvSampleTwoCount">Count: </string>
     <string name="btnSampleThree">Sample 3</string>
+    <string name="tvSampleFour">Sample 4</string>
+    <string name="content_description_sample_4">Sample 4 test</string>
 </resources>
