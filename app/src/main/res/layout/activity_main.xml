@@ -95,6 +95,7 @@
 
     <ImageButton
         android:id="@+id/ibtnSampleSeven"
+        android:contentDescription="@string/image_button_sample_seven"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
