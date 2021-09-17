@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
             1. drag an object into activity
             2. hover over object
             3. drag dots to other objects or activity to apply constraints
-            4. use Guidelines -> can choose from left, right, or percentage of screen
+            4. use Guidelines -> can choose from left, right, or percentage ~of screen
                 a. LEFT: layout_constraintGuide_begin = "250dp"
                 b. RIGHT: layout_constraintGuide_end = "250dp"
                 c. PERCENT: layout_constraintGuide_percent = "0.25"
