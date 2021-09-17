@@ -69,7 +69,7 @@
         app:layout_constraintGuide_percent= "0.35" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
+        android:id="@+id/fabSampleFour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
@@ -81,7 +81,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_android_white_24dp"
-        app:tint="@null" /> <!-- makes srcCompat the correct color -->
+        app:tint="@null" />
 
     <TextView
         android:id="@+id/tvSampleFour"
@@ -89,8 +89,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="@string/tvSampleFour"
-        app:layout_constraintBottom_toTopOf="@+id/floatingActionButton2"
-        app:layout_constraintEnd_toEndOf="@+id/floatingActionButton2"
-        app:layout_constraintStart_toStartOf="@+id/floatingActionButton2" />
+        app:layout_constraintBottom_toTopOf="@+id/fabSampleFour"
+        app:layout_constraintEnd_toEndOf="@+id/fabSampleFour"
+        app:layout_constraintStart_toStartOf="@+id/fabSampleFour" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

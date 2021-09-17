@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "SampleCodeDump";     // TAG used to show where log error messages originate from
     private int sampleTwoCount = -1;                        // Can't declare in the scope of onCreate or else problems arise
@@ -91,19 +93,25 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(intent);
 
             // better method
-            Intent intent = SampleThreeActivity.makeIntent(MainActivity.this);
+            Intent intent = SecondActivity.makeIntent(MainActivity.this);
             startActivity(intent);
         });
 
-        // Sample 4: Create/wire floating action button, material design layout
+        // Sample 4: Create/wire floating action button, material design layout, String Extras
         /*
             import images
                 1. right - click -> new -> import vector/image assets
         */
         /*
             Notes:
-                >
+                >use app:tint=:"@null" to make fab icon the correct color
+                >extras can be accessed by intents
         */
+        FloatingActionButton fabSampleFour = (FloatingActionButton) findViewById(R.id.fabSampleFour);
+        fabSampleFour.setOnClickListener( view -> {
+            Intent intent = SecondActivity.makeIntentSampleFour(MainActivity.this, "hello world!");
+            startActivity(intent);
+        });
 
 
         // Sample 5: Constraints

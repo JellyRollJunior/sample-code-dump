@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SampleCodeDump">
         <activity
-            android:name=".SampleThreeActivity"
+            android:name=".SecondActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
