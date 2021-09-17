@@ -67,4 +67,28 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent= "0.35" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"
+        app:backgroundTint="@android:color/holo_red_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_android_white_24dp"
+        android:contentDescription="@string/content_description_sample_4"
+        android:focusable="true" />
+
+    <TextView
+        android:id="@+id/tvSampleFour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/tvSampleFour"
+        app:layout_constraintBottom_toTopOf="@+id/floatingActionButton2"
+        app:layout_constraintEnd_toEndOf="@+id/floatingActionButton2"
+        app:layout_constraintStart_toStartOf="@+id/floatingActionButton2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
