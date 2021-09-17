@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -144,13 +145,21 @@ public class MainActivity extends AppCompatActivity {
                     >solution: android:configChanges="keyboard | keyboardHidden | orientation | screenSize"
         */
 
-        // Sample
+        // Sample 7: image buttons
         /*
-            1.
+            1. drag image button onto activity
+            2. choose starting image
+            3. wire new image with ibtn.setImageResource
         */
         /*
             Notes:
-                >
+                >if you want image to appear before click, src -> select image NOT srcCompat -> select image
         */
+
+        ImageButton ibtnSampleSeven = (ImageButton) findViewById(R.id.ibtnSampleSeven);
+        ibtnSampleSeven.setOnClickListener( view -> {
+            ibtnSampleSeven.setImageResource(R.drawable.ic_android_white_24dp);
+        });
+
     }
 }
