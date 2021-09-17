@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         /*
             import images
                 1. right - click -> new -> import vector/image assets
-        */
+    */
         /*
             Notes:
                 >use app:tint=:"@null" to make fab icon the correct color
@@ -112,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = SecondActivity.makeIntentSampleFour(MainActivity.this, "hello world!");
             startActivity(intent);
         });
-
 
         // Sample 5: Constraints
         /*
@@ -131,6 +130,15 @@ public class MainActivity extends AppCompatActivity {
                 >use horizontal bias to move stuff left and right
                 >wrap to contents is ugly -> use wrap to constraints
                 >centre an widget on an anchor by lining up top and bottom constraints on anchor
+        */
+
+        // Sample 6: locking orientation
+        /*
+            1.
+        */
+        /*
+            Notes:
+                >
         */
 
         // Sample
