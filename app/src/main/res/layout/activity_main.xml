@@ -75,12 +75,13 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:clickable="true"
+        android:contentDescription="@string/content_description_sample_4"
+        android:focusable="true"
         app:backgroundTint="@android:color/holo_red_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_android_white_24dp"
-        android:contentDescription="@string/content_description_sample_4"
-        android:focusable="true" />
+        app:tint="@null" /> <!-- makes srcCompat the correct color -->
 
     <TextView
         android:id="@+id/tvSampleFour"
