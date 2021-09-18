@@ -14,9 +14,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -26,7 +29,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "SampleCodeDump";     // TAG used to show where log error messages originate from
     private int sampleTwoCount = -1;                        // Can't declare in the scope of onCreate or else problems arise
-    private final List<StringHolder> myStringHolderSampleTen = new ArrayList<>();
+    private final ArrayList<StringHolder> myStringHolderSampleTen = new ArrayList<>();
+    private final ArrayList<StringHolder> myStringHolderSampleEleven = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -257,12 +261,20 @@ public class MainActivity extends AppCompatActivity {
         /*
             1. make layout
             2. build adapter
+            3. link recyclerView to Adapter
         */
         /*
             Notes:
                 >
         */
 
+        myStringHolderSampleEleven.add(new StringHolder("Sample 11", "11", "11"));
+        myStringHolderSampleEleven.add(new StringHolder("hello", "world", "!!!"));
+
+        RecyclerView rvSampleEleven = (RecyclerView) findViewById(R.id.rvSampleEleven);
+        RecyclerViewAdapter rvAdapter = new RecyclerViewAdapter(MainActivity.this, myStringHolderSampleEleven);
+        rvSampleEleven.setAdapter(rvAdapter);
+        rvSampleEleven.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
 
         // Sample

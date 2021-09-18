@@ -17,15 +17,15 @@ import java.util.ArrayList;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private static final String TAG = "RecyclerViewAdapter";
 
-    private ArrayList<StringHolder> recycledStrings;
-    private Context context;
+    private final ArrayList<StringHolder> recycledStrings;
+    private final Context context;
 
-    public RecyclerViewAdapter(ArrayList<StringHolder> recycledStrings, Context context) {
+    public RecyclerViewAdapter(Context context, ArrayList<StringHolder> recycledStrings) {
         this.recycledStrings = recycledStrings;
         this.context = context;
     }
 
-    // this function is responsible for inflating the view
+    // this function is responsible for inflating the view -> same in almost every recycler view
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -35,6 +35,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     // this function gets called everytime items are recycled
+    // write your layout code in here
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: called.");
@@ -58,7 +59,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return recycledStrings.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvLeft;
         TextView tvMiddle;
         TextView tvRight;
@@ -69,6 +70,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             tvLeft = itemView.findViewById(R.id.tvLeftSampleEleven);
             tvMiddle = itemView.findViewById(R.id.tvMiddleSampleEleven);
             tvRight = itemView.findViewById(R.id.tvRightSampleEleven);
+            recycleLayoutSampleEleven = itemView.findViewById(R.id.recycleLayoutSampleEleven);
         }
     }
 }
