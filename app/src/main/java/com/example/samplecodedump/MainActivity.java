@@ -265,15 +265,20 @@ public class MainActivity extends AppCompatActivity {
         */
         /*
             Notes:
+                >pay attention to layout sizes -> wrap_content is best or set sizes
                 >
         */
 
+        // populate StringHolder
         myStringHolderSampleEleven.add(new StringHolder("Sample 11", "11", "11"));
         myStringHolderSampleEleven.add(new StringHolder("hello", "world", "!!!"));
 
+        // link recyclerview to adapter
         RecyclerView rvSampleEleven = (RecyclerView) findViewById(R.id.rvSampleEleven);
         RecyclerViewAdapter rvAdapter = new RecyclerViewAdapter(MainActivity.this, myStringHolderSampleEleven);
         rvSampleEleven.setAdapter(rvAdapter);
+
+        // LinearLayoutManager allows setting of vertical/horizontal/etc recycler views
         rvSampleEleven.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
 
