@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -191,13 +192,15 @@ public class MainActivity extends AppCompatActivity {
         /*
             Notes:
                 >listview is legacy but probably still good to know
+                >list.setOnClickListener -> clicking the entire listview
+                >list.setOnItemClickListener -> clicking an item on the list
         */
 
         // Create list of items
         String[] itemsSampleNine = {"Sample 9", "Blue", "Red", "Green", "White"};
 
         // Build adapter (context, layout file, items)
-        ArrayAdapter<String> adapterSampleNine = new ArrayAdapter<String>(
+        ArrayAdapter<String> adapterSampleNine = new ArrayAdapter<>(
                 this,
                 R.layout.layout_sample_nine,
                 itemsSampleNine);
@@ -206,7 +209,18 @@ public class MainActivity extends AppCompatActivity {
         ListView listSampleNine = (ListView) findViewById(R.id.lvSampleNine);
         listSampleNine.setAdapter(adapterSampleNine);
 
-        // listview on click
+        // Configure listview item on click
+        listSampleNine.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                // can be shortened to lambda
+                TextView textView = (TextView) view;
+                String message = "You clicked: " + position
+                        + ", which is " + textView.getText().toString();
+                Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG)
+                        .show();
+            }
+        });
 
         // Sample
         /*
