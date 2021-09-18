@@ -173,6 +173,14 @@ public class MainActivity extends AppCompatActivity {
                 >resource ids are just integers so we can just pass these ints to get our resource
         */
 
+        ImageButton ibtnSampleEight = (ImageButton) findViewById(R.id.ibtnSampleEight);
+        ibtnSampleEight.setOnClickListener( view -> {
+            String fileName = "animal_crossing_leaf";
+            int id = getResources().getIdentifier(fileName, "drawable", MainActivity.this.getPackageName());
+            ImageView ivSampleEight = findViewById(R.id.ivSampleEight);
+            ivSampleEight.setImageResource(id);
+        });
+
         // Sample 9
         /*
             1.
