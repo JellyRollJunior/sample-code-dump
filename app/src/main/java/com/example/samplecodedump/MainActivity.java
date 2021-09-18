@@ -195,6 +195,7 @@ public class MainActivity extends AppCompatActivity {
         /*
             1. array of options -> array adapter -> populate list view
             2. list views are a set of views (create separate views in layouts folder)
+                a. new -> layout resource file
         */
         /*
             Notes:
@@ -244,14 +245,25 @@ public class MainActivity extends AppCompatActivity {
         */
 
         // populate StringHolder list
-        myStringHolderSampleTen.add(new StringHolder("Sample 10", "Sample 10", "Sample 10"));
+        myStringHolderSampleTen.add(new StringHolder("Sample 10", "10", "10"));
         myStringHolderSampleTen.add(new StringHolder("boom", "bam", "bop"));
-        myStringHolderSampleTen.add(new StringHolder("bada", "boop bop", "pow"));
 
         // populate listview
         ArrayAdapter<StringHolder> adapterSampleTen = new myListAdapterSampleTen();
         ListView lvSampleTen = (ListView) findViewById(R.id.lvSampleTen);
         lvSampleTen.setAdapter(adapterSampleTen);
+
+        // Sample 11: recycler views (new listview!)
+        /*
+            1. make layout
+            2. build adapter
+        */
+        /*
+            Notes:
+                >
+        */
+
+
 
         // Sample
         /*
@@ -268,30 +280,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-    private static class StringHolder {
-        private final String top;
-        private final String middle;
-        private final String bot;
-
-        public StringHolder(String top, String middle, String bot) {
-            this.top = top;
-            this.middle = middle;
-            this.bot = bot;
-        }
-
-        public String getTop() {
-            return top;
-        }
-
-        public String getMiddle() {
-            return middle;
-        }
-
-        public String getBot() {
-            return bot;
-        }
-    }
 
     private class myListAdapterSampleTen extends ArrayAdapter<StringHolder> {
         public myListAdapterSampleTen() {
