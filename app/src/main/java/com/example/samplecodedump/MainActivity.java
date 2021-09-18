@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -161,5 +162,32 @@ public class MainActivity extends AppCompatActivity {
             ibtnSampleSeven.setImageResource(R.drawable.ic_android_white_24dp);
         });
 
+        // Sample 8: Resources by name
+        /*
+            1. create string with image file name
+            2. get int resource id using file name
+            3. pass resource id to function displaying resource
+        */
+        /*
+            Notes:
+                >resource ids are just integers so we can just pass these ints to get our resource
+        */
+
+        ImageButton ibtnSampleEight = (ImageButton) findViewById(R.id.ibtnSampleEight);
+        ibtnSampleEight.setOnClickListener( view -> {
+            String fileName = "animal_crossing_leaf";
+            int id = getResources().getIdentifier(fileName, "drawable", MainActivity.this.getPackageName());
+            ImageView ivSampleEight = findViewById(R.id.ivSampleEight);
+            ivSampleEight.setImageResource(id);
+        });
+
+        // Sample 9
+        /*
+            1.
+        */
+        /*
+            Notes:
+                >
+        */
     }
 }
