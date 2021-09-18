@@ -231,7 +231,12 @@ public class MainActivity extends AppCompatActivity {
 
         // Sample 10: Listview advanced
         /*
-            1.
+            1. make an array of objects to be displayed
+            2. populate listview using array adapter
+                a. for complex listviews, implement your own adapter
+                    I. override constructor to let adapter know which layout to use
+                    II. override getView to populate each space with layout of your choice
+                        1. remember to check if view is null and create a view accordingly if null
         */
         /*
             Notes:
@@ -239,6 +244,7 @@ public class MainActivity extends AppCompatActivity {
         */
 
         // populate StringHolder list
+        myStringHolderSampleTen.add(new StringHolder("Sample 10", "Sample 10", "Sample 10"));
         myStringHolderSampleTen.add(new StringHolder("boom", "bam", "bop"));
         myStringHolderSampleTen.add(new StringHolder("bada", "boop bop", "pow"));
 
@@ -256,6 +262,12 @@ public class MainActivity extends AppCompatActivity {
                 >
         */
     }
+
+
+
+
+
+
 
     private static class StringHolder {
         private final String top;
@@ -300,10 +312,8 @@ public class MainActivity extends AppCompatActivity {
             // fill view
             TextView tvTop = (TextView) itemView.findViewById(R.id.tvTopSampleTen);
             tvTop.setText(currentStringHolder.getTop());
-
             TextView tvMiddle = (TextView) itemView.findViewById(R.id.tvMidSampleTen);
             tvMiddle.setText(currentStringHolder.getMiddle());
-
             TextView tvBot = (TextView) itemView.findViewById(R.id.tvBotSampleTen);
             tvBot.setText(currentStringHolder.getBot());
 
