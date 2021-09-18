@@ -6,8 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -37,20 +39,28 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: called.");
 
+        // set text views
         holder.tvLeft.setText(recycledStrings.get(position).getFirst());
         holder.tvMiddle.setText(recycledStrings.get(position).getSecond());
         holder.tvRight.setText(recycledStrings.get(position).getThird());
+
+        // set onClickListener
+        holder.recycleLayoutSampleEleven.setOnClickListener(view -> {
+            Toast.makeText(context, "You clicked on position: " + position, Toast.LENGTH_LONG).show();
+        });
     }
 
+    // show show many items to populate
     @Override
     public int getItemCount() {
-        return 0;
+        return recycledStrings.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvLeft;
         TextView tvMiddle;
         TextView tvRight;
+        ConstraintLayout recycleLayoutSampleEleven;
 
         public ViewHolder(View itemView) {
             super(itemView);
