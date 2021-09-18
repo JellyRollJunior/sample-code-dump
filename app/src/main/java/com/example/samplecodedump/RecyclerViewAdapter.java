@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private static final String TAG = "RecyclerViewAdapter";
 
-    private ArrayList<StringHolder> recycledStrings = new ArrayList<>();
+    private ArrayList<StringHolder> recycledStrings;
     private Context context;
 
     public RecyclerViewAdapter(ArrayList<StringHolder> recycledStrings, Context context) {
@@ -46,6 +46,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         // set onClickListener
         holder.recycleLayoutSampleEleven.setOnClickListener(view -> {
+            Log.d(TAG, "onClick position: " + position);
+
             Toast.makeText(context, "You clicked on position: " + position, Toast.LENGTH_LONG).show();
         });
     }
