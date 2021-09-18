@@ -222,6 +222,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Sample 10: Listview advanced
+        /*
+            1.
+        */
+        /*
+            Notes:
+                >
+        */
+
+
+
         // Sample
         /*
             1.
