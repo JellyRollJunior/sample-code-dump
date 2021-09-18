@@ -1,25 +1,26 @@
 package com.example.samplecodedump;
 
+// just a test class for holding strings (i know i could have just used an arraylist)
 public class StringHolder {
-    private final String top;
-    private final String middle;
-    private final String bot;
+    private final String first;
+    private final String second;
+    private final String third;
 
-    public StringHolder(String top, String middle, String bot) {
-        this.top = top;
-        this.middle = middle;
-        this.bot = bot;
+    public StringHolder(String first, String second, String third) {
+        this.first = first;
+        this.second = second;
+        this.third = third;
     }
 
-    public String getTop() {
-        return top;
+    public String getFirst() {
+        return first;
     }
 
-    public String getMiddle() {
-        return middle;
+    public String getSecond() {
+        return second;
     }
 
-    public String getBot() {
-        return bot;
+    public String getThird() {
+        return third;
     }
 }

@@ -299,11 +299,11 @@ public class MainActivity extends AppCompatActivity {
 
             // fill view
             TextView tvTop = (TextView) itemView.findViewById(R.id.tvTopSampleTen);
-            tvTop.setText(currentStringHolder.getTop());
+            tvTop.setText(currentStringHolder.getFirst());
             TextView tvMiddle = (TextView) itemView.findViewById(R.id.tvMidSampleTen);
-            tvMiddle.setText(currentStringHolder.getMiddle());
+            tvMiddle.setText(currentStringHolder.getSecond());
             TextView tvBot = (TextView) itemView.findViewById(R.id.tvBotSampleTen);
-            tvBot.setText(currentStringHolder.getBot());
+            tvBot.setText(currentStringHolder.getThird());
 
             return itemView;
         }
