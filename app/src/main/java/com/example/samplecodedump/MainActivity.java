@@ -6,9 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -181,7 +184,45 @@ public class MainActivity extends AppCompatActivity {
             ivSampleEight.setImageResource(id);
         });
 
-        // Sample 9
+        // Sample 9: List view
+        /*
+            1. array of options -> array adapter -> populate list view
+            2. list views are a set of views (create separate views in layouts folder)
+        */
+        /*
+            Notes:
+                >listview is legacy but probably still good to know
+                >list.setOnClickListener -> clicking the entire listview
+                >list.setOnItemClickListener -> clicking an item on the list
+        */
+
+        // Create list of items
+        String[] itemsSampleNine = {"Sample 9", "Blue", "Red", "Green", "White"};
+
+        // Build adapter (context, layout file, items)
+        ArrayAdapter<String> adapterSampleNine = new ArrayAdapter<>(
+                this,
+                R.layout.layout_sample_nine,
+                itemsSampleNine);
+
+        // Configure list view
+        ListView listSampleNine = (ListView) findViewById(R.id.lvSampleNine);
+        listSampleNine.setAdapter(adapterSampleNine);
+
+        // Configure listview item on click
+        listSampleNine.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                // can be shortened to lambda
+                TextView textView = (TextView) view;
+                String message = "You clicked: " + position
+                        + ", which is " + textView.getText().toString();
+                Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG)
+                        .show();
+            }
+        });
+
+        // Sample
         /*
             1.
         */
