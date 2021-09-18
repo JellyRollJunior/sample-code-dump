@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -181,7 +182,25 @@ public class MainActivity extends AppCompatActivity {
             ivSampleEight.setImageResource(id);
         });
 
-        // Sample 9
+        // Sample 9: List view (legacy / outdated but should still probably know)
+        /*
+            1. array of options -> array adapter -> populate list view
+            2. list views are a set of views (create separate views in layouts folder)
+        */
+        /*
+            Notes:
+                >
+        */
+
+        // Create list of items
+        String[] itemsSampleNine = {"Blue", "Red", "Green", "White"};
+
+        // Build adapter (context, layout file, items)
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.layout_sample_nine, itemsSampleNine);
+
+        // Configure list view
+
+        // Sample
         /*
             1.
         */

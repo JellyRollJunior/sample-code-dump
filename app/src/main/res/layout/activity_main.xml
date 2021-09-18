@@ -128,4 +128,13 @@
         app:layout_constraintTop_toTopOf="@+id/ibtnSampleSeven"
         app:srcCompat="@drawable/ic_baseline_add_24" />
 
+    <ListView
+        android:id="@+id/lvSampleNine"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ibtnSampleSeven" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
