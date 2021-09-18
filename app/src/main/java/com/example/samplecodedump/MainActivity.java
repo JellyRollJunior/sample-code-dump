@@ -1,11 +1,10 @@
 package com.example.samplecodedump;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -15,11 +14,19 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "SampleCodeDump";     // TAG used to show where log error messages originate from
     private int sampleTwoCount = -1;                        // Can't declare in the scope of onCreate or else problems arise
+    private final List<StringHolder> myStringHolderSampleTen = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -222,6 +229,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Sample 10: Listview advanced
+        /*
+            1. make an array of objects to be displayed
+            2. populate listview using array adapter
+                a. for complex listviews, implement your own adapter
+                    I. override constructor to let adapter know which layout to use
+                    II. override getView to populate each space with layout of your choice
+                        1. remember to check if view is null and create a view accordingly if null
+        */
+        /*
+            Notes:
+                >
+        */
+
+        // populate StringHolder list
+        myStringHolderSampleTen.add(new StringHolder("Sample 10", "Sample 10", "Sample 10"));
+        myStringHolderSampleTen.add(new StringHolder("boom", "bam", "bop"));
+        myStringHolderSampleTen.add(new StringHolder("bada", "boop bop", "pow"));
+
+        // populate listview
+        ArrayAdapter<StringHolder> adapterSampleTen = new myListAdapterSampleTen();
+        ListView lvSampleTen = (ListView) findViewById(R.id.lvSampleTen);
+        lvSampleTen.setAdapter(adapterSampleTen);
+
         // Sample
         /*
             1.
@@ -231,4 +262,63 @@ public class MainActivity extends AppCompatActivity {
                 >
         */
     }
+
+
+
+
+
+
+
+    private static class StringHolder {
+        private final String top;
+        private final String middle;
+        private final String bot;
+
+        public StringHolder(String top, String middle, String bot) {
+            this.top = top;
+            this.middle = middle;
+            this.bot = bot;
+        }
+
+        public String getTop() {
+            return top;
+        }
+
+        public String getMiddle() {
+            return middle;
+        }
+
+        public String getBot() {
+            return bot;
+        }
+    }
+
+    private class myListAdapterSampleTen extends ArrayAdapter<StringHolder> {
+        public myListAdapterSampleTen() {
+            super(MainActivity.this, R.layout.layout_sample_ten, myStringHolderSampleTen);
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            View itemView = convertView;
+            if (itemView == null) {
+                itemView = getLayoutInflater().inflate(R.layout.layout_sample_ten, parent, false);
+            }
+
+            // get current StringHolder
+            StringHolder currentStringHolder = myStringHolderSampleTen.get(position);
+
+            // fill view
+            TextView tvTop = (TextView) itemView.findViewById(R.id.tvTopSampleTen);
+            tvTop.setText(currentStringHolder.getTop());
+            TextView tvMiddle = (TextView) itemView.findViewById(R.id.tvMidSampleTen);
+            tvMiddle.setText(currentStringHolder.getMiddle());
+            TextView tvBot = (TextView) itemView.findViewById(R.id.tvBotSampleTen);
+            tvBot.setText(currentStringHolder.getBot());
+
+            return itemView;
+        }
+    }
+
 }
