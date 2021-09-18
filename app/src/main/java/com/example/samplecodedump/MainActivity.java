@@ -14,9 +14,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -26,7 +29,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "SampleCodeDump";     // TAG used to show where log error messages originate from
     private int sampleTwoCount = -1;                        // Can't declare in the scope of onCreate or else problems arise
-    private final List<StringHolder> myStringHolderSampleTen = new ArrayList<>();
+    private final ArrayList<StringHolder> myStringHolderSampleTen = new ArrayList<>();
+    private final ArrayList<StringHolder> myStringHolderSampleEleven = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -195,6 +199,7 @@ public class MainActivity extends AppCompatActivity {
         /*
             1. array of options -> array adapter -> populate list view
             2. list views are a set of views (create separate views in layouts folder)
+                a. new -> layout resource file
         */
         /*
             Notes:
@@ -244,14 +249,38 @@ public class MainActivity extends AppCompatActivity {
         */
 
         // populate StringHolder list
-        myStringHolderSampleTen.add(new StringHolder("Sample 10", "Sample 10", "Sample 10"));
+        myStringHolderSampleTen.add(new StringHolder("Sample 10", "10", "10"));
         myStringHolderSampleTen.add(new StringHolder("boom", "bam", "bop"));
-        myStringHolderSampleTen.add(new StringHolder("bada", "boop bop", "pow"));
 
         // populate listview
         ArrayAdapter<StringHolder> adapterSampleTen = new myListAdapterSampleTen();
         ListView lvSampleTen = (ListView) findViewById(R.id.lvSampleTen);
         lvSampleTen.setAdapter(adapterSampleTen);
+
+        // Sample 11: recycler views (new listview!)
+        /*
+            1. make layout
+            2. build adapter
+            3. link recyclerView to Adapter
+        */
+        /*
+            Notes:
+                >pay attention to layout sizes -> wrap_content is best or set sizes
+                >
+        */
+
+        // populate StringHolder
+        myStringHolderSampleEleven.add(new StringHolder("Sample 11", "11", "11"));
+        myStringHolderSampleEleven.add(new StringHolder("hello", "world", "!!!"));
+
+        // link recyclerview to adapter
+        RecyclerView rvSampleEleven = (RecyclerView) findViewById(R.id.rvSampleEleven);
+        RecyclerViewAdapter rvAdapter = new RecyclerViewAdapter(MainActivity.this, myStringHolderSampleEleven);
+        rvSampleEleven.setAdapter(rvAdapter);
+
+        // LinearLayoutManager allows setting of vertical/horizontal/etc recycler views
+        rvSampleEleven.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+
 
         // Sample
         /*
@@ -268,30 +297,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-    private static class StringHolder {
-        private final String top;
-        private final String middle;
-        private final String bot;
-
-        public StringHolder(String top, String middle, String bot) {
-            this.top = top;
-            this.middle = middle;
-            this.bot = bot;
-        }
-
-        public String getTop() {
-            return top;
-        }
-
-        public String getMiddle() {
-            return middle;
-        }
-
-        public String getBot() {
-            return bot;
-        }
-    }
 
     private class myListAdapterSampleTen extends ArrayAdapter<StringHolder> {
         public myListAdapterSampleTen() {
@@ -311,11 +316,11 @@ public class MainActivity extends AppCompatActivity {
 
             // fill view
             TextView tvTop = (TextView) itemView.findViewById(R.id.tvTopSampleTen);
-            tvTop.setText(currentStringHolder.getTop());
+            tvTop.setText(currentStringHolder.getFirst());
             TextView tvMiddle = (TextView) itemView.findViewById(R.id.tvMidSampleTen);
-            tvMiddle.setText(currentStringHolder.getMiddle());
+            tvMiddle.setText(currentStringHolder.getSecond());
             TextView tvBot = (TextView) itemView.findViewById(R.id.tvBotSampleTen);
-            tvBot.setText(currentStringHolder.getBot());
+            tvBot.setText(currentStringHolder.getThird());
 
             return itemView;
         }
