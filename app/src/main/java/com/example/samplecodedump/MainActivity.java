@@ -257,15 +257,10 @@ public class MainActivity extends AppCompatActivity {
         */
     }
 
-    private class StringHolder {
-        private String top = "";
-        private String middle = "";
-        private String bot = "";
-
-        public StringHolder() {
-            super();
-        }
-
+    private static class StringHolder {
+        private final String top;
+        private final String middle;
+        private final String bot;
 
         public StringHolder(String top, String middle, String bot) {
             this.top = top;
