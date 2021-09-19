@@ -295,7 +295,7 @@ public class MainActivity extends AppCompatActivity {
                   otherwise setSupportActionBar won't work
         */
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        //Toolbar toolbar = findViewById(R.id.toolbar);
     }
 
 
