@@ -296,10 +296,11 @@ public class MainActivity extends AppCompatActivity {
         */
         /*
             Notes:
-                > import    import androidx.appcompat.widget.Toolbar;
+                >import    import androidx.appcompat.widget.Toolbar;
                             import androidx.appcompat.app.AppCompatActivity;
-                  instead of       android.widget.Toolbar
-                  otherwise setSupportActionBar won't work
+                 instead of       android.widget.Toolbar
+                 otherwise setSupportActionBar won't work
+                >UpButton starts new parent activity and deletes all previous on stack instead of going up stack
         */
     }
 

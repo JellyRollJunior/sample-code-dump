@@ -9,6 +9,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Objects;
+
 public class SecondActivity extends AppCompatActivity {
 
     private static final String EXTRA_MESSAGE = "Extra - message";
@@ -26,8 +28,9 @@ public class SecondActivity extends AppCompatActivity {
         String messageSampleFour = i.getStringExtra(EXTRA_MESSAGE);
         Toast.makeText(SecondActivity.this, messageSampleFour, Toast.LENGTH_LONG).show();
 
+        // Sample Twelve - enable up button
         ActionBar ab = getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(ab).setDisplayHomeAsUpEnabled(true);
     }
 
     private void SampleThreeEndActivity() {
