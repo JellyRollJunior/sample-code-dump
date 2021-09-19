@@ -1,5 +1,6 @@
 package com.example.samplecodedump;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -286,6 +288,11 @@ public class MainActivity extends AppCompatActivity {
         /*
             1. create menu layout
             2. override onCreateOptionsMenu -> inflate menu layout
+            3. override onOptionItemSelected -> control what items do when clicked
+            4. enable back button by accessing action bar
+                a. tell it where to go by using
+                    I. manifest
+                    II. code
         */
         /*
             Notes:
@@ -294,8 +301,6 @@ public class MainActivity extends AppCompatActivity {
                   instead of       android.widget.Toolbar
                   otherwise setSupportActionBar won't work
         */
-
-        //Toolbar toolbar = findViewById(R.id.toolbar);
     }
 
 
@@ -333,20 +338,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // sample 12 code
+    // inflate menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // inflate menu
         getMenuInflater().inflate(R.menu.menu_activity_main, menu);
         return true;
     }
 
+    // write menu functions
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()) {
             case R.id.action_run_fast_sample_twelve:
                 Toast.makeText(this, "Now running!", Toast.LENGTH_SHORT).show();
                 return true;
-
+            case R.id.action_settings_awesome_stuff:
+                Toast.makeText(this, "Awesome!", Toast.LENGTH_SHORT).show();
             default:
                 return super.onOptionsItemSelected(item);
         }
