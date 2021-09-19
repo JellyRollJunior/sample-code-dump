@@ -3,6 +3,7 @@ package com.example.samplecodedump;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
@@ -284,12 +286,16 @@ public class MainActivity extends AppCompatActivity {
 
         // Sample 12: actionbar / toolbar: add icon, add up button
         /*
-            1.
+            1. create menu layout
+            2. override onCreateOptionsMenu -> inflate menu layout
         */
         /*
             Notes:
                 >
         */
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+
     }
 
 
@@ -326,4 +332,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // inflate menu
+        getMenuInflater().inflate(R.menu.menu_activity_main, menu);
+        return true;
+    }
 }
