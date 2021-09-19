@@ -266,7 +266,7 @@ public class MainActivity extends AppCompatActivity {
         /*
             Notes:
                 >pay attention to layout sizes -> wrap_content is best or set sizes
-                >
+                >remember to populate ViewHolder with all items in layout including the layout
         */
 
         // populate StringHolder
