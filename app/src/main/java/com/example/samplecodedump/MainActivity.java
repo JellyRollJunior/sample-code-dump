@@ -1,8 +1,11 @@
 package com.example.samplecodedump;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -14,17 +17,17 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "SampleCodeDump";     // TAG used to show where log error messages originate from
@@ -281,14 +284,24 @@ public class MainActivity extends AppCompatActivity {
         // LinearLayoutManager allows setting of vertical/horizontal/etc recycler views
         rvSampleEleven.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
-
-        // Sample
+        // Sample 12: actionbar / toolbar: add icon, add up button
         /*
-            1.
+            1. create menu layout
+            2. override onCreateOptionsMenu -> inflate menu layout
+            3. override onOptionItemSelected -> control what items do when clicked
+            4. enable back button by accessing action bar
+                a. tell it where to go by using
+                    I. manifest (go to parent)
+                    II. code (if you don't want it to go to parent everytime, handle it here)
+                        1. using this overrides what's written in manifest. (this has priority)
         */
         /*
             Notes:
-                >
+                >import    import androidx.appcompat.widget.Toolbar;
+                            import androidx.appcompat.app.AppCompatActivity;
+                 instead of       android.widget.Toolbar
+                 otherwise setSupportActionBar won't work
+                >UpButton starts new parent activity and deletes all previous on stack instead of going up stack
         */
     }
 
@@ -297,7 +310,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+    // sample 10 code
     private class myListAdapterSampleTen extends ArrayAdapter<StringHolder> {
         public myListAdapterSampleTen() {
             super(MainActivity.this, R.layout.layout_sample_ten, myStringHolderSampleTen);
@@ -326,4 +339,26 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // sample 12 code
+    // inflate menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_activity_main, menu);
+        return true;
+    }
+
+    // write menu functions
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.action_run_fast_sample_twelve:
+                Toast.makeText(this, "Now running!", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.action_settings_awesome_stuff:
+                Toast.makeText(this, "Awesome!", Toast.LENGTH_SHORT).show();
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }
