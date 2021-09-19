@@ -282,7 +282,7 @@ public class MainActivity extends AppCompatActivity {
         rvSampleEleven.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
 
-        // Sample
+        // Sample 12: actionbar / toolbar
         /*
             1.
         */
