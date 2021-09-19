@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -14,19 +15,17 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
-import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "SampleCodeDump";     // TAG used to show where log error messages originate from
@@ -283,7 +282,6 @@ public class MainActivity extends AppCompatActivity {
         // LinearLayoutManager allows setting of vertical/horizontal/etc recycler views
         rvSampleEleven.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
-
         // Sample 12: actionbar / toolbar: add icon, add up button
         /*
             1. create menu layout
@@ -291,11 +289,13 @@ public class MainActivity extends AppCompatActivity {
         */
         /*
             Notes:
-                >
+                > import    import androidx.appcompat.widget.Toolbar;
+                            import androidx.appcompat.app.AppCompatActivity;
+                  instead of       android.widget.Toolbar
+                  otherwise setSupportActionBar won't work
         */
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-
     }
 
 
@@ -303,7 +303,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+    // sample 10 code
     private class myListAdapterSampleTen extends ArrayAdapter<StringHolder> {
         public myListAdapterSampleTen() {
             super(MainActivity.this, R.layout.layout_sample_ten, myStringHolderSampleTen);
@@ -332,10 +332,23 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // sample 12 code
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // inflate menu
         getMenuInflater().inflate(R.menu.menu_activity_main, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.action_run_fast_sample_twelve:
+                Toast.makeText(this, "Now running!", Toast.LENGTH_SHORT).show();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
