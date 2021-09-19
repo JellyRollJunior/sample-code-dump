@@ -291,8 +291,9 @@ public class MainActivity extends AppCompatActivity {
             3. override onOptionItemSelected -> control what items do when clicked
             4. enable back button by accessing action bar
                 a. tell it where to go by using
-                    I. manifest
-                    II. code
+                    I. manifest (go to parent)
+                    II. code (if you don't want it to go to parent everytime, handle it here)
+                        1. using this overrides what's written in manifest. (this has priority)
         */
         /*
             Notes:

@@ -3,9 +3,11 @@ package com.example.samplecodedump;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -35,9 +37,7 @@ public class SecondActivity extends AppCompatActivity {
 
     private void SampleThreeEndActivity() {
         Button btnSampleThree = (Button) findViewById(R.id.btnSampleThreeEnd);
-        btnSampleThree.setOnClickListener(view -> {
-            finish();
-        });
+        btnSampleThree.setOnClickListener(view -> finish());
     }
 
     public static Intent makeIntent(Context context) {
@@ -48,5 +48,20 @@ public class SecondActivity extends AppCompatActivity {
         Intent intent = new Intent(context, SecondActivity.class);
         intent.putExtra(EXTRA_MESSAGE, message);
         return intent;
+    }
+
+    // sample 12
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Toast.makeText(SecondActivity.this, "Yup, going UP!", Toast.LENGTH_SHORT).show();
+
+                // tell up button where to go from here
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
