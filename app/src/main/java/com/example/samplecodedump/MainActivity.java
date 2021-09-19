@@ -282,7 +282,7 @@ public class MainActivity extends AppCompatActivity {
         rvSampleEleven.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
 
-        // Sample 12: actionbar / toolbar
+        // Sample 12: actionbar / toolbar: add icon, add up button
         /*
             1.
         */
