@@ -33,6 +33,8 @@ public class SecondActivity extends AppCompatActivity {
         // Sample Twelve - enable up button
         ActionBar ab = getSupportActionBar();
         Objects.requireNonNull(ab).setDisplayHomeAsUpEnabled(true);
+
+
     }
 
     private void SampleThreeEndActivity() {
