@@ -21,4 +21,6 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="action_bar_sample_twelve">Run Fast!</string>
     <string name="action_bar_options_sample_twelve">Do the Awesome stuff!</string>
+    <string name="btn_return_sample_fourteen">SAMPLE 14</string>
+    <string name="et_return_sample_fourteen">Name</string>
 </resources>
