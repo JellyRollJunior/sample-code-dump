@@ -313,6 +313,7 @@ public class MainActivity extends AppCompatActivity {
             Notes:
                 >passing objects is more complicated -> search singleton pattern
                 >naive object passing is basically just passing in values of object to next activity
+                >refer to sample four for code on putting extras
         */
 
 

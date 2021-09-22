@@ -15,7 +15,7 @@ import java.util.Objects;
 
 public class SecondActivity extends AppCompatActivity {
 
-    private static final String EXTRA_MESSAGE = "Extra - message";
+    private static final String EXTRA_MESSAGE = "com.example.samplecodedump.SecondActivity - message";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class SecondActivity extends AppCompatActivity {
     }
 
     private void SampleThreeEndActivity() {
-        Button btnSampleThree = (Button) findViewById(R.id.btnSampleThreeEnd);
+        Button btnSampleThree = findViewById(R.id.btnSampleThreeEnd);
         btnSampleThree.setOnClickListener(view -> finish());
     }
 
