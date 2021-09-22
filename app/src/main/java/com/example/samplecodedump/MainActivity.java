@@ -323,12 +323,11 @@ public class MainActivity extends AppCompatActivity {
 
         // Sample 14: returning data from activity
         /*
-            1. main activity -> start second activity with intent of getting result back
-                a. extract request code into a constant
-            2. second activity -> extract data from UI
-            3. pass back data + result code to main activity
-                a. set & extract a result key
-            4. override callback from second activity in main to receive data -> onActivityResult
+            1. main activity -> create an ActivityResultLaunch for destination activity
+                a. can lambda some operations -> i chose to leave them in for learning purposes
+            2. pass data back from second activity
+                a. create a static function in destination activity to get string extra
+            3. code what is to be done with data in original
         */
         /*
             Notes:
@@ -344,8 +343,10 @@ public class MainActivity extends AppCompatActivity {
                             Intent data = result.getData();
 
                             // do stuff with data
-                            String secondActivityResultMessage = SecondActivity.getResultMessageCodeSampleFourteen(data);
-                            Toast.makeText(MainActivity.this, secondActivityResultMessage, Toast.LENGTH_SHORT).show();
+                            if (data != null) {
+                                String secondActivityMessage = SecondActivity.getResultMessageCodeSampleFourteen(data);
+                                Toast.makeText(MainActivity.this, secondActivityMessage, Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
                 }
