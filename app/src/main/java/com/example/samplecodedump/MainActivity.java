@@ -301,6 +301,19 @@ public class MainActivity extends AppCompatActivity {
                  otherwise setSupportActionBar won't work
                 >UpButton starts new parent activity and deletes all previous on stack instead of going up stack
         */
+
+        // Sample 13
+        /*
+            1.
+        */
+        /*
+            Notes:
+                >
+        */
+
+
+
+
     }
 
 
