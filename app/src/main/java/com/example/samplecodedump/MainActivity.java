@@ -318,7 +318,10 @@ public class MainActivity extends AppCompatActivity {
 
         // Sample 14: returning data from activity
         /*
-            1.
+            1. main activity -> start second activity with intent of getting result back
+                a. extract request code into a constant
+            2. second activity -> extract data from UI
+            3. pass back data to main activity
         */
         /*
             Notes:
