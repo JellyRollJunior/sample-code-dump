@@ -301,6 +301,24 @@ public class MainActivity extends AppCompatActivity {
                  otherwise setSupportActionBar won't work
                 >UpButton starts new parent activity and deletes all previous on stack instead of going up stack
         */
+
+        // Sample 13: Passing data to activity -> naive object passing
+        /*
+            1. on second activity, set makeIntent function to accept primitive types
+            2. intent.putExtra these primitives
+                a. create a unique tag for each extra (package name.activity name - name)
+            3. extract extra into local variable
+        */
+        /*
+            Notes:
+                >passing objects is more complicated -> search singleton pattern
+                >naive object passing is basically just passing in values of object to next activity
+                >refer to sample four for code on putting extras
+        */
+
+
+
+
     }
 
 

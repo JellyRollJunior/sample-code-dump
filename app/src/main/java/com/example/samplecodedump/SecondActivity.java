@@ -15,7 +15,7 @@ import java.util.Objects;
 
 public class SecondActivity extends AppCompatActivity {
 
-    private static final String EXTRA_MESSAGE = "Extra - message";
+    private static final String EXTRA_MESSAGE = "com.example.samplecodedump.SecondActivity - message";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +28,18 @@ public class SecondActivity extends AppCompatActivity {
         // Sample Four - do something with extra
         Intent i = getIntent();
         String messageSampleFour = i.getStringExtra(EXTRA_MESSAGE);
+        // note: if coming from intent which doesn't supply extra (sample three button) -> string is empty
         Toast.makeText(SecondActivity.this, messageSampleFour, Toast.LENGTH_LONG).show();
 
         // Sample Twelve - enable up button
         ActionBar ab = getSupportActionBar();
         Objects.requireNonNull(ab).setDisplayHomeAsUpEnabled(true);
+
+
     }
 
     private void SampleThreeEndActivity() {
-        Button btnSampleThree = (Button) findViewById(R.id.btnSampleThreeEnd);
+        Button btnSampleThree = findViewById(R.id.btnSampleThreeEnd);
         btnSampleThree.setOnClickListener(view -> finish());
     }
 
