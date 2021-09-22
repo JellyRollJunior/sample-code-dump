@@ -19,9 +19,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -289,7 +287,7 @@ public class MainActivity extends AppCompatActivity {
             1. create menu layout
             2. override onCreateOptionsMenu -> inflate menu layout
             3. override onOptionItemSelected -> control what items do when clicked
-            4. enable back button by accessing action bar
+            4. enable back button by accessing action bar (code on activity second)
                 a. tell it where to go by using
                     I. manifest (go to parent)
                     II. code (if you don't want it to go to parent everytime, handle it here)
