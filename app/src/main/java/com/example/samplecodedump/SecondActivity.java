@@ -43,7 +43,6 @@ public class SecondActivity extends AppCompatActivity {
         btnSampleFourteen.setOnClickListener(view -> {
             EditText etSampleFour = findViewById(R.id.editTextTextPersonName);
             String messageSampleFourteen = etSampleFour.getText().toString();
-            Toast.makeText(SecondActivity.this, "From Second: " + messageSampleFourteen, Toast.LENGTH_SHORT).show();
 
             // pass data back
             Intent intent = new Intent();
