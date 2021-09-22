@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                     >Toast.LENGTH_LONG or Toast.LENGTH_SHORT
                 >.show() is on a diff line to make it clear the Toast is shown
          */
-        Button btnSampleOne = (Button) findViewById(R.id.btnSampleOne);
+        Button btnSampleOne = findViewById(R.id.btnSampleOne);
         btnSampleOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,10 +77,10 @@ public class MainActivity extends AppCompatActivity {
                 >use lambda to clean code when making anonymous objects
                 >get strings from strings.xml with R.string.stringName
         */
-        Button btnSampleTwo = (Button) findViewById(R.id.btnSampleTwo);
+        Button btnSampleTwo = findViewById(R.id.btnSampleTwo);
         btnSampleTwo.setOnClickListener(view -> {
             sampleTwoCount++;
-            TextView textViewSampleTwo = (TextView) findViewById(R.id.tvSampleTwo);
+            TextView textViewSampleTwo = findViewById(R.id.tvSampleTwo);
 
             String messageSampleTwo = getString(R.string.tvSampleTwoCount) + sampleTwoCount;
             textViewSampleTwo.setText(messageSampleTwo);
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
             Notes:
                 >move complexity of starting "new activity" to "new activity" by using static factory
         */
-        Button btnSampleThree = (Button) findViewById(R.id.btnSampleThree);
+        Button btnSampleThree = findViewById(R.id.btnSampleThree);
         btnSampleThree.setOnClickListener(view -> {
             Toast.makeText(MainActivity.this, "welcome to the second activity", Toast.LENGTH_LONG)
                     .show();
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                 >use app:tint=:"@null" to make fab icon the correct color
                 >extras can be accessed by intents
         */
-        FloatingActionButton fabSampleFour = (FloatingActionButton) findViewById(R.id.fabSampleFour);
+        FloatingActionButton fabSampleFour = findViewById(R.id.fabSampleFour);
         fabSampleFour.setOnClickListener( view -> {
             Intent intent = SecondActivity.makeIntentSampleFour(MainActivity.this, "hello world!");
             startActivity(intent);
@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
                 >if you want image to appear before click, src -> select image NOT srcCompat -> select image
         */
 
-        ImageButton ibtnSampleSeven = (ImageButton) findViewById(R.id.ibtnSampleSeven);
+        ImageButton ibtnSampleSeven = findViewById(R.id.ibtnSampleSeven);
         ibtnSampleSeven.setOnClickListener( view -> {
             ibtnSampleSeven.setImageResource(R.drawable.ic_android_white_24dp);
         });
@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
                 >resource ids are just integers so we can just pass these ints to get our resource
         */
 
-        ImageButton ibtnSampleEight = (ImageButton) findViewById(R.id.ibtnSampleEight);
+        ImageButton ibtnSampleEight = findViewById(R.id.ibtnSampleEight);
         ibtnSampleEight.setOnClickListener( view -> {
             String fileName = "animal_crossing_leaf";
             int id = getResources().getIdentifier(fileName, "drawable", MainActivity.this.getPackageName());
@@ -219,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
                 itemsSampleNine);
 
         // Configure list view
-        ListView listSampleNine = (ListView) findViewById(R.id.lvSampleNine);
+        ListView listSampleNine = findViewById(R.id.lvSampleNine);
         listSampleNine.setAdapter(adapterSampleNine);
 
         // Configure listview item on click
@@ -255,7 +255,7 @@ public class MainActivity extends AppCompatActivity {
 
         // populate listview
         ArrayAdapter<StringHolder> adapterSampleTen = new myListAdapterSampleTen();
-        ListView lvSampleTen = (ListView) findViewById(R.id.lvSampleTen);
+        ListView lvSampleTen = findViewById(R.id.lvSampleTen);
         lvSampleTen.setAdapter(adapterSampleTen);
 
         // Sample 11: recycler views (new listview!)
@@ -275,7 +275,7 @@ public class MainActivity extends AppCompatActivity {
         myStringHolderSampleEleven.add(new StringHolder("hello", "world", "!!!"));
 
         // link recyclerview to adapter
-        RecyclerView rvSampleEleven = (RecyclerView) findViewById(R.id.rvSampleEleven);
+        RecyclerView rvSampleEleven = findViewById(R.id.rvSampleEleven);
         RecyclerViewAdapter rvAdapter = new RecyclerViewAdapter(MainActivity.this, myStringHolderSampleEleven);
         rvSampleEleven.setAdapter(rvAdapter);
 
@@ -326,11 +326,11 @@ public class MainActivity extends AppCompatActivity {
             StringHolder currentStringHolder = myStringHolderSampleTen.get(position);
 
             // fill view
-            TextView tvTop = (TextView) itemView.findViewById(R.id.tvTopSampleTen);
+            TextView tvTop = itemView.findViewById(R.id.tvTopSampleTen);
             tvTop.setText(currentStringHolder.getFirst());
-            TextView tvMiddle = (TextView) itemView.findViewById(R.id.tvMidSampleTen);
+            TextView tvMiddle = itemView.findViewById(R.id.tvMidSampleTen);
             tvMiddle.setText(currentStringHolder.getSecond());
-            TextView tvBot = (TextView) itemView.findViewById(R.id.tvBotSampleTen);
+            TextView tvBot = itemView.findViewById(R.id.tvBotSampleTen);
             tvBot.setText(currentStringHolder.getThird());
 
             return itemView;
