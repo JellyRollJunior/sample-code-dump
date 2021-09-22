@@ -327,7 +327,7 @@ public class MainActivity extends AppCompatActivity {
                 a. can lambda some operations -> i chose to leave them in for learning purposes
             2. pass data back from second activity
                 a. create a static function in destination activity to get string extra
-            3. code what is to be done with data in original
+            3. code what is to be done with data in ActivityResultLauncher
         */
         /*
             Notes:
