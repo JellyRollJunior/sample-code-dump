@@ -28,7 +28,7 @@ public class SecondActivity extends AppCompatActivity {
         // Sample Four - do something with extra
         Intent i = getIntent();
         String messageSampleFour = i.getStringExtra(EXTRA_MESSAGE);
-        // note: if coming from intent which doesnt supply extra (sample three button) -> string is empty
+        // note: if coming from intent which doesn't supply extra (sample three button) -> string is empty
         Toast.makeText(SecondActivity.this, messageSampleFour, Toast.LENGTH_LONG).show();
 
         // Sample Twelve - enable up button
