@@ -316,8 +316,25 @@ public class MainActivity extends AppCompatActivity {
                 >refer to sample four for code on putting extras
         */
 
+        // Sample 14: returning data from activity
+        /*
+            1.
+        */
+        /*
+            Notes:
+                >
+        */
 
 
+
+        // Sample
+        /*
+            1.
+        */
+        /*
+            Notes:
+                >
+        */
 
     }
 
