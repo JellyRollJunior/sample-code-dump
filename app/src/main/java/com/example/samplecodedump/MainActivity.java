@@ -335,19 +335,17 @@ public class MainActivity extends AppCompatActivity {
                 >startActivityForResult DEPRECIATED!!! -> use someActivityResultLauncher
         */
 
-        ActivityResultLauncher<Intent> mainActivityResultLauncher = registerForActivityResult(
+        ActivityResultLauncher<Intent> secondActivityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {
                     @Override
                     public void onActivityResult(ActivityResult result) {
                         if (result.getResultCode() == Activity.RESULT_OK) {
-                            Toast.makeText(MainActivity.this, "do i even exist", Toast.LENGTH_SHORT).show();
                             Intent data = result.getData();
 
-                            // do stuff with
-                            String test1 = data.getStringExtra(SecondActivity.getResultMessageCodeSampleFourteen(data));
-                            Log.d("back in main activity", "im back kids!");
-                            Toast.makeText(MainActivity.this, test1, Toast.LENGTH_SHORT).show();
+                            // do stuff with data
+                            String secondActivityResultMessage = SecondActivity.getResultMessageCodeSampleFourteen(data);
+                            Toast.makeText(MainActivity.this, secondActivityResultMessage, Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
@@ -356,7 +354,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnSampleFourteen = findViewById(R.id.btnSampleFourteen);
         btnSampleFourteen.setOnClickListener(view -> {
             Intent intent = SecondActivity.makeIntent(MainActivity.this);
-            startActivity(intent);
+            secondActivityResultLauncher.launch(intent);
         });
 
         // Sample
