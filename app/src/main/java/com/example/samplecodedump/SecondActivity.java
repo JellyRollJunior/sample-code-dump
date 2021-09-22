@@ -1,10 +1,12 @@
 package com.example.samplecodedump;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,6 +18,7 @@ import java.util.Objects;
 public class SecondActivity extends AppCompatActivity {
 
     private static final String EXTRA_MESSAGE = "com.example.samplecodedump.SecondActivity - message";
+    public static final String EXTRA_MESSAGE_SAMPLE_FOURTEEN = "com.example.samplecodedump.SecondActivity - nameSampleFourteen";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,13 +32,25 @@ public class SecondActivity extends AppCompatActivity {
         Intent i = getIntent();
         String messageSampleFour = i.getStringExtra(EXTRA_MESSAGE);
         // note: if coming from intent which doesn't supply extra (sample three button) -> string is empty
-        Toast.makeText(SecondActivity.this, messageSampleFour, Toast.LENGTH_LONG).show();
+        Toast.makeText(SecondActivity.this, messageSampleFour, Toast.LENGTH_SHORT).show();
 
         // Sample Twelve - enable up button
         ActionBar ab = getSupportActionBar();
         Objects.requireNonNull(ab).setDisplayHomeAsUpEnabled(true);
 
+        // Sample Fourteen
+        Button btnSampleFourteen = findViewById(R.id.btnReturnSample14);
+        btnSampleFourteen.setOnClickListener(view -> {
+            EditText etSampleFour = findViewById(R.id.editTextTextPersonName);
+            String messageSampleFourteen = etSampleFour.getText().toString();
+            Toast.makeText(SecondActivity.this, "From Second: " + messageSampleFourteen, Toast.LENGTH_SHORT).show();
 
+            // pass data back
+            Intent intent = new Intent();
+            intent.putExtra(EXTRA_MESSAGE_SAMPLE_FOURTEEN, messageSampleFourteen);
+            setResult(Activity.RESULT_OK, intent);
+            finish();
+        });
     }
 
     private void SampleThreeEndActivity() {
@@ -66,5 +81,10 @@ public class SecondActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    // sample 14 - allow other activities to access string extra without knowing the TAG
+    public static String getResultMessageCodeSampleFourteen(Intent intent) {
+        return intent.getStringExtra(EXTRA_MESSAGE_SAMPLE_FOURTEEN);
     }
 }

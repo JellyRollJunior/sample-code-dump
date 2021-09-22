@@ -1,6 +1,7 @@
 package com.example.samplecodedump;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +18,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -58,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.i(TAG, "this is a magic log message");
-                Toast.makeText(getApplicationContext(), "it's magic!", Toast.LENGTH_LONG)
+                Toast.makeText(getApplicationContext(), "it's magic!", Toast.LENGTH_SHORT)
                         .show();
             }
         });
@@ -102,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         */
         Button btnSampleThree = findViewById(R.id.btnSampleThree);
         btnSampleThree.setOnClickListener(view -> {
-            Toast.makeText(MainActivity.this, "welcome to the second activity", Toast.LENGTH_LONG)
+            Toast.makeText(MainActivity.this, "welcome to the second activity", Toast.LENGTH_SHORT)
                     .show();
 
             // launch second activity (naive method)
@@ -230,7 +235,7 @@ public class MainActivity extends AppCompatActivity {
                 TextView textView = (TextView) view;
                 String message = "You clicked: " + position
                         + ", which is " + textView.getText().toString();
-                Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG)
+                Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT)
                         .show();
             }
         });
@@ -321,14 +326,38 @@ public class MainActivity extends AppCompatActivity {
             1. main activity -> start second activity with intent of getting result back
                 a. extract request code into a constant
             2. second activity -> extract data from UI
-            3. pass back data to main activity
+            3. pass back data + result code to main activity
+                a. set & extract a result key
+            4. override callback from second activity in main to receive data -> onActivityResult
         */
         /*
             Notes:
-                >
+                >startActivityForResult DEPRECIATED!!! -> use someActivityResultLauncher
         */
 
+        ActivityResultLauncher<Intent> mainActivityResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if (result.getResultCode() == Activity.RESULT_OK) {
+                            Toast.makeText(MainActivity.this, "do i even exist", Toast.LENGTH_SHORT).show();
+                            Intent data = result.getData();
 
+                            // do stuff with
+                            String test1 = data.getStringExtra(SecondActivity.getResultMessageCodeSampleFourteen(data));
+                            Log.d("back in main activity", "im back kids!");
+                            Toast.makeText(MainActivity.this, test1, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+        );
+
+        Button btnSampleFourteen = findViewById(R.id.btnSampleFourteen);
+        btnSampleFourteen.setOnClickListener(view -> {
+            Intent intent = SecondActivity.makeIntent(MainActivity.this);
+            startActivity(intent);
+        });
 
         // Sample
         /*
