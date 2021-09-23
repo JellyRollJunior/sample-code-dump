@@ -73,6 +73,10 @@ public class SecondActivity extends AppCompatActivity {
             for (int col = 0; col < NUM_COL; col++) {
                 Button button = new Button(this);
 
+                // button array numbering for debugging
+                String buttonMessage = "" + row + ", " + col;
+                button.setText(buttonMessage);
+
                 // scale buttons to fill layout
                 button.setLayoutParams(new TableRow.LayoutParams(
                         TableRow.LayoutParams.MATCH_PARENT,
@@ -80,10 +84,16 @@ public class SecondActivity extends AppCompatActivity {
                         1.0f
                 ));
 
+                button.setOnClickListener(view -> gridButtonClicked());
+
                 tableRow.addView(button);
             }
         }
 
+    }
+
+    private void gridButtonClicked() {
+        Toast.makeText(this, "button clicked: ", Toast.LENGTH_SHORT).show();
     }
 
     private void SampleThreeEndActivity() {
