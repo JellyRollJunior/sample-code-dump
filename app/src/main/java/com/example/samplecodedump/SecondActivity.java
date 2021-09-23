@@ -23,8 +23,8 @@ public class SecondActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE_SAMPLE_FOURTEEN = "com.example.samplecodedump.SecondActivity - nameSampleFourteen";
 
     // sample fifteen
-    private static final int NUM_ROW = 2;
-    private static final int NUM_COL = 3;
+    private static final int NUM_ROW = 15;
+    private static final int NUM_COL = 15;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +78,7 @@ public class SecondActivity extends AppCompatActivity {
                 button.setText(buttonMessage);
 
                 // scale buttons to fill layout
+                button.setPadding(0,0,0,0);
                 button.setLayoutParams(new TableRow.LayoutParams(
                         TableRow.LayoutParams.MATCH_PARENT,
                         TableRow.LayoutParams.MATCH_PARENT,
