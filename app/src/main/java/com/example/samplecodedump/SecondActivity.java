@@ -23,8 +23,8 @@ public class SecondActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE_SAMPLE_FOURTEEN = "com.example.samplecodedump.SecondActivity - nameSampleFourteen";
 
     // sample fifteen
-    private static final int NUM_ROW = 15;
-    private static final int NUM_COL = 15;
+    private static final int NUM_ROW = 5;
+    private static final int NUM_COL = 6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +74,7 @@ public class SecondActivity extends AppCompatActivity {
                 Button button = new Button(this);
 
                 // button array numbering for debugging
-                String buttonMessage = "" + row + ", " + col;
+                String buttonMessage = "" + col + ", " + row;
                 button.setText(buttonMessage);
 
                 // scale buttons to fill layout
@@ -85,7 +85,10 @@ public class SecondActivity extends AppCompatActivity {
                         1.0f
                 ));
 
-                button.setOnClickListener(view -> gridButtonClicked());
+                // cannot use non-final in an inner class -> send out a final
+                final int FINAL_COL = col;
+                final int FINAL_ROW = row;
+                button.setOnClickListener(view -> gridButtonClicked(FINAL_COL, FINAL_ROW));
 
                 tableRow.addView(button);
             }
@@ -93,8 +96,8 @@ public class SecondActivity extends AppCompatActivity {
 
     }
 
-    private void gridButtonClicked() {
-        Toast.makeText(this, "button clicked: ", Toast.LENGTH_SHORT).show();
+    private void gridButtonClicked(int x, int y) {
+        Toast.makeText(this, "button clicked: " + x + ", " + y, Toast.LENGTH_SHORT).show();
     }
 
     private void SampleThreeEndActivity() {
