@@ -61,9 +61,25 @@ public class SecondActivity extends AppCompatActivity {
         TableLayout dynamicButtonLayout = findViewById(R.id.layoutButtonSampleFifteen);
         for (int row = 0; row < NUM_ROW; row++ ) {
             TableRow tableRow = new TableRow(this);
+
+            // scale rows to fill layout
+            tableRow.setLayoutParams(new TableLayout.LayoutParams(
+                    TableLayout.LayoutParams.MATCH_PARENT,
+                    TableLayout.LayoutParams.MATCH_PARENT,
+                    1.0f
+            ));
             dynamicButtonLayout.addView(tableRow);
+
             for (int col = 0; col < NUM_COL; col++) {
                 Button button = new Button(this);
+
+                // scale buttons to fill layout
+                button.setLayoutParams(new TableRow.LayoutParams(
+                        TableRow.LayoutParams.MATCH_PARENT,
+                        TableRow.LayoutParams.MATCH_PARENT,
+                        1.0f
+                ));
+
                 tableRow.addView(button);
             }
         }
