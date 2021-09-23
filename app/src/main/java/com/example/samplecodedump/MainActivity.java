@@ -358,6 +358,18 @@ public class MainActivity extends AppCompatActivity {
             secondActivityResultLauncher.launch(intent);
         });
 
+        // Sample 15: dynamic buttons
+        /*
+            1. Create table layout (delete the rows)
+            2. Populate buttons onCreate
+        */
+        /*
+            Notes:
+                >stretchColumn * makes all columns equal size
+        */
+
+
+
         // Sample
         /*
             1.
@@ -366,6 +378,7 @@ public class MainActivity extends AppCompatActivity {
             Notes:
                 >
         */
+
 
     }
 

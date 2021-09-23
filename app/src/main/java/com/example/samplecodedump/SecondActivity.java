@@ -20,6 +20,7 @@ public class SecondActivity extends AppCompatActivity {
     private static final String EXTRA_MESSAGE = "com.example.samplecodedump.SecondActivity - message";
     public static final String EXTRA_MESSAGE_SAMPLE_FOURTEEN = "com.example.samplecodedump.SecondActivity - nameSampleFourteen";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +51,10 @@ public class SecondActivity extends AppCompatActivity {
             setResult(Activity.RESULT_OK, intent);
             finish();
         });
+
+        // Sample Fifteen
+
+
     }
 
     private void SampleThreeEndActivity() {
