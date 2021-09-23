@@ -345,7 +345,7 @@ public class MainActivity extends AppCompatActivity {
                             // do stuff with data
                             if (data != null) {
                                 String secondActivityMessage = SecondActivity.getResultMessageCodeSampleFourteen(data);
-                                Toast.makeText(MainActivity.this, secondActivityMessage, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "from main: " + secondActivityMessage, Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
