@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,6 +22,9 @@ public class SecondActivity extends AppCompatActivity {
     private static final String EXTRA_MESSAGE = "com.example.samplecodedump.SecondActivity - message";
     public static final String EXTRA_MESSAGE_SAMPLE_FOURTEEN = "com.example.samplecodedump.SecondActivity - nameSampleFourteen";
 
+    // sample fifteen
+    private static final int NUM_ROW = 2;
+    private static final int NUM_COL = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +58,15 @@ public class SecondActivity extends AppCompatActivity {
         });
 
         // Sample Fifteen
-
+        TableLayout dynamicButtonLayout = findViewById(R.id.layoutButtonSampleFifteen);
+        for (int row = 0; row < NUM_ROW; row++ ) {
+            TableRow tableRow = new TableRow(this);
+            dynamicButtonLayout.addView(tableRow);
+            for (int col = 0; col < NUM_COL; col++) {
+                Button button = new Button(this);
+                tableRow.addView(button);
+            }
+        }
 
     }
 
