@@ -27,9 +27,11 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/et_return_sample_fourteen"
+        android:hint="@string/et_return_sample_fourteen"
+        android:autofillHints="name"
         app:layout_constraintStart_toStartOf="@+id/btnSampleThreeEnd"
-        app:layout_constraintTop_toBottomOf="@+id/btnSampleThreeEnd" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSampleThreeEnd"
+        tools:ignore="ContentDescription" />
 
     <Button
         android:id="@+id/btnReturnSample14"
