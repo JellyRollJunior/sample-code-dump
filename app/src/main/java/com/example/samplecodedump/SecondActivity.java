@@ -43,8 +43,7 @@ public class SecondActivity extends AppCompatActivity {
         sampleFourStringExtra();
 
         // Sample Twelve - enable up button
-        ActionBar ab = getSupportActionBar();
-        Objects.requireNonNull(ab).setDisplayHomeAsUpEnabled(true);
+        sampleTwelveUpButton();
 
         // Sample Fourteen
         Button btnSampleFourteen = findViewById(R.id.btnReturnSample14);
@@ -99,6 +98,26 @@ public class SecondActivity extends AppCompatActivity {
 
     }
 
+    // sample 12: up button
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Toast.makeText(SecondActivity.this, "Yup, going UP!", Toast.LENGTH_SHORT).show();
+
+                // tell up button where to go from here
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void sampleTwelveUpButton() {
+        ActionBar ab = getSupportActionBar();
+        Objects.requireNonNull(ab).setDisplayHomeAsUpEnabled(true);
+    }
+
     private void sampleFourStringExtra() {
         Intent i = getIntent();
         String messageSampleFour = i.getStringExtra(EXTRA_MESSAGE);
@@ -106,6 +125,12 @@ public class SecondActivity extends AppCompatActivity {
         if (messageSampleFour != null) {
             Toast.makeText(SecondActivity.this, messageSampleFour, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public static Intent makeIntentSampleFour(Context context, String message) {
+        Intent intent = new Intent(context, SecondActivity.class);
+        intent.putExtra(EXTRA_MESSAGE, message);
+        return intent;
     }
 
     private void gridButtonClicked(int col, int row) {
@@ -153,26 +178,7 @@ public class SecondActivity extends AppCompatActivity {
         return new Intent(context, SecondActivity.class);
     }
 
-    public static Intent makeIntentSampleFour(Context context, String message) {
-        Intent intent = new Intent(context, SecondActivity.class);
-        intent.putExtra(EXTRA_MESSAGE, message);
-        return intent;
-    }
 
-    // sample 12
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                Toast.makeText(SecondActivity.this, "Yup, going UP!", Toast.LENGTH_SHORT).show();
-
-                // tell up button where to go from here
-                finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 
     // sample 14 - allow other activities to access string extra without knowing the TAG
     public static String getResultMessageCodeSampleFourteen(Intent intent) {

@@ -102,24 +102,24 @@ public class MainActivity extends AppCompatActivity {
         sampleElevenRecyclerView();
 
         // Sample 12: actionbar / toolbar: add icon, add up button
-        /*
-            1. create menu layout
-            2. override onCreateOptionsMenu -> inflate menu layout
-            3. override onOptionItemSelected -> control what items do when clicked
-            4. enable back button by accessing action bar (code on activity second)
-                a. tell it where to go by using
-                    I. manifest (go to parent)
-                    II. code (if you don't want it to go to parent everytime, handle it here)
-                        1. using this overrides what's written in manifest. (this has priority)
-        */
-        /*
-            Notes:
-                >import    import androidx.appcompat.widget.Toolbar;
-                            import androidx.appcompat.app.AppCompatActivity;
-                 instead of       android.widget.Toolbar
-                 otherwise setSupportActionBar won't work
-                >UpButton starts new parent activity and deletes all previous on stack instead of going up stack
-        */
+            /*
+                1. create menu layout
+                2. override onCreateOptionsMenu -> inflate menu layout
+                3. override onOptionItemSelected -> control what items do when clicked
+              z  4. enable back button by accessing action bar (code on activity second)
+                    a. tell it where to go by using
+                        I. manifest (go to parent)
+                        II. code (if you don't want it to go to parent everytime, handle it here)
+                            1. using this overrides what's written in manifest. (this has priority)
+            */
+            /*
+                Notes:
+                    >import    import androidx.appcompat.widget.Toolbar;
+                                import androidx.appcompat.app.AppCompatActivity;
+                     instead of       android.widget.Toolbar
+                     otherwise setSupportActionBar won't work
+                    >UpButton starts new parent activity and deletes all previous on stack instead of going up stack
+            */
 
         // Sample 13: Passing data to activity -> naive object passing
         /*
