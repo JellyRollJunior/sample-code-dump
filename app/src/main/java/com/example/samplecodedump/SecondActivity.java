@@ -103,7 +103,7 @@ public class SecondActivity extends AppCompatActivity {
         Intent i = getIntent();
         String messageSampleFour = i.getStringExtra(EXTRA_MESSAGE);
         // note: if coming from intent which doesn't supply extra (sample three button) -> string is empty
-        if (!messageSampleFour.isEmpty()) {
+        if (messageSampleFour != null) {
             Toast.makeText(SecondActivity.this, messageSampleFour, Toast.LENGTH_SHORT).show();
         }
     }

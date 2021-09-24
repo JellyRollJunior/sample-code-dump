@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         sampleThreeButtonActivitySwitching();
 
         // Sample 4: Create/wire floating action button, material design layout, String Extras
-        sampleFourFloatingActionButtonStringExtra();
+        sampleFourFloatingActionButton();
 
         // Sample 5: Constraints
         /*
@@ -87,20 +87,7 @@ public class MainActivity extends AppCompatActivity {
         */
 
         // Sample 7: image buttons
-        /*
-            1. drag image button onto activity
-            2. choose starting image
-            3. wire new image with ibtn.setImageResource
-        */
-        /*
-            Notes:
-                >if you want image to appear before click, src -> select image NOT srcCompat -> select image
-        */
-
-        ImageButton ibtnSampleSeven = findViewById(R.id.ibtnSampleSeven);
-        ibtnSampleSeven.setOnClickListener( view -> {
-            ibtnSampleSeven.setImageResource(R.drawable.ic_android_white_24dp);
-        });
+        sampleSevenImageButton();
 
         // Sample 8: Resources by name
         /*
@@ -302,11 +289,27 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void sampleFourFloatingActionButtonStringExtra() {
-    /*
-        import images
-            1. right - click -> new -> import vector/image assets
-*/
+    private void sampleSevenImageButton() {
+        /*
+            1. drag image button onto activity
+            2. choose starting image
+            3. wire new image with ibtn.setImageResource
+        */
+        /*
+            Notes:
+                >if you want image to appear before click, src -> select image NOT srcCompat -> select image
+        */
+
+        ImageButton ibtnSampleSeven = findViewById(R.id.ibtnSampleSeven);
+        ibtnSampleSeven.setOnClickListener( view -> {
+            ibtnSampleSeven.setImageResource(R.drawable.ic_android_white_24dp);
+        });
+    }
+
+    private void sampleFourFloatingActionButton() {
+        /*
+            1. import images: right - click -> new -> import vector/image assets
+        */
         /*
             Notes:
                 >use app:tint=:"@null" to make fab icon the correct color
