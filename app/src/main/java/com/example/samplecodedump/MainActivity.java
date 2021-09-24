@@ -44,45 +44,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);     // chooses which activity layout is shown on create
 
         // SAMPLE 1: Create/set Button with Toast
-        /*
-            1. make a button in activity
-            2. set id of button
-            3. get button in java
-                a. R is a class that can gets id's
-            4. wire button to do stuff
-         */
-         /*
-            NOTES:
-                >log.i is used as error messages for developers
-                >Toast makes a text message appear at bottom on screen
-                    >Toast.LENGTH_LONG or Toast.LENGTH_SHORT
-                >.show() is on a diff line to make it clear the Toast is shown
-         */
-         basicButtonSampleOne();
+        sampleOneBasicButtonCreation();
 
-
-        // Sample 2: TextViews and Strings.xml, Wire button with TextView
-        /*
-            1. make a TextView
-            2. Enter attributes + text
-            3. In code view, option + enter to extract string to resource folder
-                a. benefit: can just swap string resource files for different app language versions
-            4. wire to OnClickListener
-        */
-        /*
-            Notes:
-                >use lambda to clean code when making anonymous objects
-                >get strings from strings.xml with R.string.stringName
-        */
-        Button btnSampleTwo = findViewById(R.id.btnSampleTwo);
-        btnSampleTwo.setOnClickListener(view -> {
-            sampleTwoCount++;
-            TextView textViewSampleTwo = findViewById(R.id.tvSampleTwo);
-
-            String messageSampleTwo = getString(R.string.tvSampleTwoCount) + sampleTwoCount;
-            textViewSampleTwo.setText(messageSampleTwo);
-        });
-
+        // SAMPLE 2: TextViews and Strings.xml, Wire button with TextView
+        sampleTwoBasicButtonWiring();
 
         // Sample 3: Switching activities, killing activities
         /*
@@ -374,7 +339,46 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void basicButtonSampleOne() {
+    private void sampleTwoBasicButtonWiring() {
+        /*
+            1. make a TextView
+            2. Enter attributes + text
+            3. In code view, option + enter to extract string to resource folder
+                a. benefit: can just swap string resource files for different app language versions
+            4. wire to OnClickListener
+        */
+        /*
+            Notes:
+                >use lambda to clean code when making anonymous objects
+                >get strings from strings.xml with R.string.stringName
+        */
+        Button btnSampleTwo = findViewById(R.id.btnSampleTwo);
+        btnSampleTwo.setOnClickListener(view -> {
+            sampleTwoCount++;
+            TextView textViewSampleTwo = findViewById(R.id.tvSampleTwo);
+
+            String messageSampleTwo = getString(R.string.tvSampleTwoCount) + sampleTwoCount;
+            textViewSampleTwo.setText(messageSampleTwo);
+        });
+    }
+
+    // SAMPLE 1: Create/set Button with Toast
+
+    private void sampleOneBasicButtonCreation() {
+        /*
+            1. make a button in activity
+            2. set id of button
+            3. get button in java
+                a. R is a class that can gets id's
+            4. wire button to do stuff
+         */
+         /*
+            NOTES:
+                >log.i is used as error messages for developers
+                >Toast makes a text message appear at bottom on screen
+                    >Toast.LENGTH_LONG or Toast.LENGTH_SHORT
+                >.show() is on a diff line to make it clear the Toast is shown
+         */
         Button btnSampleOne = findViewById(R.id.btnSampleOne);
         btnSampleOne.setOnClickListener(new View.OnClickListener() {
             @Override
