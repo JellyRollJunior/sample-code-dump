@@ -122,20 +122,47 @@ public class MainActivity extends AppCompatActivity {
             */
 
         // Sample 13: Passing data to activity -> naive object passing
+            /*
+                1. on second activity, set makeIntent function to accept primitive types
+                2. intent.putExtra these primitives
+                    a. create a unique tag for each extra (package name.activity name - name)
+                3. extract extra into local variable
+            */
+            /*
+                Notes:
+                    >passing objects is more complicated -> search singleton pattern
+                    >naive object passing is basically just passing in values of object to next activity
+                    >refer to sample four for code on putting extras
+            */
+
+        // Sample 14: returning data from activity
+        sampleFourteenReturningDataFromActivity();
+
+        // Sample 15: dynamic buttons
+            /*
+                1. Create table layout (delete the rows)
+                2. Populate buttons onCreate
+            */
+            /*
+                Notes:
+                    >stretchColumn * makes all columns equal size
+            */
+
+
+
+        // Sample
         /*
-            1. on second activity, set makeIntent function to accept primitive types
-            2. intent.putExtra these primitives
-                a. create a unique tag for each extra (package name.activity name - name)
-            3. extract extra into local variable
+            1.
         */
         /*
             Notes:
-                >passing objects is more complicated -> search singleton pattern
-                >naive object passing is basically just passing in values of object to next activity
-                >refer to sample four for code on putting extras
+                >
         */
 
-        // Sample 14: returning data from activity
+
+    }
+
+    private void sampleFourteenReturningDataFromActivity() {
         /*
             1. main activity -> create an ActivityResultLaunch for destination activity
                 a. can lambda some operations -> i chose to leave them in for learning purposes
@@ -145,7 +172,8 @@ public class MainActivity extends AppCompatActivity {
         */
         /*
             Notes:
-                >startActivityForResult DEPRECIATED!!! -> use someActivityResultLauncher
+                >startActivityForResult DEPRECIATED!!! -> use ActivityResultLauncher
+                    >usually you'd implement outside method or in own file
         */
 
         ActivityResultLauncher<Intent> secondActivityResultLauncher = registerForActivityResult(
@@ -171,37 +199,14 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = SecondActivity.makeIntent(MainActivity.this);
             secondActivityResultLauncher.launch(intent);
         });
-
-        // Sample 15: dynamic buttons
-        /*
-            1. Create table layout (delete the rows)
-            2. Populate buttons onCreate
-        */
-        /*
-            Notes:
-                >stretchColumn * makes all columns equal size
-        */
-
-
-
-        // Sample
-        /*
-            1.
-        */
-        /*
-            Notes:
-                >
-        */
-
-
     }
 
     private void sampleElevenRecyclerView() {
-    /*
-        1. make layout
-        2. build adapter
-        3. link recyclerView to Adapter
-    */
+        /*
+            1. make layout
+            2. build adapter
+            3. link recyclerView to Adapter
+        */
         /*
             Notes:
                 >pay attention to layout sizes -> wrap_content is best or set sizes
@@ -221,34 +226,6 @@ public class MainActivity extends AppCompatActivity {
         rvSampleEleven.setLayoutManager(new LinearLayoutManager(MainActivity.this));
     }
 
-    private class myListAdapterSampleTen extends ArrayAdapter<StringHolder> {
-        public myListAdapterSampleTen() {
-            super(MainActivity.this, R.layout.layout_sample_ten, myStringHolderSampleTen);
-        }
-
-        @NonNull
-        @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            View itemView = convertView;
-            if (itemView == null) {
-                itemView = getLayoutInflater().inflate(R.layout.layout_sample_ten, parent, false);
-            }
-
-            // get current StringHolder
-            StringHolder currentStringHolder = myStringHolderSampleTen.get(position);
-
-            // fill view
-            TextView tvTop = itemView.findViewById(R.id.tvTopSampleTen);
-            tvTop.setText(currentStringHolder.getFirst());
-            TextView tvMiddle = itemView.findViewById(R.id.tvMidSampleTen);
-            tvMiddle.setText(currentStringHolder.getSecond());
-            TextView tvBot = itemView.findViewById(R.id.tvBotSampleTen);
-            tvBot.setText(currentStringHolder.getThird());
-
-            return itemView;
-        }
-    }
-
     private void sampleTenListViewCustomLayout() {
         /*
             1. make an array of objects to be displayed
@@ -260,8 +237,37 @@ public class MainActivity extends AppCompatActivity {
         */
         /*
             Notes:
-                >
+                >usually you'd implement adapter in new file or outside onCreate
         */
+
+        // private class
+        class myListAdapterSampleTen extends ArrayAdapter<StringHolder> {
+            public myListAdapterSampleTen() {
+                super(MainActivity.this, R.layout.layout_sample_ten, myStringHolderSampleTen);
+            }
+
+            @NonNull
+            @Override
+            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                View itemView = convertView;
+                if (itemView == null) {
+                    itemView = getLayoutInflater().inflate(R.layout.layout_sample_ten, parent, false);
+                }
+
+                // get current StringHolder
+                StringHolder currentStringHolder = myStringHolderSampleTen.get(position);
+
+                // fill view
+                TextView tvTop = itemView.findViewById(R.id.tvTopSampleTen);
+                tvTop.setText(currentStringHolder.getFirst());
+                TextView tvMiddle = itemView.findViewById(R.id.tvMidSampleTen);
+                tvMiddle.setText(currentStringHolder.getSecond());
+                TextView tvBot = itemView.findViewById(R.id.tvBotSampleTen);
+                tvBot.setText(currentStringHolder.getThird());
+
+                return itemView;
+            }
+        }
 
         // populate StringHolder list
         myStringHolderSampleTen.add(new StringHolder("Sample 10", "10", "10"));

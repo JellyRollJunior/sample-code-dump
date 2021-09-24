@@ -46,21 +46,15 @@ public class SecondActivity extends AppCompatActivity {
         sampleTwelveUpButton();
 
         // Sample Fourteen
-        Button btnSampleFourteen = findViewById(R.id.btnReturnSample14);
-        btnSampleFourteen.setOnClickListener(view -> {
-            EditText etSampleFour = findViewById(R.id.editTextTextPersonName);
-            String messageSampleFourteen = etSampleFour.getText().toString();
-
-            // pass data back
-            Intent intent = new Intent();
-            intent.putExtra(EXTRA_MESSAGE_SAMPLE_FOURTEEN, messageSampleFourteen);
-            setResult(Activity.RESULT_OK, intent);
-            finish();
-        });
+        sampleFourteenReturnDataFromActivity();
 
         // Sample Fifteen
+        sampleFifteenSetupButtonLayout();
+    }
+
+    private void sampleFifteenSetupButtonLayout() {
         TableLayout dynamicButtonLayout = findViewById(R.id.layoutButtonSampleFifteen);
-        for (int row = 0; row < NUM_ROW; row++ ) {
+        for (int row = 0; row < NUM_ROW; row++) {
             TableRow tableRow = new TableRow(this);
 
             // scale rows to fill layout
@@ -79,7 +73,7 @@ public class SecondActivity extends AppCompatActivity {
                 button.setText(buttonMessage);
 
                 // scale buttons to fill layout
-                button.setPadding(0,0,0,0);
+                button.setPadding(0, 0, 0, 0);
                 button.setLayoutParams(new TableRow.LayoutParams(
                         TableRow.LayoutParams.MATCH_PARENT,
                         TableRow.LayoutParams.MATCH_PARENT,
@@ -95,7 +89,60 @@ public class SecondActivity extends AppCompatActivity {
                 buttons[row][col] = button;
             }
         }
+    }
 
+    private void gridButtonClicked(int col, int row) {
+        Toast.makeText(this, "button clicked: " + col + ", " + row, Toast.LENGTH_SHORT).show();
+        Button button = buttons[row][col];
+
+        // otherwise they will change sizes on click when adding drawable image
+        lockButtonSizes();
+
+        // does not scale image to button size
+//        button.setBackgroundResource(R.drawable.animal_crossing_leaf);
+
+        // scale image size with button
+        int netWidth = button.getWidth();
+        int netHeight = button.getHeight();
+        Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.animal_crossing_leaf);
+        Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, netWidth, netHeight, true);
+        Resources resource = getResources();
+        button.setBackground(new BitmapDrawable(resource, scaledBitmap));   // can also just go context.getResources()
+    }
+
+    private void lockButtonSizes() {
+        for (int row = 0; row < NUM_ROW; row++) {
+            for (int col = 0; col < NUM_COL; col++) {
+                Button button = buttons[row][col];
+
+                int width = button.getWidth();
+                button.setMinWidth(width);
+                button.setMaxWidth(width);
+
+                int height = button.getHeight();
+                button.setMinHeight(height);
+                button.setMaxHeight(height);
+            }
+        }
+    }
+
+    // sample 14 - allow other activities to access string extra without knowing the TAG
+    public static String getResultMessageCodeSampleFourteen(Intent intent) {
+        return intent.getStringExtra(EXTRA_MESSAGE_SAMPLE_FOURTEEN);
+    }
+
+    private void sampleFourteenReturnDataFromActivity() {
+        Button btnSampleFourteen = findViewById(R.id.btnReturnSample14);
+        btnSampleFourteen.setOnClickListener(view -> {
+            EditText etSampleFour = findViewById(R.id.editTextTextPersonName);
+            String messageSampleFourteen = etSampleFour.getText().toString();
+
+            // pass data back
+            Intent intent = new Intent();
+            intent.putExtra(EXTRA_MESSAGE_SAMPLE_FOURTEEN, messageSampleFourteen);
+            setResult(Activity.RESULT_OK, intent);
+            finish();
+        });
     }
 
     // sample 12: up button
@@ -133,42 +180,6 @@ public class SecondActivity extends AppCompatActivity {
         return intent;
     }
 
-    private void gridButtonClicked(int col, int row) {
-        Toast.makeText(this, "button clicked: " + col + ", " + row, Toast.LENGTH_SHORT).show();
-        Button button = buttons[row][col];
-
-        // otherwise they will change sizes on click when adding drawable image
-        lockButtonSizes();
-
-        // does not scale image to button size
-//        button.setBackgroundResource(R.drawable.animal_crossing_leaf);
-
-        // scale image size with button
-        int netWidth = button.getWidth();
-        int netHeight = button.getHeight();
-        Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.animal_crossing_leaf);
-        Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, netWidth, netHeight, true);
-        Resources resource = getResources();
-        button.setBackground(new BitmapDrawable(resource, scaledBitmap));   // can also just go context.getResources()
-    }
-
-    private void lockButtonSizes() {
-        for (int row = 0; row < NUM_ROW; row++) {
-            for (int col = 0; col < NUM_COL; col++) {
-                Button button = buttons[row][col];
-
-                int width = button.getWidth();
-                button.setMinWidth(width);
-                button.setMaxWidth(width);
-
-                int height = button.getHeight();
-                button.setMinHeight(height);
-                button.setMaxHeight(height);
-            }
-        }
-
-    }
-
     private void SampleThreeEndActivity() {
         Button btnSampleThree = findViewById(R.id.btnSampleThreeEnd);
         btnSampleThree.setOnClickListener(view -> finish());
@@ -176,12 +187,5 @@ public class SecondActivity extends AppCompatActivity {
 
     public static Intent makeIntent(Context context) {
         return new Intent(context, SecondActivity.class);
-    }
-
-
-
-    // sample 14 - allow other activities to access string extra without knowing the TAG
-    public static String getResultMessageCodeSampleFourteen(Intent intent) {
-        return intent.getStringExtra(EXTRA_MESSAGE_SAMPLE_FOURTEEN);
     }
 }
