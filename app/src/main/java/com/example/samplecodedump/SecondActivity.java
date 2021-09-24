@@ -106,6 +106,9 @@ public class SecondActivity extends AppCompatActivity {
         Toast.makeText(this, "button clicked: " + col + ", " + row, Toast.LENGTH_SHORT).show();
         Button button = buttons[row][col];
 
+        // otherwise they will change sizes on click when adding drawable image
+        lockButtonSizes();
+
         // does not scale image to button size
 //        button.setBackgroundResource(R.drawable.animal_crossing_leaf);
 
@@ -116,6 +119,23 @@ public class SecondActivity extends AppCompatActivity {
         Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, netWidth, netHeight, true);
         Resources resource = getResources();
         button.setBackground(new BitmapDrawable(resource, scaledBitmap));   // can also just go context.getResources()
+    }
+
+    private void lockButtonSizes() {
+        for (int row = 0; row < NUM_ROW; row++) {
+            for (int col = 0; col < NUM_COL; col++) {
+                Button button = buttons[row][col];
+
+                int width = button.getWidth();
+                button.setMinWidth(width);
+                button.setMaxWidth(width);
+
+                int height = button.getHeight();
+                button.setMinHeight(height);
+                button.setMaxHeight(height);
+            }
+        }
+
     }
 
     private void SampleThreeEndActivity() {
