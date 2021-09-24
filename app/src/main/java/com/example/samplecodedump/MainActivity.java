@@ -50,47 +50,10 @@ public class MainActivity extends AppCompatActivity {
         sampleTwoBasicButtonWiring();
 
         // Sample 3: Switching activities, killing activities
-        /*
-            1. create a button (or other widget)
-            2. wire button
-            3. create an intent
-                a. move complexity of this to the new activity
-            4. start activity with intent
-            5. end activity with finish();
-        */
-        /*
-            Notes:
-                >move complexity of starting "new activity" to "new activity" by using static factory
-        */
-        Button btnSampleThree = findViewById(R.id.btnSampleThree);
-        btnSampleThree.setOnClickListener(view -> {
-            Toast.makeText(MainActivity.this, "welcome to the second activity", Toast.LENGTH_SHORT)
-                    .show();
-
-            // launch second activity (naive method)
-//            Intent intent = new Intent(MainActivity.this,SampleThreeActivity.class);
-//            startActivity(intent);
-
-            // better method
-            Intent intent = SecondActivity.makeIntent(MainActivity.this);
-            startActivity(intent);
-        });
+        sampleThreeButtonActivitySwitching();
 
         // Sample 4: Create/wire floating action button, material design layout, String Extras
-        /*
-            import images
-                1. right - click -> new -> import vector/image assets
-    */
-        /*
-            Notes:
-                >use app:tint=:"@null" to make fab icon the correct color
-                >extras can be accessed by intents
-        */
-        FloatingActionButton fabSampleFour = findViewById(R.id.fabSampleFour);
-        fabSampleFour.setOnClickListener( view -> {
-            Intent intent = SecondActivity.makeIntentSampleFour(MainActivity.this, "hello world!");
-            startActivity(intent);
-        });
+        sampleFourFloatingActionButtonStringExtra();
 
         // Sample 5: Constraints
         /*
@@ -339,6 +302,51 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void sampleFourFloatingActionButtonStringExtra() {
+    /*
+        import images
+            1. right - click -> new -> import vector/image assets
+*/
+        /*
+            Notes:
+                >use app:tint=:"@null" to make fab icon the correct color
+                >extras can be accessed by intents
+        */
+        FloatingActionButton fabSampleFour = findViewById(R.id.fabSampleFour);
+        fabSampleFour.setOnClickListener( view -> {
+            Intent intent = SecondActivity.makeIntentSampleFour(MainActivity.this, "hello world!");
+            startActivity(intent);
+        });
+    }
+
+    private void sampleThreeButtonActivitySwitching() {
+        /*
+            1. create a button (or other widget)
+            2. wire button
+            3. create an intent
+                a. move complexity of this to the new activity
+            4. start activity with intent
+            5. end activity with finish();
+        */
+        /*
+            Notes:
+                >move complexity of starting "new activity" to "new activity" by using static factory
+        */
+        Button btnSampleThree = findViewById(R.id.btnSampleThree);
+        btnSampleThree.setOnClickListener(view -> {
+            Toast.makeText(MainActivity.this, "welcome to the second activity", Toast.LENGTH_SHORT)
+                    .show();
+
+            // launch second activity (naive method)
+//            Intent intent = new Intent(MainActivity.this,SampleThreeActivity.class);
+//            startActivity(intent);
+
+            // better method
+            Intent intent = SecondActivity.makeIntent(MainActivity.this);
+            startActivity(intent);
+        });
+    }
+
     private void sampleTwoBasicButtonWiring() {
         /*
             1. make a TextView
@@ -361,8 +369,6 @@ public class MainActivity extends AppCompatActivity {
             textViewSampleTwo.setText(messageSampleTwo);
         });
     }
-
-    // SAMPLE 1: Create/set Button with Toast
 
     private void sampleOneBasicButtonCreation() {
         /*

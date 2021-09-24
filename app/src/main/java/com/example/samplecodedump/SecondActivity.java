@@ -40,10 +40,7 @@ public class SecondActivity extends AppCompatActivity {
         SampleThreeEndActivity();
 
         // Sample Four - do something with extra
-        Intent i = getIntent();
-        String messageSampleFour = i.getStringExtra(EXTRA_MESSAGE);
-        // note: if coming from intent which doesn't supply extra (sample three button) -> string is empty
-        Toast.makeText(SecondActivity.this, messageSampleFour, Toast.LENGTH_SHORT).show();
+        sampleFourStringExtra();
 
         // Sample Twelve - enable up button
         ActionBar ab = getSupportActionBar();
@@ -100,6 +97,15 @@ public class SecondActivity extends AppCompatActivity {
             }
         }
 
+    }
+
+    private void sampleFourStringExtra() {
+        Intent i = getIntent();
+        String messageSampleFour = i.getStringExtra(EXTRA_MESSAGE);
+        // note: if coming from intent which doesn't supply extra (sample three button) -> string is empty
+        if (!messageSampleFour.isEmpty()) {
+            Toast.makeText(SecondActivity.this, messageSampleFour, Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void gridButtonClicked(int col, int row) {
