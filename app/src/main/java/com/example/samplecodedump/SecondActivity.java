@@ -40,31 +40,21 @@ public class SecondActivity extends AppCompatActivity {
         SampleThreeEndActivity();
 
         // Sample Four - do something with extra
-        Intent i = getIntent();
-        String messageSampleFour = i.getStringExtra(EXTRA_MESSAGE);
-        // note: if coming from intent which doesn't supply extra (sample three button) -> string is empty
-        Toast.makeText(SecondActivity.this, messageSampleFour, Toast.LENGTH_SHORT).show();
+        sampleFourStringExtra();
 
         // Sample Twelve - enable up button
-        ActionBar ab = getSupportActionBar();
-        Objects.requireNonNull(ab).setDisplayHomeAsUpEnabled(true);
+        sampleTwelveUpButton();
 
         // Sample Fourteen
-        Button btnSampleFourteen = findViewById(R.id.btnReturnSample14);
-        btnSampleFourteen.setOnClickListener(view -> {
-            EditText etSampleFour = findViewById(R.id.editTextTextPersonName);
-            String messageSampleFourteen = etSampleFour.getText().toString();
-
-            // pass data back
-            Intent intent = new Intent();
-            intent.putExtra(EXTRA_MESSAGE_SAMPLE_FOURTEEN, messageSampleFourteen);
-            setResult(Activity.RESULT_OK, intent);
-            finish();
-        });
+        sampleFourteenReturnDataFromActivity();
 
         // Sample Fifteen
+        sampleFifteenSetupButtonLayout();
+    }
+
+    private void sampleFifteenSetupButtonLayout() {
         TableLayout dynamicButtonLayout = findViewById(R.id.layoutButtonSampleFifteen);
-        for (int row = 0; row < NUM_ROW; row++ ) {
+        for (int row = 0; row < NUM_ROW; row++) {
             TableRow tableRow = new TableRow(this);
 
             // scale rows to fill layout
@@ -83,7 +73,7 @@ public class SecondActivity extends AppCompatActivity {
                 button.setText(buttonMessage);
 
                 // scale buttons to fill layout
-                button.setPadding(0,0,0,0);
+                button.setPadding(0, 0, 0, 0);
                 button.setLayoutParams(new TableRow.LayoutParams(
                         TableRow.LayoutParams.MATCH_PARENT,
                         TableRow.LayoutParams.MATCH_PARENT,
@@ -99,7 +89,6 @@ public class SecondActivity extends AppCompatActivity {
                 buttons[row][col] = button;
             }
         }
-
     }
 
     private void gridButtonClicked(int col, int row) {
@@ -135,25 +124,28 @@ public class SecondActivity extends AppCompatActivity {
                 button.setMaxHeight(height);
             }
         }
-
     }
 
-    private void SampleThreeEndActivity() {
-        Button btnSampleThree = findViewById(R.id.btnSampleThreeEnd);
-        btnSampleThree.setOnClickListener(view -> finish());
+    // sample 14 - allow other activities to access string extra without knowing the TAG
+    public static String getResultMessageCodeSampleFourteen(Intent intent) {
+        return intent.getStringExtra(EXTRA_MESSAGE_SAMPLE_FOURTEEN);
     }
 
-    public static Intent makeIntent(Context context) {
-        return new Intent(context, SecondActivity.class);
+    private void sampleFourteenReturnDataFromActivity() {
+        Button btnSampleFourteen = findViewById(R.id.btnReturnSample14);
+        btnSampleFourteen.setOnClickListener(view -> {
+            EditText etSampleFour = findViewById(R.id.editTextTextPersonName);
+            String messageSampleFourteen = etSampleFour.getText().toString();
+
+            // pass data back
+            Intent intent = new Intent();
+            intent.putExtra(EXTRA_MESSAGE_SAMPLE_FOURTEEN, messageSampleFourteen);
+            setResult(Activity.RESULT_OK, intent);
+            finish();
+        });
     }
 
-    public static Intent makeIntentSampleFour(Context context, String message) {
-        Intent intent = new Intent(context, SecondActivity.class);
-        intent.putExtra(EXTRA_MESSAGE, message);
-        return intent;
-    }
-
-    // sample 12
+    // sample 12: up button
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -168,8 +160,32 @@ public class SecondActivity extends AppCompatActivity {
         }
     }
 
-    // sample 14 - allow other activities to access string extra without knowing the TAG
-    public static String getResultMessageCodeSampleFourteen(Intent intent) {
-        return intent.getStringExtra(EXTRA_MESSAGE_SAMPLE_FOURTEEN);
+    private void sampleTwelveUpButton() {
+        ActionBar ab = getSupportActionBar();
+        Objects.requireNonNull(ab).setDisplayHomeAsUpEnabled(true);
+    }
+
+    private void sampleFourStringExtra() {
+        Intent i = getIntent();
+        String messageSampleFour = i.getStringExtra(EXTRA_MESSAGE);
+        // note: if coming from intent which doesn't supply extra (sample three button) -> string is empty
+        if (messageSampleFour != null) {
+            Toast.makeText(SecondActivity.this, messageSampleFour, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public static Intent makeIntentSampleFour(Context context, String message) {
+        Intent intent = new Intent(context, SecondActivity.class);
+        intent.putExtra(EXTRA_MESSAGE, message);
+        return intent;
+    }
+
+    private void SampleThreeEndActivity() {
+        Button btnSampleThree = findViewById(R.id.btnSampleThreeEnd);
+        btnSampleThree.setOnClickListener(view -> finish());
+    }
+
+    public static Intent makeIntent(Context context) {
+        return new Intent(context, SecondActivity.class);
     }
 }
