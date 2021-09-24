@@ -58,15 +58,7 @@ public class MainActivity extends AppCompatActivity {
                     >Toast.LENGTH_LONG or Toast.LENGTH_SHORT
                 >.show() is on a diff line to make it clear the Toast is shown
          */
-        Button btnSampleOne = findViewById(R.id.btnSampleOne);
-        btnSampleOne.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.i(TAG, "this is a magic log message");
-                Toast.makeText(getApplicationContext(), "it's magic!", Toast.LENGTH_SHORT)
-                        .show();
-            }
-        });
+         basicButtonSampleOne();
 
 
         // Sample 2: TextViews and Strings.xml, Wire button with TextView
@@ -382,9 +374,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
-
+    private void basicButtonSampleOne() {
+        Button btnSampleOne = findViewById(R.id.btnSampleOne);
+        btnSampleOne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i(TAG, "this is a magic log message");
+                Toast.makeText(getApplicationContext(), "it's magic!", Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
+    }
 
 
     // sample 10 code
