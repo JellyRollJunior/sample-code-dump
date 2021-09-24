@@ -3,6 +3,10 @@ package com.example.samplecodedump;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -25,6 +29,7 @@ public class SecondActivity extends AppCompatActivity {
     // sample fifteen
     private static final int NUM_ROW = 5;
     private static final int NUM_COL = 6;
+    Button[][] buttons = new Button[NUM_ROW][NUM_COL];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,13 +96,26 @@ public class SecondActivity extends AppCompatActivity {
                 button.setOnClickListener(view -> gridButtonClicked(FINAL_COL, FINAL_ROW));
 
                 tableRow.addView(button);
+                buttons[row][col] = button;
             }
         }
 
     }
 
-    private void gridButtonClicked(int x, int y) {
-        Toast.makeText(this, "button clicked: " + x + ", " + y, Toast.LENGTH_SHORT).show();
+    private void gridButtonClicked(int col, int row) {
+        Toast.makeText(this, "button clicked: " + col + ", " + row, Toast.LENGTH_SHORT).show();
+        Button button = buttons[row][col];
+
+        // does not scale image to button size
+//        button.setBackgroundResource(R.drawable.animal_crossing_leaf);
+
+        // scale image size with button
+        int netWidth = button.getWidth();
+        int netHeight = button.getHeight();
+        Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.animal_crossing_leaf);
+        Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, netWidth, netHeight, true);
+        Resources resource = getResources();
+        button.setBackground(new BitmapDrawable(resource, scaledBitmap));   // can also just go context.getResources()
     }
 
     private void SampleThreeEndActivity() {
