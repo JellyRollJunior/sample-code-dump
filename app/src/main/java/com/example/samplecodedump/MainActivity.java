@@ -56,98 +56,46 @@ public class MainActivity extends AppCompatActivity {
         sampleFourFloatingActionButton();
 
         // Sample 5: Constraints
-        /*
-            1. drag an object into activity
-            2. hover over object
-            3. drag dots to other objects or activity to apply constraints
-            4. use Guidelines -> can choose from left, right, or percentage ~!¡¡of screen
-                a. LEFT: layout_constraintGuide_begin = "250dp"
-                b. RIGHT: layout_constraintGuide_end = "250dp"
-                c. PERCENT: layout_constraintGuide_percent = "0.25"
-        */
-        /*
-            Notes:
-                >do not hard code width or length -> use constraints
-                >object location can be set to certain dpi from other objects
-                >use horizontal bias to move stuff left and right
-                >wrap to contents is ugly -> use wrap to constraints
-                >centre an widget on an anchor by lining up top and bottom constraints on anchor
-        */
+            /*
+                1. drag an object into activity
+                2. hover over object
+                3. drag dots to other objects or activity to apply constraints
+                4. use Guidelines -> can choose from left, right, or percentage ~!¡¡of screen
+                    a. LEFT: layout_constraintGuide_begin = "250dp"
+                    b. RIGHT: layout_constraintGuide_end = "250dp"
+                    c. PERCENT: layout_constraintGuide_percent = "0.25"
+            */
+            /*
+                Notes:
+                    >do not hard code width or length -> use constraints
+                    >object location can be set to certain dpi from other objects
+                    >use horizontal bias to move stuff left and right
+                    >wrap to contents is ugly -> use wrap to constraints
+                    >centre an widget on an anchor by lining up top and bottom constraints on anchor
+            */
 
         // Sample 6: locking orientation
-        /*
-            1. AndroidManifest
-            2. find activity
-            3. android:screenOrientation="Landscape / portrait / reversePortrait / reverseLandscape"
-        */
-        /*
-            Notes:
-                >on orientation change, android restarts current activity. can lead to problems
-                    >solution: android:configChanges="keyboard | keyboardHidden | orientation | screenSize"
-        */
+            /*
+                1. AndroidManifest
+                2. find activity
+                3. android:screenOrientation="Landscape / portrait / reversePortrait / reverseLandscape"
+            */
+            /*
+                Notes:
+                    >on orientation change, android restarts current activity. can lead to problems
+                        >solution: android:configChanges="keyboard | keyboardHidden | orientation | screenSize"
+            */
 
         // Sample 7: image buttons
         sampleSevenImageButton();
 
         // Sample 8: Resources by name
-        /*
-            1. create string with image file name
-            2. get int resource id using file name
-            3. pass resource id to function displaying resource
-        */
-        /*
-            Notes:
-                >resource ids are just integers so we can just pass these ints to get our resource
-        */
-
-        ImageButton ibtnSampleEight = findViewById(R.id.ibtnSampleEight);
-        ibtnSampleEight.setOnClickListener( view -> {
-            String fileName = "animal_crossing_leaf";
-            int id = getResources().getIdentifier(fileName, "drawable", MainActivity.this.getPackageName());
-            ImageView ivSampleEight = findViewById(R.id.ivSampleEight);
-            ivSampleEight.setImageResource(id);
-        });
+        sampleEightResourceByName();
 
         // Sample 9: List view
-        /*
-            1. array of options -> array adapter -> populate list view
-            2. list views are a set of views (create separate views in layouts folder)
-                a. new -> layout resource file
-        */
-        /*
-            Notes:
-                >listview is legacy but probably still good to know
-                >list.setOnClickListener -> clicking the entire listview
-                >list.setOnItemClickListener -> clicking an item on the list
-        */
+        sampleNineListViewLegacy();
 
-        // Create list of items
-        String[] itemsSampleNine = {"Sample 9", "Blue", "Red", "Green", "White"};
-
-        // Build adapter (context, layout file, items)
-        ArrayAdapter<String> adapterSampleNine = new ArrayAdapter<>(
-                this,
-                R.layout.layout_sample_nine,
-                itemsSampleNine);
-
-        // Configure list view
-        ListView listSampleNine = findViewById(R.id.lvSampleNine);
-        listSampleNine.setAdapter(adapterSampleNine);
-
-        // Configure listview item on click
-        listSampleNine.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                // can be shortened to lambda
-                TextView textView = (TextView) view;
-                String message = "You clicked: " + position
-                        + ", which is " + textView.getText().toString();
-                Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT)
-                        .show();
-            }
-        });
-
-        // Sample 10: Listview advanced
+        // Sample 10: Listview advanced -> custom layout
         /*
             1. make an array of objects to be displayed
             2. populate listview using array adapter
@@ -287,6 +235,66 @@ public class MainActivity extends AppCompatActivity {
         */
 
 
+    }
+
+    private void sampleNineListViewLegacy() {
+        /*
+            1. array of options -> array adapter -> populate list view
+            2. list views are a set of views (create separate views in layouts folder)
+                a. new -> layout resource file
+        */
+        /*
+            Notes:
+                >listview is legacy but probably still good to know
+                >list.setOnClickListener -> clicking the entire listview
+                >list.setOnItemClickListener -> clicking an item on the list
+        */
+
+        // Create list of items
+        String[] itemsSampleNine = {"Sample 9", "Blue", "Red", "Green", "White"};
+
+        // Build adapter (context, layout file, items)
+        ArrayAdapter<String> adapterSampleNine = new ArrayAdapter<>(
+                this,
+                R.layout.layout_sample_nine,
+                itemsSampleNine);
+
+        // Configure list view
+        ListView listSampleNine = findViewById(R.id.lvSampleNine);
+        listSampleNine.setAdapter(adapterSampleNine);
+
+        // Configure listview item on click
+        listSampleNine.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                // can be shortened to lambda
+                TextView textView = (TextView) view;
+                String message = "You clicked: " + position
+                        + ", which is " + textView.getText().toString();
+                Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
+    }
+
+    private void sampleEightResourceByName() {
+        /*
+            1. create string with image file name
+            2. get int resource id using file name
+            3. pass resource id to function displaying resource
+        */
+        /*
+            Notes:
+                >resource ids are just integers so we can just pass these ints to get our resource
+        */
+
+        ImageButton ibtnSampleEight = findViewById(R.id.ibtnSampleEight);
+        ibtnSampleEight.setOnClickListener( view -> {
+            String fileName = "animal_crossing_leaf";
+            int id = getResources().getIdentifier(fileName, "drawable", MainActivity.this.getPackageName());
+            ImageView ivSampleEight = findViewById(R.id.ivSampleEight);
+            ivSampleEight.setImageResource(id);
+        });
     }
 
     private void sampleSevenImageButton() {
