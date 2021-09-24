@@ -53,7 +53,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         });
     }
 
-    // show show many items to populate
+    // show how many items to populate
     @Override
     public int getItemCount() {
         return recycledStrings.size();

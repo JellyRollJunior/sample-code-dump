@@ -95,52 +95,11 @@ public class MainActivity extends AppCompatActivity {
         // Sample 9: List view
         sampleNineListViewLegacy();
 
-        // Sample 10: Listview advanced -> custom layout
-        /*
-            1. make an array of objects to be displayed
-            2. populate listview using array adapter
-                a. for complex listviews, implement your own adapter
-                    I. override constructor to let adapter know which layout to use
-                    II. override getView to populate each space with layout of your choice
-                        1. remember to check if view is null and create a view accordingly if null
-        */
-        /*
-            Notes:
-                >
-        */
-
-        // populate StringHolder list
-        myStringHolderSampleTen.add(new StringHolder("Sample 10", "10", "10"));
-        myStringHolderSampleTen.add(new StringHolder("boom", "bam", "bop"));
-
-        // populate listview
-        ArrayAdapter<StringHolder> adapterSampleTen = new myListAdapterSampleTen();
-        ListView lvSampleTen = findViewById(R.id.lvSampleTen);
-        lvSampleTen.setAdapter(adapterSampleTen);
+        // Sample 10: Listview advanced -> custom layout -> override adapter class
+        sampleTenListViewCustomLayout();
 
         // Sample 11: recycler views (new listview!)
-        /*
-            1. make layout
-            2. build adapter
-            3. link recyclerView to Adapter
-        */
-        /*
-            Notes:
-                >pay attention to layout sizes -> wrap_content is best or set sizes
-                >remember to populate ViewHolder with all items in layout including the layout
-        */
-
-        // populate StringHolder
-        myStringHolderSampleEleven.add(new StringHolder("Sample 11", "11", "11"));
-        myStringHolderSampleEleven.add(new StringHolder("hello", "world", "!!!"));
-
-        // link recyclerview to adapter
-        RecyclerView rvSampleEleven = findViewById(R.id.rvSampleEleven);
-        RecyclerViewAdapter rvAdapter = new RecyclerViewAdapter(MainActivity.this, myStringHolderSampleEleven);
-        rvSampleEleven.setAdapter(rvAdapter);
-
-        // LinearLayoutManager allows setting of vertical/horizontal/etc recycler views
-        rvSampleEleven.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        sampleElevenRecyclerView();
 
         // Sample 12: actionbar / toolbar: add icon, add up button
         /*
@@ -235,6 +194,83 @@ public class MainActivity extends AppCompatActivity {
         */
 
 
+    }
+
+    private void sampleElevenRecyclerView() {
+    /*
+        1. make layout
+        2. build adapter
+        3. link recyclerView to Adapter
+    */
+        /*
+            Notes:
+                >pay attention to layout sizes -> wrap_content is best or set sizes
+                >remember to populate ViewHolder with all items in layout including the layout
+        */
+
+        // populate StringHolder
+        myStringHolderSampleEleven.add(new StringHolder("Sample 11", "11", "11"));
+        myStringHolderSampleEleven.add(new StringHolder("hello", "world", "!!!"));
+
+        // link recyclerview to adapter
+        RecyclerView rvSampleEleven = findViewById(R.id.rvSampleEleven);
+        RecyclerViewAdapter rvAdapter = new RecyclerViewAdapter(MainActivity.this, myStringHolderSampleEleven);
+        rvSampleEleven.setAdapter(rvAdapter);
+
+        // LinearLayoutManager allows setting of vertical/horizontal/etc recycler views
+        rvSampleEleven.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+    }
+
+    private class myListAdapterSampleTen extends ArrayAdapter<StringHolder> {
+        public myListAdapterSampleTen() {
+            super(MainActivity.this, R.layout.layout_sample_ten, myStringHolderSampleTen);
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            View itemView = convertView;
+            if (itemView == null) {
+                itemView = getLayoutInflater().inflate(R.layout.layout_sample_ten, parent, false);
+            }
+
+            // get current StringHolder
+            StringHolder currentStringHolder = myStringHolderSampleTen.get(position);
+
+            // fill view
+            TextView tvTop = itemView.findViewById(R.id.tvTopSampleTen);
+            tvTop.setText(currentStringHolder.getFirst());
+            TextView tvMiddle = itemView.findViewById(R.id.tvMidSampleTen);
+            tvMiddle.setText(currentStringHolder.getSecond());
+            TextView tvBot = itemView.findViewById(R.id.tvBotSampleTen);
+            tvBot.setText(currentStringHolder.getThird());
+
+            return itemView;
+        }
+    }
+
+    private void sampleTenListViewCustomLayout() {
+        /*
+            1. make an array of objects to be displayed
+            2. populate listview using array adapter
+                a. for complex listviews, implement your own adapter
+                    I. override constructor to let adapter know which layout to use
+                    II. override getView to populate each space with layout of your choice
+                        1. remember to check if view is null and create a view accordingly if null
+        */
+        /*
+            Notes:
+                >
+        */
+
+        // populate StringHolder list
+        myStringHolderSampleTen.add(new StringHolder("Sample 10", "10", "10"));
+        myStringHolderSampleTen.add(new StringHolder("boom", "bam", "bop"));
+
+        // populate listview
+        ArrayAdapter<StringHolder> adapterSampleTen = new myListAdapterSampleTen();
+        ListView lvSampleTen = findViewById(R.id.lvSampleTen);
+        lvSampleTen.setAdapter(adapterSampleTen);
     }
 
     private void sampleNineListViewLegacy() {
@@ -405,36 +441,6 @@ public class MainActivity extends AppCompatActivity {
                         .show();
             }
         });
-    }
-
-
-    // sample 10 code
-    private class myListAdapterSampleTen extends ArrayAdapter<StringHolder> {
-        public myListAdapterSampleTen() {
-            super(MainActivity.this, R.layout.layout_sample_ten, myStringHolderSampleTen);
-        }
-
-        @NonNull
-        @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            View itemView = convertView;
-            if (itemView == null) {
-                itemView = getLayoutInflater().inflate(R.layout.layout_sample_ten, parent, false);
-            }
-
-            // get current StringHolder
-            StringHolder currentStringHolder = myStringHolderSampleTen.get(position);
-
-            // fill view
-            TextView tvTop = itemView.findViewById(R.id.tvTopSampleTen);
-            tvTop.setText(currentStringHolder.getFirst());
-            TextView tvMiddle = itemView.findViewById(R.id.tvMidSampleTen);
-            tvMiddle.setText(currentStringHolder.getSecond());
-            TextView tvBot = itemView.findViewById(R.id.tvBotSampleTen);
-            tvBot.setText(currentStringHolder.getThird());
-
-            return itemView;
-        }
     }
 
     // sample 12 code
