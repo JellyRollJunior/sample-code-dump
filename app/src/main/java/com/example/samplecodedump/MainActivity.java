@@ -148,7 +148,8 @@ public class MainActivity extends AppCompatActivity {
                     >stretchColumn * makes all columns equal size
             */
 
-
+        // Sample 16: Maps (getting api key, getting map running)
+        sampleFifteenMapsBasics();
 
         // Sample
         /*
@@ -159,6 +160,27 @@ public class MainActivity extends AppCompatActivity {
                 >
         */
 
+
+    }
+
+    private void sampleFifteenMapsBasics() {
+        /*
+            1. java folder -> new -> google -> maps activity
+            2. res -> values -> google_maps_api.xml -> enter api key
+        */
+        /*
+            Notes:
+                >make sure emulator has google play enabled in target (supports google play)
+                >check if you have play SDK downloaded
+                    >tools -> sdk manager -> show package details -> check if has google play support
+                >make sure maps api enabled in google API key settings (maps sdk for android)
+        */
+
+        Button btnSampleFifteen = findViewById(R.id.btnSampleFifteen);
+        btnSampleFifteen.setOnClickListener(view -> {
+            Intent intent = MapsActivity.makeIntent(MainActivity.this);
+            startActivity(intent);
+        });
     }
 
     private void sampleFourteenReturningDataFromActivity() {
@@ -198,6 +220,29 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = SecondActivity.makeIntent(MainActivity.this);
             secondActivityResultLauncher.launch(intent);
         });
+    }
+
+    // sample 12 code
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // inflate action bar
+        getMenuInflater().inflate(R.menu.menu_activity_main, menu);
+        return true;
+    }
+
+    // write menu functions
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.action_run_fast_sample_twelve:
+                Toast.makeText(this, "Now running!", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.action_settings_awesome_stuff:
+                Toast.makeText(this, "Awesome!", Toast.LENGTH_SHORT).show();
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void sampleElevenRecyclerView() {
@@ -390,7 +435,7 @@ public class MainActivity extends AppCompatActivity {
                     .show();
 
             // launch second activity (naive method)
-//            Intent intent = new Intent(MainActivity.this,SampleThreeActivity.class);
+//            Intent intent = new Intent(MainActivity.this, SampleThreeActivity.class);
 //            startActivity(intent);
 
             // better method
@@ -448,26 +493,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // sample 12 code
-    // inflate menu
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_activity_main, menu);
-        return true;
-    }
-
-    // write menu functions
-    @SuppressLint("NonConstantResourceId")
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()) {
-            case R.id.action_run_fast_sample_twelve:
-                Toast.makeText(this, "Now running!", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.action_settings_awesome_stuff:
-                Toast.makeText(this, "Awesome!", Toast.LENGTH_SHORT).show();
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 }
