@@ -148,9 +148,22 @@ public class MainActivity extends AppCompatActivity {
                     >stretchColumn * makes all columns equal size
             */
 
+        // Sample 16: Maps (getting api key, getting map running)
+        sampleFifteenMapsBasics();
+
+        // Sample
+        /*
+            1.
+        */
+        /*
+            Notes:
+                >
+        */
 
 
-        // Sample 16: basic maps api
+    }
+
+    private void sampleFifteenMapsBasics() {
         /*
             1. java folder -> new -> google -> maps activity
             2. res -> values -> google_maps_api.xml -> enter api key
@@ -168,17 +181,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = MapsActivity.makeIntent(MainActivity.this);
             startActivity(intent);
         });
-
-        // Sample
-        /*
-            1.
-        */
-        /*
-            Notes:
-                >
-        */
-
-
     }
 
     private void sampleFourteenReturningDataFromActivity() {
