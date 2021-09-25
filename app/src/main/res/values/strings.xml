@@ -24,4 +24,5 @@
     <string name="btn_return_sample_fourteen">SAMPLE 14</string>
     <string name="et_return_sample_fourteen">Name</string>
     <string name="enter_name_activity_second_sample_fourteen">enter name</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

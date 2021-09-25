@@ -150,6 +150,19 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        // Sample 16: basic maps api
+        /*
+            1. java folder -> new -> google -> maps activity
+            2. res -> values -> google_maps_api.xml -> enter api key
+        */
+        /*
+            Notes:
+                >
+        */
+        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+        startActivity(intent);
+
+
         // Sample
         /*
             1.
@@ -158,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
             Notes:
                 >
         */
+
 
     }
 
@@ -198,6 +212,29 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = SecondActivity.makeIntent(MainActivity.this);
             secondActivityResultLauncher.launch(intent);
         });
+    }
+
+    // sample 12 code
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // inflate action bar
+        getMenuInflater().inflate(R.menu.menu_activity_main, menu);
+        return true;
+    }
+
+    // write menu functions
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.action_run_fast_sample_twelve:
+                Toast.makeText(this, "Now running!", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.action_settings_awesome_stuff:
+                Toast.makeText(this, "Awesome!", Toast.LENGTH_SHORT).show();
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void sampleElevenRecyclerView() {
@@ -390,7 +427,7 @@ public class MainActivity extends AppCompatActivity {
                     .show();
 
             // launch second activity (naive method)
-//            Intent intent = new Intent(MainActivity.this,SampleThreeActivity.class);
+//            Intent intent = new Intent(MainActivity.this, SampleThreeActivity.class);
 //            startActivity(intent);
 
             // better method
@@ -448,26 +485,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // sample 12 code
-    // inflate menu
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_activity_main, menu);
-        return true;
-    }
-
-    // write menu functions
-    @SuppressLint("NonConstantResourceId")
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()) {
-            case R.id.action_run_fast_sample_twelve:
-                Toast.makeText(this, "Now running!", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.action_settings_awesome_stuff:
-                Toast.makeText(this, "Awesome!", Toast.LENGTH_SHORT).show();
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 }
