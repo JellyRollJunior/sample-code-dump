@@ -157,11 +157,17 @@ public class MainActivity extends AppCompatActivity {
         */
         /*
             Notes:
-                >
+                >make sure emulator has google play enabled in target (supports google play)
+                >check if you have play SDK downloaded
+                    >tools -> sdk manager -> show package details -> check if has google play support
+                >make sure maps api enabled in google API key settings (maps sdk for android)
         */
-        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-        startActivity(intent);
 
+        Button btnSampleFifteen = findViewById(R.id.btnSampleFifteen);
+        btnSampleFifteen.setOnClickListener(view -> {
+            Intent intent = MapsActivity.makeIntent(MainActivity.this);
+            startActivity(intent);
+        });
 
         // Sample
         /*
