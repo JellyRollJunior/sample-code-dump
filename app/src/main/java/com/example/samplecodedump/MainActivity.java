@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
             */
 
         // Sample 16: Maps (getting api key, getting map running)
-        sampleFifteenMapsBasics();
+        sampleSixteenMapsBasics();
 
         // Sample
         /*
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void sampleFifteenMapsBasics() {
+    private void sampleSixteenMapsBasics() {
         /*
             1. java folder -> new -> google -> maps activity
             2. res -> values -> google_maps_api.xml -> enter api key
