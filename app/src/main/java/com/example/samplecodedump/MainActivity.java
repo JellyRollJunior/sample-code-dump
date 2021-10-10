@@ -151,16 +151,24 @@ public class MainActivity extends AppCompatActivity {
         // Sample 16: Maps (getting api key, getting map running)
         sampleSixteenMapsBasics();
 
+        // Sample 17: Maps 2
+            /*
+                1.
+            */
+            /*
+                Notes:
+                    >manipulate map size by putting the fragment in a layout
+                    >can add buttons on top of the map
+            */
+
         // Sample
-        /*
-            1.
-        */
-        /*
-            Notes:
-                >
-        */
-
-
+            /*
+                1.
+            */
+            /*
+                Notes:
+                    >
+            */
     }
 
     private void sampleSixteenMapsBasics() {
