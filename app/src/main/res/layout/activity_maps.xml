@@ -13,10 +13,10 @@
             tools:context=".MainActivity">
 
             <Button
-                android:id="@+id/btnSampleSeventeenCity"
+                android:id="@+id/btnSampleSeventeenVancouver"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button"
+                android:text="@string/sample_seventeen_vancouver"
                 app:layout_anchorGravity="end|bottom"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +29,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="Button"
+                android:text="@string/sample_seventeen_taipei"
                 app:layout_anchorGravity="end|bottom"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -42,12 +42,12 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnSampleSeventeenCity"
+                app:layout_constraintTop_toBottomOf="@+id/btnSampleSeventeenVancouver"
                 app:layout_constraintVertical_bias="0.0">
 
 
 
-                <fragment
+                <androidx.fragment.app.FragmentContainerView
                     android:id="@+id/map"
                     android:name="com.google.android.gms.maps.SupportMapFragment"
                     android:layout_width="match_parent"
