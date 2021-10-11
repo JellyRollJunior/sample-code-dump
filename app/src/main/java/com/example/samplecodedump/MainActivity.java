@@ -151,16 +151,28 @@ public class MainActivity extends AppCompatActivity {
         // Sample 16: Maps (getting api key, getting map running)
         sampleSixteenMapsBasics();
 
+        // Sample 17: Map markers + camera movement
+            /*
+                1. create location
+                2. create marker for location
+                3. move camera to location (optional: control zoom)
+                    a. zoom goes from 0 to 21 (zero zoom to most zoom)
+            */
+            /*
+                Notes:
+                    >manipulate map size by putting the fragment in a layout
+                    >can add buttons on top of the map
+                    >moveCamera vs animateCamera -> move automatically moves camera, animate pans camera
+            */
+
         // Sample
-        /*
-            1.
-        */
-        /*
-            Notes:
-                >
-        */
-
-
+            /*
+                1.
+            */
+            /*
+                Notes:
+                    >
+            */
     }
 
     private void sampleSixteenMapsBasics() {

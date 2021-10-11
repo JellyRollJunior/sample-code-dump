@@ -1,23 +1,26 @@
 package com.example.samplecodedump;
 
-import androidx.fragment.app.FragmentActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 
+import androidx.fragment.app.FragmentActivity;
+
+import com.example.samplecodedump.databinding.ActivityMapsBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.example.samplecodedump.databinding.ActivityMapsBinding;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
+    private final LatLng LOCATION_TAIPEI = new LatLng(25.0330, 121.5654);
+    private final LatLng LOCATION_VANCOUVER = new LatLng(49.2827, -123.1207);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        // Sample 17: Map markers + camera movement
+        sampleSeventeenMapMovementMarkers();
+    }
+
+    private void sampleSeventeenMapMovementMarkers() {
+        Button sampleSeventeenTaipei = findViewById(R.id.btnSampleSeventeenTaipei);
+        sampleSeventeenTaipei.setOnClickListener(view -> {
+            mMap.addMarker(new MarkerOptions().position(LOCATION_TAIPEI).title("Taipei"));
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LOCATION_TAIPEI, 12));
+        });
+
+        Button sampleSeventeenVancouver = findViewById(R.id.btnSampleSeventeenVancouver);
+        sampleSeventeenVancouver.setOnClickListener(view -> {
+            mMap.addMarker(new MarkerOptions().position(LOCATION_VANCOUVER).title("Vancouver"));
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LOCATION_VANCOUVER, 11));
+        });
     }
 
     /**
