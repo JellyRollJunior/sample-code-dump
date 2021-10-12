@@ -6,4 +6,6 @@
         <item>200</item>
         <item>400</item>
     </integer-array>
+
+    <integer name="default_applications_rejected">400</integer>
 </resources>

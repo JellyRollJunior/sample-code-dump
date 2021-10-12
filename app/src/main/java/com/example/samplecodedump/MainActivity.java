@@ -199,8 +199,8 @@ public class MainActivity extends AppCompatActivity {
     public static int sampleTwentyGetNumRejectedApplications(Context context) {
         SharedPreferences preferences = context.getSharedPreferences(APP_PREFERENCES, MODE_PRIVATE);
 
-        // TODO: set default value
-        return preferences.getInt(NUM_REJECTED_APPLICATIONS, 0);
+        int defaultRejectedApplications = context.getResources().getInteger(R.integer.default_applications_rejected);
+        return preferences.getInt(NUM_REJECTED_APPLICATIONS, defaultRejectedApplications);
     }
 
 
