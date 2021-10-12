@@ -192,7 +192,10 @@ public class MainActivity extends AppCompatActivity {
             */
             /*
                 Notes:
-                    >
+                    >if creating a settings activity
+                        >create a refresh screen function and get value
+                            >MainActivity.sampleTwentyGetNumRejectedApplications(this)
+                        >override onResume so main activity responds to settings change immediately
             */
     }
 
