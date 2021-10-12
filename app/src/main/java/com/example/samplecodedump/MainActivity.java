@@ -2,7 +2,9 @@ package com.example.samplecodedump;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -36,6 +38,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "SampleCodeDump";     // TAG used to show where log error messages originate from
+    private static final String APP_PREFERENCES = "App Preferences";    // shared preferences
+    public static final String NUM_REJECTED_APPLICATIONS = "Num Rejected Applications";
     private int sampleTwoCount = -1;                        // Can't declare in the scope of onCreate or else problems arise
     private final ArrayList<StringHolder> myStringHolderSampleTen = new ArrayList<>();
     private final ArrayList<StringHolder> myStringHolderSampleEleven = new ArrayList<>();
@@ -180,14 +184,31 @@ public class MainActivity extends AppCompatActivity {
         // Sample 19: Radio buttons from resource file
         sampleNineteenRadioButtons();
 
-        // Sample
+        // Sample 20: Saving data between app executions with shared preferences
             /*
-                1.
+                1. get shared preferences
+                2. feed in string tag + values to shared preferences editor
+                3. create static method to access the values
             */
             /*
                 Notes:
                     >
             */
+    }
+
+    public static int sampleTwentyGetNumRejectedApplications(Context context) {
+        SharedPreferences preferences = context.getSharedPreferences(APP_PREFERENCES, MODE_PRIVATE);
+
+        // TODO: set default value
+        return preferences.getInt(NUM_REJECTED_APPLICATIONS, 0);
+    }
+
+
+    private void sampleTwentySharedPreferences(int numRejectedApplications) {
+        SharedPreferences preferences = this.getSharedPreferences(APP_PREFERENCES, MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt(NUM_REJECTED_APPLICATIONS, numRejectedApplications);
+        editor.apply();
     }
 
     private void sampleNineteenRadioButtons() {
@@ -203,22 +224,32 @@ public class MainActivity extends AppCompatActivity {
                     > %1 : use first arg given to getString
                     > $d : this value is an integer
         */
-
         RadioGroup group = findViewById(R.id.sampleNineteenRadioGroup);
         int[] numRejected = getResources().getIntArray(R.array.num_applications_rejected);
 
+        // populate radio group with buttons
         for (int numRejectedApplications : numRejected) {
             RadioButton button = new RadioButton(this);
             button.setText(getString(R.string.sample_nineteen_applications_rejected, numRejectedApplications));
 
+            // on radio button click
             button.setOnClickListener(view -> {
                 Toast.makeText(this, getString(R.string.sample_nineteen_applications_rejected,
                         numRejectedApplications), Toast.LENGTH_SHORT).show();
+
+                // SAMPLE TWENTY - SHARED PREFERENCES
+                sampleTwentySharedPreferences(numRejectedApplications);
             });
 
             group.addView(button);
+
+            // SAMPLE TWENTY - save radio button click state
+            if (numRejectedApplications == sampleTwentyGetNumRejectedApplications(this)) {
+                button.setChecked(true);
+            }
         }
 
+        // make button which confirms checked result
         Button btnSampleEighteen = findViewById(R.id.btnSampleNineteen);
         btnSampleEighteen.setOnClickListener(view -> {
             int idOfSelected = group.getCheckedRadioButtonId();
