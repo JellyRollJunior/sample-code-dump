@@ -177,7 +177,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Sample 15"
+                android:text="@string/sample_15"
                 app:layout_constraintEnd_toEndOf="@+id/btnSampleFourteen"
                 app:layout_constraintTop_toBottomOf="@+id/btnSampleFourteen" />
 
@@ -189,6 +189,16 @@
                 app:layout_constraintEnd_toEndOf="@+id/btnSampleFifteen"
                 app:layout_constraintStart_toStartOf="@+id/btnSampleFifteen"
                 app:layout_constraintTop_toBottomOf="@+id/btnSampleFifteen" />
+
+            <Button
+                android:id="@+id/btnSampleEighteen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/sample_18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sampleEighteenRadioGroup" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

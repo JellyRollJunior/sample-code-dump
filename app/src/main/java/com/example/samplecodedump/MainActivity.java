@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -176,13 +178,7 @@ public class MainActivity extends AppCompatActivity {
             */
 
         // Sample 19: Radio buttons from resource file
-            /*
-                1.
-            */
-            /*
-                Notes:
-                    >
-            */
+        sampleEighteenRadioButtons();
 
         // Sample
             /*
@@ -192,6 +188,46 @@ public class MainActivity extends AppCompatActivity {
                 Notes:
                     >
             */
+    }
+
+    private void sampleEighteenRadioButtons() {
+        /*
+            1. put values in resource file
+            2. create radio group
+            3. populate radio group
+            4. get id of currently selected button using group
+        */
+        /*
+            Notes:
+                >strings.xml formatting
+                    > %1 : use first arg given to getString
+                    > $d : this value is an integer
+        */
+
+        RadioGroup group = findViewById(R.id.sampleEighteenRadioGroup);
+        int[] numRejected = getResources().getIntArray(R.array.num_applications_rejected);
+
+        for (int numRejectedApplications : numRejected) {
+            RadioButton button = new RadioButton(this);
+            button.setText(getString(R.string.sample_eighteen_applications_rejected, numRejectedApplications));
+
+            button.setOnClickListener(view -> {
+                Toast.makeText(this, getString(R.string.sample_eighteen_applications_rejected,
+                        numRejectedApplications), Toast.LENGTH_SHORT).show();
+            });
+
+            group.addView(button);
+        }
+
+        Button btnSampleEighteen = findViewById(R.id.btnSampleEighteen);
+        btnSampleEighteen.setOnClickListener(view -> {
+            int idOfSelected = group.getCheckedRadioButtonId();
+            RadioButton radioButton = findViewById(idOfSelected);
+            if (radioButton != null) {
+                String message = radioButton.getText().toString();
+                Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void sampleSixteenMapsBasics() {
