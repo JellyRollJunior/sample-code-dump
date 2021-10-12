@@ -165,6 +165,16 @@ public class MainActivity extends AppCompatActivity {
                     >moveCamera vs animateCamera -> move automatically moves camera, animate pans camera
             */
 
+        // Sample 18: Internationalization
+            /*
+                1. create resource folder values-(country code)
+                2. add in translated strings.xml
+            */
+            /*
+                Notes:
+                    >
+            */
+
         // Sample
             /*
                 1.
