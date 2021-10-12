@@ -27,7 +27,7 @@
     <string name="title_activity_maps">MapsActivity</string>
     <string name="sample_seventeen_taipei">Taipei</string>
     <string name="sample_seventeen_vancouver">Vancouver</string>
-    <string name="sample_eighteen_applications_rejected">\"%1$d applications rejects\"</string>
+    <string name="sample_nineteen_applications_rejected">\"%1$d applications rejects\"</string>
     <string name="sample_15">Sample 15</string>
-    <string name="sample_18">SAMPLE 18</string>
+    <string name="sample_19">Sample 19</string>
 </resources>

@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
             */
 
         // Sample 19: Radio buttons from resource file
-        sampleEighteenRadioButtons();
+        sampleNineteenRadioButtons();
 
         // Sample
             /*
@@ -190,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
             */
     }
 
-    private void sampleEighteenRadioButtons() {
+    private void sampleNineteenRadioButtons() {
         /*
             1. put values in resource file
             2. create radio group
@@ -204,22 +204,22 @@ public class MainActivity extends AppCompatActivity {
                     > $d : this value is an integer
         */
 
-        RadioGroup group = findViewById(R.id.sampleEighteenRadioGroup);
+        RadioGroup group = findViewById(R.id.sampleNineteenRadioGroup);
         int[] numRejected = getResources().getIntArray(R.array.num_applications_rejected);
 
         for (int numRejectedApplications : numRejected) {
             RadioButton button = new RadioButton(this);
-            button.setText(getString(R.string.sample_eighteen_applications_rejected, numRejectedApplications));
+            button.setText(getString(R.string.sample_nineteen_applications_rejected, numRejectedApplications));
 
             button.setOnClickListener(view -> {
-                Toast.makeText(this, getString(R.string.sample_eighteen_applications_rejected,
+                Toast.makeText(this, getString(R.string.sample_nineteen_applications_rejected,
                         numRejectedApplications), Toast.LENGTH_SHORT).show();
             });
 
             group.addView(button);
         }
 
-        Button btnSampleEighteen = findViewById(R.id.btnSampleEighteen);
+        Button btnSampleEighteen = findViewById(R.id.btnSampleNineteen);
         btnSampleEighteen.setOnClickListener(view -> {
             int idOfSelected = group.getCheckedRadioButtonId();
             RadioButton radioButton = findViewById(idOfSelected);

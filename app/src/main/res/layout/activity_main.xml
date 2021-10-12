@@ -182,7 +182,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/btnSampleFourteen" />
 
             <RadioGroup
-                android:id="@+id/sampleEighteenRadioGroup"
+                android:id="@+id/sampleNineteenRadioGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -191,14 +191,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/btnSampleFifteen" />
 
             <Button
-                android:id="@+id/btnSampleEighteen"
+                android:id="@+id/btnSampleNineteen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="@string/sample_18"
+                android:text="@string/sample_19"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sampleEighteenRadioGroup" />
+                app:layout_constraintTop_toBottomOf="@+id/sampleNineteenRadioGroup" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
