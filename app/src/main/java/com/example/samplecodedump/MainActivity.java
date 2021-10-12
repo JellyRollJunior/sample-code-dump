@@ -197,6 +197,15 @@ public class MainActivity extends AppCompatActivity {
                             >MainActivity.sampleTwentyGetNumRejectedApplications(this)
                         >override onResume so main activity responds to settings change immediately
             */
+
+        // Sample
+            /*
+                1.
+            */
+            /*
+                Notes:
+                    >
+            */
     }
 
     public static int sampleTwentyGetNumRejectedApplications(Context context) {
