@@ -175,6 +175,15 @@ public class MainActivity extends AppCompatActivity {
                     >
             */
 
+        // Sample 19: Radio buttons from resource file
+            /*
+                1.
+            */
+            /*
+                Notes:
+                    >
+            */
+
         // Sample
             /*
                 1.
