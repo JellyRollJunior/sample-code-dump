@@ -7,17 +7,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
 public class MessageFragment extends AppCompatDialogFragment {
 
+    @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // create the view to show
         View v = LayoutInflater.from(getActivity()).inflate(R.layout.layout_sample_twenty_one, null);
 
-        // create a button listener
+        // create a button listener -> can use lambda (but shown for learning purposes)
         DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {

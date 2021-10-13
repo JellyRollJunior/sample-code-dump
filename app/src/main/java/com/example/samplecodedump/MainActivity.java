@@ -214,6 +214,8 @@ public class MainActivity extends AppCompatActivity {
                     >
             */
         Button btnSampleTwentyOne = findViewById(R.id.btnSampleTwentyOne);
+
+        // start alert dialog on button click
         btnSampleTwentyOne.setOnClickListener(view -> {
             FragmentManager manager = getSupportFragmentManager();
             MessageFragment dialog = new MessageFragment();
