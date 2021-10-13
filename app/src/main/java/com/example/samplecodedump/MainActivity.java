@@ -29,6 +29,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -197,6 +198,28 @@ public class MainActivity extends AppCompatActivity {
                             >MainActivity.sampleTwentyGetNumRejectedApplications(this)
                         >override onResume so main activity responds to settings change immediately
             */
+
+        // Sample 21: Alert dialogue
+            /*
+                1. create alert dialogue message layout (new layout resource file)
+                2. create message fragment
+                    a. extend AppCompatDialogFragment
+                3. override onCreateDialog
+                    a. create the view to show
+                    b. create button listener
+                    c. build alert dialog
+            */
+            /*
+                Notes:
+                    >
+            */
+        Button btnSampleTwentyOne = findViewById(R.id.btnSampleTwentyOne);
+        btnSampleTwentyOne.setOnClickListener(view -> {
+            FragmentManager manager = getSupportFragmentManager();
+            MessageFragment dialog = new MessageFragment();
+            dialog.show(manager, "MessageDialogue");
+        });
+
 
         // Sample
             /*
