@@ -202,25 +202,19 @@ public class MainActivity extends AppCompatActivity {
         // Sample 21: Alert dialogue
             /*
                 1. create alert dialogue message layout (new layout resource file)
-                2. create message fragment
+                2. create message fragment (class)
                     a. extend AppCompatDialogFragment
-                3. override onCreateDialog
-                    a. create the view to show
-                    b. create button listener
-                    c. build alert dialog
+                    b. override onCreateDialog
+                        I. create the view to show
+                        II. create button listener
+                        II. build alert dialog
+                3. display alert dialog in chosen activity
             */
             /*
                 Notes:
                     >
             */
-        Button btnSampleTwentyOne = findViewById(R.id.btnSampleTwentyOne);
-
-        // start alert dialog on button click
-        btnSampleTwentyOne.setOnClickListener(view -> {
-            FragmentManager manager = getSupportFragmentManager();
-            MessageFragment dialog = new MessageFragment();
-            dialog.show(manager, "MessageDialogue");
-        });
+        sampleTwentyOneAlertDialog();
 
 
         // Sample
@@ -231,6 +225,17 @@ public class MainActivity extends AppCompatActivity {
                 Notes:
                     >
             */
+    }
+
+    private void sampleTwentyOneAlertDialog() {
+        Button btnSampleTwentyOne = findViewById(R.id.btnSampleTwentyOne);
+
+        // start alert dialog on button click
+        btnSampleTwentyOne.setOnClickListener(view -> {
+            FragmentManager manager = getSupportFragmentManager();
+            MessageFragment dialog = new MessageFragment();
+            dialog.show(manager, "MessageDialogue");
+        });
     }
 
     public static int sampleTwentyGetNumRejectedApplications(Context context) {
