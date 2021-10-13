@@ -30,4 +30,9 @@
     <string name="sample_nineteen_applications_rejected">\"%1$d applications rejects\"</string>
     <string name="sample_15">Sample 15</string>
     <string name="sample_19">Sample 19</string>
+    <string name="sampleTwentyOneSecretMessage">it\'s a secret!</string>
+    <string name="sample_twenty_one_secret_message_prompt">Do you want to see the message?</string>
+    <string name="animal_crossing_leaf">Animal Crossing Leaf</string>
+    <string name="sample_21">Sample 21</string>
+    <string name="beep_boop">beep boop</string>
 </resources>
