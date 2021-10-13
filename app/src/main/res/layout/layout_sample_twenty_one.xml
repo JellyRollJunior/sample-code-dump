@@ -9,7 +9,7 @@
         android:id="@+id/tvSampleTwentyOneAlert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Do you want to set the message?"
+        android:text="@string/sample_twenty_one_secret_message_prompt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -21,7 +21,9 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/animal_crossing_leaf"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/animal_crossing_leaf" />
 </androidx.constraintlayout.widget.ConstraintLayout>

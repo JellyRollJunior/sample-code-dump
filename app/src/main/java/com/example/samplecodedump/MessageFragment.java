@@ -10,8 +10,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
-import org.w3c.dom.Text;
-
 public class MessageFragment extends AppCompatDialogFragment {
 
     @Override
@@ -26,7 +24,7 @@ public class MessageFragment extends AppCompatDialogFragment {
                 switch(which) {
                     case DialogInterface.BUTTON_POSITIVE:
                         TextView tv = getActivity().findViewById(R.id.tvSampleTwentyOne);
-                        tv.setText("it's a secret!");
+                        tv.setText(R.string.sampleTwentyOneSecretMessage);
                         break;
                     case DialogInterface.BUTTON_NEGATIVE:
                         break;
