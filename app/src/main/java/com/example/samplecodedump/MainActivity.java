@@ -218,18 +218,18 @@ public class MainActivity extends AppCompatActivity {
 
         // Sample 22: Pie graph - MPAndroid chart
             /*
-                1.
+                1. take care of dependencies
+                2. create pie chart in xml
+                3. populate list of pie entries
+                4. shove pie entries into pie data set
+                5. create chart using data
             */
             /*
                 Notes:
                     >PUT MAVEN REPO IN SETTINGS.GRADLE
                     >PUT IMPLEMENTATION IN BUILD.GRADLE
             */
-        Button button = findViewById(R.id.btnSampleTwentyTwo);
-        button.setOnClickListener(view -> {
-            Intent intent = ChartActivity.makeIntent(MainActivity.this);
-            startActivity(intent);
-        });
+        sampleTwentyTwoCharts();
 
         // Sample
             /*
@@ -239,6 +239,14 @@ public class MainActivity extends AppCompatActivity {
                 Notes:
                     >
             */
+    }
+
+    private void sampleTwentyTwoCharts() {
+        Button button = findViewById(R.id.btnSampleTwentyTwo);
+        button.setOnClickListener(view -> {
+            Intent intent = ChartActivity.makeIntent(MainActivity.this);
+            startActivity(intent);
+        });
     }
 
     private void sampleTwentyOneAlertDialog() {

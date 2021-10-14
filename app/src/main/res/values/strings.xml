@@ -36,4 +36,5 @@
     <string name="sample_21">Sample 21</string>
     <string name="beep_boop">beep boop</string>
     <string name="title_activity_chart">ChartActivity</string>
+    <string name="chart_title_my_clothing">My Clothing</string>
 </resources>

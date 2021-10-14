@@ -8,6 +8,7 @@ import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,10 +39,7 @@ public class ChartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
 
-        Button button = findViewById(R.id.button);
-        button.setOnClickListener(view -> {
-            Toast.makeText(this, "hi", Toast.LENGTH_SHORT).show();
-        });
+        // Sample Twenty Two
         setupPieChart();
     }
 
@@ -52,12 +50,15 @@ public class ChartActivity extends AppCompatActivity {
             pieEntries.add(new PieEntry(articles[i], articleNames[i]));
         }
 
-        PieDataSet dataSet = new PieDataSet(pieEntries, "My Clothing");
+        PieDataSet dataSet = new PieDataSet(pieEntries, getString(R.string.chart_title_my_clothing));
+        // Color Template is the provided default template (can create your own)
+        dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
         PieData data = new PieData(dataSet);
 
         // get the chart
         PieChart chart = (PieChart) findViewById(R.id.chartSampleTwentyTwo);
         chart.setData(data);
+        chart.animateY(1000);
         chart.invalidate();     // make chart redraw
     }
 
