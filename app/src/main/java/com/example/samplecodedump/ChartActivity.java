@@ -9,30 +9,14 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.example.samplecodedump.databinding.ActivityChartBinding;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class ChartActivity extends AppCompatActivity {
-
-    private AppBarConfiguration appBarConfiguration;
-
-    float articles[] = {10.0f, 20.0f, 30.0f, 5.0f, 15.0f, 25.0f};
-    String articleNames[] = {"Pants", "T-Shirts", "Jackets", "Shoes", "Socks", "Hats"};
+    float[] articles = {10.0f, 20.0f, 30.0f, 5.0f, 15.0f, 25.0f};
+    String[] articleNames = {"Pants", "T-Shirts", "Jackets", "Shoes", "Socks", "Hats"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
