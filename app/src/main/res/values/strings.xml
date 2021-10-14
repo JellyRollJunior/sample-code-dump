@@ -35,4 +35,5 @@
     <string name="animal_crossing_leaf">Animal Crossing Leaf</string>
     <string name="sample_21">Sample 21</string>
     <string name="beep_boop">beep boop</string>
+    <string name="title_activity_chart">ChartActivity</string>
 </resources>

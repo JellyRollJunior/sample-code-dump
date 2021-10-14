@@ -216,6 +216,20 @@ public class MainActivity extends AppCompatActivity {
             */
         sampleTwentyOneAlertDialog();
 
+        // Sample 22: Pie graph - MPAndroid chart
+            /*
+                1.
+            */
+            /*
+                Notes:
+                    >PUT MAVEN REPO IN SETTINGS.GRADLE
+                    >PUT IMPLEMENTATION IN BUILD.GRADLE
+            */
+        Button button = findViewById(R.id.btnSampleTwentyTwo);
+        button.setOnClickListener(view -> {
+            Intent intent = ChartActivity.makeIntent(MainActivity.this);
+            startActivity(intent);
+        });
 
         // Sample
             /*
