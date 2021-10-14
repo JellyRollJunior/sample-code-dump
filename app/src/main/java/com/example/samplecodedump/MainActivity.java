@@ -127,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
                      otherwise setSupportActionBar won't work
                     >UpButton starts new parent activity and deletes all previous on stack instead of going up stack
             */
+        // override code below
 
         // Sample 13: Passing data to activity -> naive object passing
             /*
@@ -231,9 +232,15 @@ public class MainActivity extends AppCompatActivity {
             */
         sampleTwentyTwoCharts();
 
-        // Sample
+        // Sample 23: Up button in-depth
             /*
-                1.
+                1. make sure activity extends appCompatActivity
+                2. make sure to choose noActionBar theme so activity doesn't use native action bar
+                3. add toolbar / action bar / app bar
+                    a. (optional) inflate own action bar layout (onCreateOptionsMenu)
+                    b. program functionality (onOptionsItemSelected)
+                4. set support action bar
+                5. access as action bar to enable up button
             */
             /*
                 Notes:

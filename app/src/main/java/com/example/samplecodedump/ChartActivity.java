@@ -1,16 +1,24 @@
 package com.example.samplecodedump;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.ui.AppBarConfiguration;
+import androidx.appcompat.widget.Toolbar;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +33,41 @@ public class ChartActivity extends AppCompatActivity {
 
         // Sample Twenty Two
         setupPieChart();
+
+        // Sample Twenty Three
+        sampleTwentyThreeAppBar();
+    }
+
+    private void sampleTwentyThreeAppBar() {
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.myToolbar);
+        setSupportActionBar(myToolbar);
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // inflate action bar
+        getMenuInflater().inflate(R.menu.menu_activity_main, menu);
+        return true;
+    }
+
+    // write menu functions
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            case R.id.action_run_fast_sample_twelve:
+                Toast.makeText(this, "Now running!", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.action_settings_awesome_stuff:
+                Toast.makeText(this, "Awesome!", Toast.LENGTH_SHORT).show();
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void setupPieChart() {
