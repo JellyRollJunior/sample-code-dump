@@ -4,11 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -17,15 +23,42 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.samplecodedump.databinding.ActivityChartBinding;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ChartActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
 
+    float articles[] = {10.0f, 20.0f, 30.0f, 5.0f, 15.0f, 25.0f};
+    String articleNames[] = {"Pants", "T-Shirts", "Jackets", "Shoes", "Socks", "Hats"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_chart);
 
+        Button button = findViewById(R.id.button);
+        button.setOnClickListener(view -> {
+            Toast.makeText(this, "hi", Toast.LENGTH_SHORT).show();
+        });
+        setupPieChart();
+    }
 
+    private void setupPieChart() {
+        // populate list of pie entries
+        List<PieEntry> pieEntries = new ArrayList<>();
+        for (int i = 0; i < articles.length; i++) {
+            pieEntries.add(new PieEntry(articles[i], articleNames[i]));
+        }
+
+        PieDataSet dataSet = new PieDataSet(pieEntries, "My Clothing");
+        PieData data = new PieData(dataSet);
+
+        // get the chart
+        PieChart chart = (PieChart) findViewById(R.id.chartSampleTwentyTwo);
+        chart.setData(data);
+        chart.invalidate();     // make chart redraw
     }
 
     public static Intent makeIntent(Context context) {
