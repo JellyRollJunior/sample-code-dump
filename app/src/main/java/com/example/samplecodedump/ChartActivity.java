@@ -10,6 +10,7 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.ui.AppBarConfiguration;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,9 @@ public class ChartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.myToolbar);
+        setSupportActionBar(myToolbar);
 
         // Sample Twenty Two
         setupPieChart();

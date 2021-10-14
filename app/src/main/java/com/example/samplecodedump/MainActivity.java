@@ -231,9 +231,11 @@ public class MainActivity extends AppCompatActivity {
             */
         sampleTwentyTwoCharts();
 
-        // Sample
+        // Sample 23: Up button in-depth
             /*
-                1.
+                1. make sure activity extends appCompatActivity
+                2. make sure to choose noActionBar theme so activity doesn't use native action bar
+                3. add toolbar / action bar / app bar
             */
             /*
                 Notes:
