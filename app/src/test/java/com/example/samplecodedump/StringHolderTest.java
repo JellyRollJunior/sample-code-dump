@@ -20,7 +20,7 @@ public class StringHolderTest {
         // im just walkin' here
     }
 
-    @Test
+    @Test (timeout = 100) // in ms
     public void testGetString() throws Exception {
         assertEquals("hello", stringHolder.getFirst());
         assertEquals("world", stringHolder.getSecond());
