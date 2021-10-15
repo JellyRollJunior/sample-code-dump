@@ -2,14 +2,20 @@ package com.example.samplecodedump;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
 public class StringHolderTest {
+    StringHolder stringHolder;
+
+    @Before
+    public void setUp() throws Exception {
+        stringHolder = new StringHolder("hello", "world", "!");
+    }
 
     @Test
     public void testGetString() throws Exception {
-        StringHolder stringHolder = new StringHolder("hello", "world", "!");
         assertEquals("hello", stringHolder.getFirst());
         assertEquals("world", stringHolder.getSecond());
         assertEquals("!", stringHolder.getThird());

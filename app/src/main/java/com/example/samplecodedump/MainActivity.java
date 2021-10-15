@@ -270,9 +270,8 @@ public class MainActivity extends AppCompatActivity {
                     >
             */
 
-        // Exceptions, ignore, run with coverage / coverage data - green bars in tested class
-        // indicate what is being executed in tests
-        // setup function, after function, beforeclass
+        // run with coverage / coverage data - green bars in tested class indicate what is being executed in tests
+        //  after function, beforeclass
         // enforce timeouts for a test
         // enforce global timelimit for all tests
     }
