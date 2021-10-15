@@ -271,8 +271,6 @@ public class MainActivity extends AppCompatActivity {
             */
 
         // run with coverage / coverage data - green bars in tested class indicate what is being executed in tests
-        // enforce timeouts for a test
-        // enforce global timelimit for all tests
     }
 
     private void sampleTwentyTwoCharts() {

@@ -5,10 +5,15 @@ import static org.junit.Assert.*;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Ignore;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.Timeout;
 
 public class StringHolderTest {
     StringHolder stringHolder;
+
+    @Rule
+    public Timeout globalTimeout = Timeout.seconds(10); // 10 second global timeout
 
     @Before // (@BeforeClass)
     public void setUp() throws Exception {
