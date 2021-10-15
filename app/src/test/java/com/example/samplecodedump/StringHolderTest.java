@@ -2,6 +2,7 @@ package com.example.samplecodedump;
 
 import static org.junit.Assert.*;
 
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -9,9 +10,14 @@ import org.junit.Test;
 public class StringHolderTest {
     StringHolder stringHolder;
 
-    @Before
+    @Before // (@BeforeClass)
     public void setUp() throws Exception {
         stringHolder = new StringHolder("hello", "world", "!");
+    }
+
+    @AfterClass
+    public static void afterClass() throws Exception {
+        // im just walkin' here
     }
 
     @Test
