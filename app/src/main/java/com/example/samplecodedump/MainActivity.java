@@ -246,6 +246,29 @@ public class MainActivity extends AppCompatActivity {
                 Notes:
                     >
             */
+
+        // Sample 24: JUnit4 introduction
+            /*
+                1. hover over class to test
+                2. command + n to generate a test class
+                3. run tests using run section on bottom bar
+            */
+            /*
+                Notes:
+                    >get familiar with all the asserts
+                    >life cycle of test objects
+                        >for every test, the test runner re-instantiates the class object
+                            >every object deleted after test and then called again for next test
+            */
+
+        // Sample
+            /*
+                1.
+            */
+            /*
+                Notes:
+                    >
+            */
     }
 
     private void sampleTwentyTwoCharts() {
