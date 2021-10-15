@@ -273,10 +273,9 @@ public class MainActivity extends AppCompatActivity {
                     >@BeforeClass: before the tests run, do this setup (persistent)
                     >@AfterClass: do after tests complete (file closing, etc.)
                     >@Ignore: ignore test
-                    >run with coverage: see code coverage of tests
+                    >run with coverage: see code coverage of tests - green bar = covered by testing
             */
 
-        // run with coverage / coverage data - green bars in tested class indicate what is being executed in tests
     }
 
     private void sampleTwentyTwoCharts() {
