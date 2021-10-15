@@ -261,14 +261,22 @@ public class MainActivity extends AppCompatActivity {
                             >every object deleted after test and then called again for next test
             */
 
-        // Sample
+        // Sample 25: JUnit4 continued
             /*
                 1.
             */
             /*
                 Notes:
-                    >
+                    >Throw exceptions
+                    >Set timeout, global timeouts
+                    >@Before: before every test, do this setup code (redone for every test)
+                    >@BeforeClass: before the tests run, do this setup (persistent)
+                    >@AfterClass: do after tests complete (file closing, etc.)
+                    >@Ignore: ignore test
+                    >run with coverage: see code coverage of tests
             */
+
+        // run with coverage / coverage data - green bars in tested class indicate what is being executed in tests
     }
 
     private void sampleTwentyTwoCharts() {
