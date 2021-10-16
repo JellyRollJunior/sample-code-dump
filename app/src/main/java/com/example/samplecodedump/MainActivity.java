@@ -274,8 +274,43 @@ public class MainActivity extends AppCompatActivity {
                     >@AfterClass: do after tests complete (file closing, etc.)
                     >@Ignore: ignore test
                     >run with coverage: see code coverage of tests - green bar = covered by testing
+                    >can set deltas (margin for errors) in asserts (useful when working with floats)
+                    >fail() command fails test
             */
 
+        // Sample 26: JUnit5
+            /*
+                1. create JUnit5 test
+                2. file -> project structure -> dependencies -> junit-jupiter -> select version
+            */
+            /*
+                Notes:
+                    >put tests in (test), (androidTest) is for android UI tests
+                    >disabled("message") : functionally the same as ignore but with different label (i think)
+                    >Assert types: true, assertFalse, assertNotNull, assertThrows
+                        >assertThrows(yourException.class, () -> myObject.methodThatThrowsException)
+                            > () -> is a lamda function
+                    >JUnit5 New Additions
+                        >assertAll
+                            >assertAll("test header",
+                                    () -> assert( ... ),
+                                    () -> assert( ... ),
+                                    ...
+                                    () -> assert( ... )
+                             );
+                            >JUnit4: in a test with >1 asserts, fail on first error and end test
+                            >JUnit5 assertAll: runs every test in assert all even if the test fails
+                                               to give more context to the failure
+                        >timing
+                            >assertTimeoutPreemptively(
+                                     Duration.ofSeconds(myDuration,
+                                     () -> assert( ... )
+                             );
+                                >kill test after specified time has passed
+                            >assertTimeout()
+                                >test fails if specified time has elapsed
+            */
+        // disabled
     }
 
     private void sampleTwentyTwoCharts() {
