@@ -310,7 +310,19 @@ public class MainActivity extends AppCompatActivity {
                             >assertTimeout()
                                 >test fails if specified time has elapsed
             */
-        // disabled
+
+        // Sample 27: Singleton
+            /*
+                1.
+            */
+            /*
+                Notes:
+                    >code in StringHolder
+                    >synchronized keyword only allows one call at any time so >1 instance never created
+                        >else multiple threads may create multiple instances
+            */
+
+
     }
 
     private void sampleTwentyTwoCharts() {
