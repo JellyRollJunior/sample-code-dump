@@ -225,7 +225,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Sample 22"
+            android:text="@string/sample_22"
             app:layout_constraintEnd_toEndOf="@+id/tvSampleTwentyOne"
             app:layout_constraintStart_toStartOf="@+id/tvSampleTwentyOne"
             app:layout_constraintTop_toBottomOf="@+id/tvSampleTwentyOne" />
@@ -243,7 +243,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Layout"
+                android:text="@string/layout"
                 android:id="@+id/tvLeftSample28"
                 android:background="@color/purple_200"
                 android:layout_weight="2"/>
@@ -251,7 +251,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Weight"
+                android:text="@string/weight"
                 android:id="@+id/tvRightSample28"
                 android:background="@color/teal_200"
                 android:layout_weight="8"/>
