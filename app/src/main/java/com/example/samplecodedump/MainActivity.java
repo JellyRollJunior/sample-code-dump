@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                     a. LEFT: layout_constraintGuide_begin = "250dp"
                     b. RIGHT: layout_constraintGuide_end = "250dp"
                     c. PERCENT: layout_constraintGuide_percent = "0.25"
+                5. right click -> show baseline -> allow UI elements to be on same horizontal plane
             */
             /*
                 Notes:
@@ -304,8 +305,6 @@ public class MainActivity extends AppCompatActivity {
 
         /*
         video notes TODO
-                    >constraint layout -> show baseline, select both elements and right click
-                    >tv -> set sample data
                     >image view -> match constraint vs wrap content -> aspect ration (click corner of constraint margin square
                     >change app icon in manifest file android:icon
                     >fb -> findViewByID
@@ -770,6 +769,7 @@ public class MainActivity extends AppCompatActivity {
             3. In code view, option + enter to extract string to resource folder
                 a. benefit: can just swap string resource files for different app language versions
             4. wire to OnClickListener
+            5. set sample text on tv -> right click on tv -> set sample data
         */
         /*
             Notes:
