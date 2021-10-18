@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Sample 12: actionbar / toolbar: add icon, add up button
             /*
-                1. create menu layout
+                1. create menu layout (create menu directory if not present -> new menu resource file)
                 2. override onCreateOptionsMenu -> inflate menu layout
                 3. override onOptionItemSelected -> control what items do when clicked
                 4. enable back button by accessing action bar (code on activity second)
@@ -322,7 +322,64 @@ public class MainActivity extends AppCompatActivity {
                         >else multiple threads may create multiple instances
             */
 
+        // Sample 28: Linear Layouts + Color
+            /*
+                1.
+            */
+            /*
+                Notes:
+                    >set layout weights for elements to take predetermined space
+            */
 
+
+        /*
+        video notes TODO
+                    >constraint layout -> show baseline, select both elements and right click
+                    >tv -> set sample data
+                    >image view -> match constraint vs wrap content -> aspect ration (click corner of constraint margin square
+                    >change app icon in manifest file android:icon
+                    >fb -> findViewByID
+                    >listview adapter -> can pass in preset layouts (ex: android.R.layout.simple_list_item_1)
+                    >spinner -> create spinner -> create spinner adapter (can pass preset layouts too
+                        >(ex: android.R.layout.simple_spinner_dropdown_item)
+                        >to do something for each item -> override setOnItemSelectedListener
+                        >spinner.getSelectedItem().toString() -> can use this if set values from XML instead of from java
+                            >android:entries="arrayInStringsXMLOrOther" (useful to do this way for static entries)
+                    >styles.xml -> define theme of app
+                    >layout -> select two items -> right click -> centre -> both will be centred evenly
+                    >can create layout file for landscape and portrait for each activity
+                        >orientation for preview button (rotate screen icon top left) -> create landscape variation
+                        >can also create night / various other modes
+                    >trademark layout
+                    >material design.io -> using material design app themes
+                    >can also change style of buttons + other components by referencing material design
+                    >android:backgroundTint vs app:backgroundTint (border on components) vs app:rippleColor (color change once clicking on a component)
+                    >Snackbar.make(parent, "text shown in snackbar", Snackbar.timetoshow)
+                        >.setAction("action text", new onClickListener (or whatever you want))
+                        >.setActionTextColor(getResources().getColor(R.color.whateverColor)) or Color.RED (use Color class if color not in colors.xml)
+                        >.setTextColor(Color.YELLOW)
+                        >.show()
+                    >card view (material.io)
+                        >card corner radius
+                        >car elevation
+                    >resource manager
+                    >RV (2) part 1
+                        >notifyDataSetChanged()
+                    >card view (native androidx dependency)
+                    >glide external library : load images from the internet
+                        >Glide.with(context)
+                        >    .asBitmap()
+                        >    .load(image URL ending with jpg or png)
+                        >    .into(image view / image holder)
+                    >requesting permissions
+                        >may not be able to see permissions because once you update manifest file, must
+                        >uninstall and reinstall app for everything to work properly
+                    >external fonts
+                        >new resource directory -> choose font type directory
+                        >android:fontFamily="reference your font"
+                        >downloadable font (use online font (not good)) / add font to project
+                        >create you own -> right click font -> create new font resource file
+        */
     }
 
     private void sampleTwentyTwoCharts() {
@@ -486,6 +543,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.action_settings_awesome_stuff:
                 Toast.makeText(this, "Awesome!", Toast.LENGTH_SHORT).show();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -513,6 +571,9 @@ public class MainActivity extends AppCompatActivity {
         rvSampleEleven.setAdapter(rvAdapter);
 
         // LinearLayoutManager allows setting of vertical/horizontal/etc recycler views
+        //      LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false)
+        // if passing linear -> telling android to display out items in a linear fashion
+        // useful: GridLayoutManager(this, numCols,
         rvSampleEleven.setLayoutManager(new LinearLayoutManager(MainActivity.this));
     }
 
@@ -654,6 +715,7 @@ public class MainActivity extends AppCompatActivity {
             Notes:
                 >use app:tint=:"@null" to make fab icon the correct color
                 >extras can be accessed by intents
+                >floating action button stays in place even if screen is scrolled!
         */
         FloatingActionButton fabSampleFour = findViewById(R.id.fabSampleFour);
         fabSampleFour.setOnClickListener( view -> {
