@@ -313,7 +313,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Sample 27: Singleton
             /*
-                1.
+                1. create private static instance of class
+                2. create public static synchronized method to return and create this instance
             */
             /*
                 Notes:
