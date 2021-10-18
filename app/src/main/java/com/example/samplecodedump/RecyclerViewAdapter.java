@@ -31,7 +31,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).
                 inflate(R.layout.layout_sample_eleven, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(view);    // make sure to pass OUR created ViewHolder class
     }
 
     // this function gets called everytime items are recycled
@@ -60,7 +60,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvLeft;
+        private TextView tvLeft; // should probably make all of these private
         TextView tvMiddle;
         TextView tvRight;
         ConstraintLayout recycleLayoutSampleEleven;

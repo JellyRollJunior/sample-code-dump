@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                     a. LEFT: layout_constraintGuide_begin = "250dp"
                     b. RIGHT: layout_constraintGuide_end = "250dp"
                     c. PERCENT: layout_constraintGuide_percent = "0.25"
+                5. right click -> show baseline -> allow UI elements to be on same horizontal plane
             */
             /*
                 Notes:
@@ -110,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Sample 12: actionbar / toolbar: add icon, add up button
             /*
-                1. create menu layout
+                1. create menu layout (create menu directory if not present -> new menu resource file)
                 2. override onCreateOptionsMenu -> inflate menu layout
                 3. override onOptionItemSelected -> control what items do when clicked
                 4. enable back button by accessing action bar (code on activity second)
@@ -201,35 +203,9 @@ public class MainActivity extends AppCompatActivity {
             */
 
         // Sample 21: Alert dialogue
-            /*
-                1. create alert dialogue message layout (new layout resource file)
-                2. create message fragment (class)
-                    a. extend AppCompatDialogFragment
-                    b. override onCreateDialog
-                        I. create the view to show
-                        II. create button listener
-                        II. build alert dialog
-                3. display alert dialog in chosen activity
-            */
-            /*
-                Notes:
-                    >
-            */
         sampleTwentyOneAlertDialog();
 
         // Sample 22: Pie graph - MPAndroid chart
-            /*
-                1. take care of dependencies
-                2. create pie chart in xml
-                3. populate list of pie entries
-                4. shove pie entries into pie data set
-                5. create chart using data
-            */
-            /*
-                Notes:
-                    >PUT MAVEN REPO IN SETTINGS.GRADLE
-                    >PUT IMPLEMENTATION IN BUILD.GRADLE
-            */
         sampleTwentyTwoCharts();
 
         // Sample 23: Up button in-depth
@@ -313,7 +289,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Sample 27: Singleton
             /*
-                1.
+                1. create private static instance of class
+                2. create public static synchronized method to return and create this instance
             */
             /*
                 Notes:
@@ -322,10 +299,83 @@ public class MainActivity extends AppCompatActivity {
                         >else multiple threads may create multiple instances
             */
 
+        // Sample 28: Linear Layouts + Color class
+        sampleTwentyEightLinearLayoutColor();
 
+
+        /*
+        video notes TODO
+                    >change app icon in manifest file android:icon
+                    >fb -> findViewByID
+                    >listview adapter -> can pass in preset layouts (ex: android.R.layout.simple_list_item_1)
+                    >spinner -> create spinner -> create spinner adapter (can pass preset layouts too
+                        >(ex: android.R.layout.simple_spinner_dropdown_item)
+                        >to do something for each item -> override setOnItemSelectedListener
+                        >spinner.getSelectedItem().toString() -> can use this if set values from XML instead of from java
+                            >android:entries="arrayInStringsXMLOrOther" (useful to do this way for static entries)
+                    >styles.xml -> define theme of app
+                    >can create layout file for landscape and portrait for each activity
+                        >orientation for preview button (rotate screen icon top left) -> create landscape variation
+                        >can also create night / various other modes
+                    >trademark layout
+                    >material design.io -> using material design app themes
+                    >can also change style of buttons + other components by referencing material design
+                    >android:backgroundTint vs app:backgroundTint (border on components) vs app:rippleColor (color change once clicking on a component)
+                    >Snackbar.make(parent, "text shown in snackbar", Snackbar.timetoshow)
+                        >.setAction("action text", new onClickListener (or whatever you want))
+                        >.setActionTextColor(getResources().getColor(R.color.whateverColor))
+                        >.setTextColor(Color.YELLOW)
+                        >.show()
+                    >card view (material.io)
+                        >card corner radius
+                        >car elevation
+                    >RV (2) part 1
+                        >notifyDataSetChanged()
+                    >card view (native androidx dependency)
+                    >glide external library : load images from the internet
+                        >Glide.with(context)
+                        >    .asBitmap()
+                        >    .load(image URL ending with jpg or png)
+                        >    .into(image view / image holder)
+                    >requesting permissions
+                        >may not be able to see permissions because once you update manifest file, must
+                        >uninstall and reinstall app for everything to work properly
+                    >external fonts
+                        >new resource directory -> choose font type directory
+                        >android:fontFamily="reference your font"
+                        >downloadable font (use online font (not good)) / add font to project
+                        >create you own -> right click font -> create new font resource file
+        */
+    }
+
+    private void sampleTwentyEightLinearLayoutColor() {
+        /*
+            1. set layout weights for elements to take percentage of space desired
+        */
+        /*
+            Notes:
+                >Color class provides preset colors if youre too lazy to choose your own
+        */
+        TextView tvLeft = findViewById(R.id.tvLeftSample28);
+        tvLeft.setBackgroundColor(Color.GREEN);
+        TextView tvRight = findViewById(R.id.tvRightSample28);
+        tvRight.setBackgroundColor(Color.RED);
     }
 
     private void sampleTwentyTwoCharts() {
+        /*
+            1. take care of dependencies
+            2. create pie chart in xml
+            3. populate list of pie entries
+            4. shove pie entries into pie data set
+            5. create chart using data
+        */
+        /*
+            Notes:
+                >PUT MAVEN REPO IN SETTINGS.GRADLE
+                >PUT IMPLEMENTATION IN BUILD.GRADLE
+        */
+
         Button button = findViewById(R.id.btnSampleTwentyTwo);
         button.setOnClickListener(view -> {
             Intent intent = ChartActivity.makeIntent(MainActivity.this);
@@ -334,6 +384,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void sampleTwentyOneAlertDialog() {
+        /*
+            1. create alert dialogue message layout (new layout resource file)
+            2. create message fragment (class)
+                a. extend AppCompatDialogFragment
+                b. override onCreateDialog
+                    I. create the view to show
+                    II. create button listener
+                    II. build alert dialog
+            3. display alert dialog in chosen activity
+        */
+        /*
+            Notes:
+                >
+        */
         Button btnSampleTwentyOne = findViewById(R.id.btnSampleTwentyOne);
 
         // start alert dialog on button click
@@ -486,6 +550,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.action_settings_awesome_stuff:
                 Toast.makeText(this, "Awesome!", Toast.LENGTH_SHORT).show();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -513,6 +578,9 @@ public class MainActivity extends AppCompatActivity {
         rvSampleEleven.setAdapter(rvAdapter);
 
         // LinearLayoutManager allows setting of vertical/horizontal/etc recycler views
+        //      LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false)
+        // if passing linear -> telling android to display out items in a linear fashion
+        // useful: GridLayoutManager(this, numCols,
         rvSampleEleven.setLayoutManager(new LinearLayoutManager(MainActivity.this));
     }
 
@@ -654,6 +722,7 @@ public class MainActivity extends AppCompatActivity {
             Notes:
                 >use app:tint=:"@null" to make fab icon the correct color
                 >extras can be accessed by intents
+                >floating action button stays in place even if screen is scrolled!
         */
         FloatingActionButton fabSampleFour = findViewById(R.id.fabSampleFour);
         fabSampleFour.setOnClickListener( view -> {
@@ -697,6 +766,7 @@ public class MainActivity extends AppCompatActivity {
             3. In code view, option + enter to extract string to resource folder
                 a. benefit: can just swap string resource files for different app language versions
             4. wire to OnClickListener
+            5. set sample text on tv -> right click on tv -> set sample data
         */
         /*
             Notes:

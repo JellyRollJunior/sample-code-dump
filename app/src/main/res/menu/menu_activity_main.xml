@@ -9,7 +9,8 @@
         app:showAsAction="always"/>
 
     <!-- Settings, should always be in the overflow -->
-    <item android:id="@+id/action_settings_awesome_stuff"
+    <item
+        android:id="@+id/action_settings_awesome_stuff"
         android:title="@string/action_bar_options_sample_twelve"
         app:showAsAction="ifRoom" /> <!-- can also be "never" -->
 
