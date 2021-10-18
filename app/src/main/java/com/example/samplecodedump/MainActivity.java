@@ -305,7 +305,6 @@ public class MainActivity extends AppCompatActivity {
 
         /*
         video notes TODO
-                    >image view -> match constraint vs wrap content -> aspect ration (click corner of constraint margin square
                     >change app icon in manifest file android:icon
                     >fb -> findViewByID
                     >listview adapter -> can pass in preset layouts (ex: android.R.layout.simple_list_item_1)
@@ -315,7 +314,6 @@ public class MainActivity extends AppCompatActivity {
                         >spinner.getSelectedItem().toString() -> can use this if set values from XML instead of from java
                             >android:entries="arrayInStringsXMLOrOther" (useful to do this way for static entries)
                     >styles.xml -> define theme of app
-                    >layout -> select two items -> right click -> centre -> both will be centred evenly
                     >can create layout file for landscape and portrait for each activity
                         >orientation for preview button (rotate screen icon top left) -> create landscape variation
                         >can also create night / various other modes
@@ -331,7 +329,6 @@ public class MainActivity extends AppCompatActivity {
                     >card view (material.io)
                         >card corner radius
                         >car elevation
-                    >resource manager
                     >RV (2) part 1
                         >notifyDataSetChanged()
                     >card view (native androidx dependency)
