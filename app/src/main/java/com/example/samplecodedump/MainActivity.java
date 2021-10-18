@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -201,35 +202,9 @@ public class MainActivity extends AppCompatActivity {
             */
 
         // Sample 21: Alert dialogue
-            /*
-                1. create alert dialogue message layout (new layout resource file)
-                2. create message fragment (class)
-                    a. extend AppCompatDialogFragment
-                    b. override onCreateDialog
-                        I. create the view to show
-                        II. create button listener
-                        II. build alert dialog
-                3. display alert dialog in chosen activity
-            */
-            /*
-                Notes:
-                    >
-            */
         sampleTwentyOneAlertDialog();
 
         // Sample 22: Pie graph - MPAndroid chart
-            /*
-                1. take care of dependencies
-                2. create pie chart in xml
-                3. populate list of pie entries
-                4. shove pie entries into pie data set
-                5. create chart using data
-            */
-            /*
-                Notes:
-                    >PUT MAVEN REPO IN SETTINGS.GRADLE
-                    >PUT IMPLEMENTATION IN BUILD.GRADLE
-            */
         sampleTwentyTwoCharts();
 
         // Sample 23: Up button in-depth
@@ -323,14 +298,8 @@ public class MainActivity extends AppCompatActivity {
                         >else multiple threads may create multiple instances
             */
 
-        // Sample 28: Linear Layouts + Color
-            /*
-                1.
-            */
-            /*
-                Notes:
-                    >set layout weights for elements to take predetermined space
-            */
+        // Sample 28: Linear Layouts + Color class
+        sampleTwentyEightLinearLayoutColor();
 
 
         /*
@@ -357,7 +326,7 @@ public class MainActivity extends AppCompatActivity {
                     >android:backgroundTint vs app:backgroundTint (border on components) vs app:rippleColor (color change once clicking on a component)
                     >Snackbar.make(parent, "text shown in snackbar", Snackbar.timetoshow)
                         >.setAction("action text", new onClickListener (or whatever you want))
-                        >.setActionTextColor(getResources().getColor(R.color.whateverColor)) or Color.RED (use Color class if color not in colors.xml)
+                        >.setActionTextColor(getResources().getColor(R.color.whateverColor))
                         >.setTextColor(Color.YELLOW)
                         >.show()
                     >card view (material.io)
@@ -383,7 +352,34 @@ public class MainActivity extends AppCompatActivity {
         */
     }
 
+    private void sampleTwentyEightLinearLayoutColor() {
+        /*
+            1. set layout weights for elements to take percentage of space desired
+        */
+        /*
+            Notes:
+                >Color class provides preset colors if youre too lazy to choose your own
+        */
+        TextView tvLeft = findViewById(R.id.tvLeftSample28);
+        tvLeft.setBackgroundColor(Color.GREEN);
+        TextView tvRight = findViewById(R.id.tvRightSample28);
+        tvRight.setBackgroundColor(Color.RED);
+    }
+
     private void sampleTwentyTwoCharts() {
+        /*
+            1. take care of dependencies
+            2. create pie chart in xml
+            3. populate list of pie entries
+            4. shove pie entries into pie data set
+            5. create chart using data
+        */
+        /*
+            Notes:
+                >PUT MAVEN REPO IN SETTINGS.GRADLE
+                >PUT IMPLEMENTATION IN BUILD.GRADLE
+        */
+
         Button button = findViewById(R.id.btnSampleTwentyTwo);
         button.setOnClickListener(view -> {
             Intent intent = ChartActivity.makeIntent(MainActivity.this);
@@ -392,6 +388,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void sampleTwentyOneAlertDialog() {
+        /*
+            1. create alert dialogue message layout (new layout resource file)
+            2. create message fragment (class)
+                a. extend AppCompatDialogFragment
+                b. override onCreateDialog
+                    I. create the view to show
+                    II. create button listener
+                    II. build alert dialog
+            3. display alert dialog in chosen activity
+        */
+        /*
+            Notes:
+                >
+        */
         Button btnSampleTwentyOne = findViewById(R.id.btnSampleTwentyOne);
 
         // start alert dialog on button click
