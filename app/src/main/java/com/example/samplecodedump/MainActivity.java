@@ -302,6 +302,15 @@ public class MainActivity extends AppCompatActivity {
         // Sample 28: Linear Layouts + Color class
         sampleTwentyEightLinearLayoutColor();
 
+        // Sample 29: Change app icon
+            /*
+                1. goto Android Manifest
+                2. change android:icon and android:roundIcon
+            */
+            /*
+                Notes:
+                    >
+            */
 
         /*
         video notes TODO
