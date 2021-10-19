@@ -290,6 +290,7 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="130dp"
             android:layout_height="170dp"
+            android:id="@+id/cvSample34"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -313,8 +314,8 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
-                    android:src="@drawable/animal_crossing_leaf"
                     android:contentDescription="@string/content_description_sample_4"
+                    android:src="@drawable/animal_crossing_leaf"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />

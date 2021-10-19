@@ -36,6 +36,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private final ArrayList<StringHolder> myStringHolderSampleEleven = new ArrayList<>();
     private final ArrayList<String> spinnerStringList = new ArrayList<>();
     private ConstraintLayout parent;
+    private MaterialCardView cardViewSample34;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -360,13 +362,9 @@ public class MainActivity extends AppCompatActivity {
         sampleThirtyThreeSnackbar();
 
         // Sample 34: Card view
-            /*
-                1.
-            */
-            /*
-                Notes:
-                    >native and material card view both work
-            */
+        sampleThirtyFourCardView();
+
+
         /*
         video notes TODO
                     >card view (material.io)
@@ -389,6 +387,20 @@ public class MainActivity extends AppCompatActivity {
                         >downloadable font (use online font (not good)) / add font to project
                         >create you own -> right click font -> create new font resource file
         */
+    }
+
+    private void sampleThirtyFourCardView() {
+        /*
+            1.
+        */
+        /*
+            Notes:
+                >native and material card view both work
+        */
+        cardViewSample34 = findViewById(R.id.cvSample34);
+        cardViewSample34.setOnClickListener(view -> {
+            Toast.makeText(MainActivity.this, "you clicked me!", Toast.LENGTH_SHORT).show();
+        });
     }
 
     private void sampleThirtyThreeSnackbar() {
