@@ -179,8 +179,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Sample 18: Internationalization
             /*
-                1. create resource folder values-(country code)
-                2. add in translated strings.xml
+                1. right click values
+                2. create new value resource file also named strings
+                3. qualifiers -> locale -> choose location + language
             */
             /*
                 Notes:
@@ -317,12 +318,18 @@ public class MainActivity extends AppCompatActivity {
         // Sample 30: Spinner + android preset layouts
         sampleThirtySpinner();
 
+        // Sample 31:
+            /*
+                1.
+            */
+            /*
+                Notes:
+                    >
+            */
+
 
         /*
         video notes TODO
-                        >to do something for each item -> override setOnItemSelectedListener
-                        >spinner.getSelectedItem().toString() -> can use this if set values from XML instead of from java
-                            >android:entries="arrayInStringsXMLOrOther" (useful to do this way for static entries)
                     >styles.xml -> define theme of app
                     >trademark layout
                     >material design.io -> using material design app themes
