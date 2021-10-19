@@ -329,10 +329,19 @@ public class MainActivity extends AppCompatActivity {
                     >
             */
 
+        // Sample 31: Trademark
+            /*
+                1. create trademark layout
+                2. put into desired layout
+            */
+            /*
+                Notes:
+                    >
+            */
+
 
         /*
         video notes TODO
-                    >styles.xml -> define theme of app
                     >trademark layout
                     >material design.io -> using material design app themes
                     >can also change style of buttons + other components by referencing material design
@@ -381,7 +390,7 @@ public class MainActivity extends AppCompatActivity {
         spinnerStringList.add("hello");
         spinnerStringList.add("world!");
 
-        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_spinner_dropdown_item,
                 spinnerStringList
