@@ -315,24 +315,11 @@ public class MainActivity extends AppCompatActivity {
             */
 
         // Sample 30: Spinner + android preset layouts
-            /*
-                1. create a spinner
-                2. create spinner adapter
-                    a. (optional) create layout
-                    b. can use preset layout resources (ex: android.R.layout.simple_list_item_1)
-                3. link spinner to adapter
-            */
-            /*
-                Notes:
-                    >
-            */
         sampleThirtySpinner();
 
 
         /*
         video notes TODO
-                    >spinner -> create spinner -> create spinner adapter (can pass preset layouts too
-                        >(ex: android.R.layout.simple_spinner_dropdown_item)
                         >to do something for each item -> override setOnItemSelectedListener
                         >spinner.getSelectedItem().toString() -> can use this if set values from XML instead of from java
                             >android:entries="arrayInStringsXMLOrOther" (useful to do this way for static entries)
@@ -369,6 +356,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void sampleThirtySpinner() {
+         /*
+            1. create a spinner
+            2. create spinner adapter
+                a. (optional) create layout
+                b. can use preset layout resources (ex: android.R.layout.simple_list_item_1)
+            3. link spinner to adapter
+            4. override setOnItemSelectedListener to implement listener
+        */
+        /*
+            Notes:
+                >
+        */
         Spinner spinner = findViewById(R.id.spinnerSample30);
         spinnerStringList.add("hello");
         spinnerStringList.add("world!");
@@ -380,6 +379,17 @@ public class MainActivity extends AppCompatActivity {
         );
 
         spinner.setAdapter(spinnerAdapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(MainActivity.this, spinnerStringList.get(i), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
     private void sampleTwentyEightLinearLayoutColor() {
