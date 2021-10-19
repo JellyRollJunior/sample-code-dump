@@ -359,6 +359,14 @@ public class MainActivity extends AppCompatActivity {
         // Sample 33: Snackbars - toast messages which can prompt actions
         sampleThirtyThreeSnackbar();
 
+        // Sample 34: Card view
+            /*
+                1.
+            */
+            /*
+                Notes:
+                    >native and material card view both work
+            */
         /*
         video notes TODO
                     >card view (material.io)
