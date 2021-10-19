@@ -357,22 +357,10 @@ public class MainActivity extends AppCompatActivity {
             */
 
         // Sample 33: Snackbars - toast messages which can prompt actions
-            /*
-                1.
-            */
-            /*
-                Notes:
-                    >
-            */
         sampleThirtyThreeSnackbar();
 
         /*
         video notes TODO
-                    >Snackbar.make(parent, "text shown in snackbar", Snackbar.timetoshow)
-                        >.setAction("action text", new onClickListener (or whatever you want))
-                        >.setActionTextColor(getResources().getColor(R.color.whateverColor))
-                        >.setTextColor(Color.YELLOW)
-                        >.show()
                     >card view (material.io)
                         >card corner radius
                         >car elevation
@@ -396,6 +384,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void sampleThirtyThreeSnackbar() {
+        /*
+            1. get parent layout
+            2. build snackbar (much like making a toast)
+            3. show()
+        */
+        /*
+            Notes:
+                >
+        */
         parent = findViewById(R.id.parent);
         Button button = findViewById(R.id.btnSample33);
 
