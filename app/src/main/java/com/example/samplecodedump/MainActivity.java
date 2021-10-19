@@ -332,11 +332,11 @@ public class MainActivity extends AppCompatActivity {
         // Sample 31: Trademark
             /*
                 1. create trademark layout
-                2. put into desired layout
+                2. put into desired layout using include
             */
             /*
                 Notes:
-                    >
+                    >must set size of trademark to wrap_content or else it won't move!
             */
 
 

@@ -9,6 +9,7 @@
         android:layout_width="22dp"
         android:layout_height="22dp"
         android:src="@drawable/animal_crossing_leaf"
+        android:contentDescription="@string/content_description_sample_4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
