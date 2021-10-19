@@ -318,9 +318,11 @@ public class MainActivity extends AppCompatActivity {
         // Sample 30: Spinner + android preset layouts
         sampleThirtySpinner();
 
-        // Sample 31:
+        // Sample 31: Custom App Themes
             /*
-                1.
+                1. goto themes.xml
+                2. create new theme
+                3. goto AndroidManifest and set new theme as default
             */
             /*
                 Notes:
