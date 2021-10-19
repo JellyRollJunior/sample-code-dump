@@ -339,10 +339,19 @@ public class MainActivity extends AppCompatActivity {
                     >must set size of trademark to wrap_content or else it won't move!
             */
 
+        // Sample 32: Material Design.io
+            /*
+                1. set up dependency
+                    a. build.gradle (project) -> make sure taking in google repositories
+                    b. build.gradle (module) -> add dependency implementation 'com.google.android.material:material:<version>'
+            */
+            /*
+                Notes:
+                    >
+            */
 
         /*
         video notes TODO
-                    >trademark layout
                     >material design.io -> using material design app themes
                     >can also change style of buttons + other components by referencing material design
                     >android:backgroundTint vs app:backgroundTint (border on components) vs app:rippleColor (color change once clicking on a component)
