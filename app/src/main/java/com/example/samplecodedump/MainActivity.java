@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private int sampleTwoCount = -1;                        // Can't declare in the scope of onCreate or else problems arise
     private final ArrayList<StringHolder> myStringHolderSampleTen = new ArrayList<>();
     private final ArrayList<StringHolder> myStringHolderSampleEleven = new ArrayList<>();
+    private final ArrayList<String> spinnerStringList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -312,20 +314,29 @@ public class MainActivity extends AppCompatActivity {
                     >
             */
 
+        // Sample 30: Spinner + android preset layouts
+            /*
+                1. create a spinner
+                2. create spinner adapter
+                    a. (optional) create layout
+                    b. can use preset layout resources (ex: android.R.layout.simple_list_item_1)
+                3. link spinner to adapter
+            */
+            /*
+                Notes:
+                    >
+            */
+        sampleThirtySpinner();
+
+
         /*
         video notes TODO
-                    >change app icon in manifest file android:icon
-                    >fb -> findViewByID
-                    >listview adapter -> can pass in preset layouts (ex: android.R.layout.simple_list_item_1)
                     >spinner -> create spinner -> create spinner adapter (can pass preset layouts too
                         >(ex: android.R.layout.simple_spinner_dropdown_item)
                         >to do something for each item -> override setOnItemSelectedListener
                         >spinner.getSelectedItem().toString() -> can use this if set values from XML instead of from java
                             >android:entries="arrayInStringsXMLOrOther" (useful to do this way for static entries)
                     >styles.xml -> define theme of app
-                    >can create layout file for landscape and portrait for each activity
-                        >orientation for preview button (rotate screen icon top left) -> create landscape variation
-                        >can also create night / various other modes
                     >trademark layout
                     >material design.io -> using material design app themes
                     >can also change style of buttons + other components by referencing material design
@@ -355,6 +366,20 @@ public class MainActivity extends AppCompatActivity {
                         >downloadable font (use online font (not good)) / add font to project
                         >create you own -> right click font -> create new font resource file
         */
+    }
+
+    private void sampleThirtySpinner() {
+        Spinner spinner = findViewById(R.id.spinnerSample30);
+        spinnerStringList.add("hello");
+        spinnerStringList.add("world!");
+
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_spinner_dropdown_item,
+                spinnerStringList
+        );
+
+        spinner.setAdapter(spinnerAdapter);
     }
 
     private void sampleTwentyEightLinearLayoutColor() {
