@@ -31,11 +31,13 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private final ArrayList<StringHolder> myStringHolderSampleTen = new ArrayList<>();
     private final ArrayList<StringHolder> myStringHolderSampleEleven = new ArrayList<>();
     private final ArrayList<String> spinnerStringList = new ArrayList<>();
+    private ConstraintLayout parent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -353,6 +356,16 @@ public class MainActivity extends AppCompatActivity {
                             >ex: button styles (@style/Widget.MaterialComponents.Button.OutlinedButton)
             */
 
+        // Sample 33: Snackbars - toast messages which can prompt actions
+            /*
+                1.
+            */
+            /*
+                Notes:
+                    >
+            */
+        sampleThirtyThreeSnackbar();
+
         /*
         video notes TODO
                     >Snackbar.make(parent, "text shown in snackbar", Snackbar.timetoshow)
@@ -380,6 +393,24 @@ public class MainActivity extends AppCompatActivity {
                         >downloadable font (use online font (not good)) / add font to project
                         >create you own -> right click font -> create new font resource file
         */
+    }
+
+    private void sampleThirtyThreeSnackbar() {
+        parent = findViewById(R.id.parent);
+        Button button = findViewById(R.id.btnSample33);
+
+        button.setOnClickListener(view -> {
+            Snackbar.make(parent, "this is a snackbar", Snackbar.LENGTH_INDEFINITE)
+                    .setAction("retry", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(MainActivity.this, "Retry clicked", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .setActionTextColor(Color.RED)
+                    .setTextColor(Color.YELLOW)
+                    .show();
+        });
     }
 
     private void sampleThirtySpinner() {
