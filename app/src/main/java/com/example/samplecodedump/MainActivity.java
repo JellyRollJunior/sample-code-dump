@@ -347,14 +347,14 @@ public class MainActivity extends AppCompatActivity {
             */
             /*
                 Notes:
-                    >
+                    >Material Design includes
+                        >app themes
+                        >change UI component style by referencing material design
+                            >ex: button styles (@style/Widget.MaterialComponents.Button.OutlinedButton)
             */
 
         /*
         video notes TODO
-                    >material design.io -> using material design app themes
-                    >can also change style of buttons + other components by referencing material design
-                    >android:backgroundTint vs app:backgroundTint (border on components) vs app:rippleColor (color change once clicking on a component)
                     >Snackbar.make(parent, "text shown in snackbar", Snackbar.timetoshow)
                         >.setAction("action text", new onClickListener (or whatever you want))
                         >.setActionTextColor(getResources().getColor(R.color.whateverColor))
@@ -794,6 +794,9 @@ public class MainActivity extends AppCompatActivity {
                 >use app:tint=:"@null" to make fab icon the correct color
                 >extras can be accessed by intents
                 >floating action button stays in place even if screen is scrolled!
+                >android:backgroundTint : button color
+                >app:backgroundTint : border color
+                >app:rippleColor : color the button changes to on click
         */
         FloatingActionButton fabSampleFour = findViewById(R.id.fabSampleFour);
         fabSampleFour.setOnClickListener( view -> {
