@@ -5,12 +5,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
 
@@ -41,9 +44,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         Log.d(TAG, "onBindViewHolder: called.");
 
         // set text views
-        holder.tvLeft.setText(recycledStrings.get(position).getFirst());
+        holder.tvTop.setText(recycledStrings.get(position).getFirst());
         holder.tvMiddle.setText(recycledStrings.get(position).getSecond());
-        holder.tvRight.setText(recycledStrings.get(position).getThird());
 
         // set onClickListener
         holder.recycleLayoutSampleEleven.setOnClickListener(view -> {
@@ -60,16 +62,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView tvLeft; // should probably make all of these private
+        TextView tvTop; // should probably make all of these private
         TextView tvMiddle;
-        TextView tvRight;
-        ConstraintLayout recycleLayoutSampleEleven;
+        ImageView ivBot;
+        MaterialCardView recycleLayoutSampleEleven;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            tvLeft = itemView.findViewById(R.id.tvLeftSampleEleven);
+            tvTop = itemView.findViewById(R.id.tvTopSampleEleven);
             tvMiddle = itemView.findViewById(R.id.tvMiddleSampleEleven);
-            tvRight = itemView.findViewById(R.id.tvRightSampleEleven);
+            ivBot = itemView.findViewById(R.id.ivSample35);
             recycleLayoutSampleEleven = itemView.findViewById(R.id.recycleLayoutSampleEleven);
         }
     }

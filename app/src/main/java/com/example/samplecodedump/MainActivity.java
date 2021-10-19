@@ -33,6 +33,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -363,12 +364,18 @@ public class MainActivity extends AppCompatActivity {
         // Sample 34: Card view
         sampleThirtyFourCardView();
 
+        // Sample 35: Recycler view (2) + Glide
+            /*
+                1.
+            */
+            /*
+                Notes:
+                    >put notifyDataSetChanged() in setter to let recycler view know to refresh data
+                    >if unable to see elevation -> increase layout_margin of content layout resource xml
+            */
 
         /*
         video notes TODO
-                    >RV (2) part 1
-                        >notifyDataSetChanged()
-                    >card view (native androidx dependency)
                     >glide external library : load images from the internet
                         >Glide.with(context)
                         >    .asBitmap()
@@ -696,11 +703,13 @@ public class MainActivity extends AppCompatActivity {
         RecyclerViewAdapter rvAdapter = new RecyclerViewAdapter(MainActivity.this, myStringHolderSampleEleven);
         rvSampleEleven.setAdapter(rvAdapter);
 
-        // LinearLayoutManager allows setting of vertical/horizontal/etc recycler views
-        //      LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false)
-        // if passing linear -> telling android to display out items in a linear fashion
-        // useful: GridLayoutManager(this, numCols,
-        rvSampleEleven.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        /*
+        LinearLayoutManager allows setting of vertical/horizontal/etc recycler views
+            new GridLayoutManager(this, numCols)
+            new LinearLayoutManager(MainActivity.this) -> displays items in a linear fashion
+            new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false)
+         */
+        rvSampleEleven.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
     }
 
     private void sampleTenListViewCustomLayout() {
