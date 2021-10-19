@@ -366,9 +366,6 @@ public class MainActivity extends AppCompatActivity {
 
         /*
         video notes TODO
-                    >card view (material.io)
-                        >card corner radius
-                        >car elevation
                     >RV (2) part 1
                         >notifyDataSetChanged()
                     >card view (native androidx dependency)
@@ -390,11 +387,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void sampleThirtyFourCardView() {
         /*
-            1.
+            1. create card view in XML
+            2. add layout into card view
+            3. add ui components
+            4. reference card view in java to functions
         */
         /*
             Notes:
-                >native and material card view both work
+                >native and material card view both work (androidx)
+                >card functions : cornerRadius, elevation, etc.
         */
         MaterialCardView cardViewSample34 = findViewById(R.id.cvSample34);
         cardViewSample34.setOnClickListener(view -> {
