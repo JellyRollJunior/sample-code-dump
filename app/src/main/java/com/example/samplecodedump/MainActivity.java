@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
     private final ArrayList<StringHolder> myStringHolderSampleEleven = new ArrayList<>();
     private final ArrayList<String> spinnerStringList = new ArrayList<>();
     private ConstraintLayout parent;
-    private MaterialCardView cardViewSample34;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -397,7 +396,7 @@ public class MainActivity extends AppCompatActivity {
             Notes:
                 >native and material card view both work
         */
-        cardViewSample34 = findViewById(R.id.cvSample34);
+        MaterialCardView cardViewSample34 = findViewById(R.id.cvSample34);
         cardViewSample34.setOnClickListener(view -> {
             Toast.makeText(MainActivity.this, "you clicked me!", Toast.LENGTH_SHORT).show();
         });
