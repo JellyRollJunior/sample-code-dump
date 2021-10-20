@@ -273,7 +273,7 @@ public class MainActivity extends AppCompatActivity {
                     >disabled("message") : functionally the same as ignore but with different label (i think)
                     >Assert types: true, assertFalse, assertNotNull, assertThrows
                         >assertThrows(yourException.class, () -> myObject.methodThatThrowsException)
-                            > () -> is a lamda function
+                            > () -> is a lambda function
                     >JUnit5 New Additions
                         >assertAll
                             >assertAll("test header",
@@ -480,7 +480,7 @@ public class MainActivity extends AppCompatActivity {
         */
         /*
             Notes:
-                >Color class provides preset colors if youre too lazy to choose your own
+                >Color class provides preset colors if you're too lazy to choose your own
         */
         TextView tvLeft = findViewById(R.id.tvLeftSample28);
         tvLeft.setBackgroundColor(Color.GREEN);
