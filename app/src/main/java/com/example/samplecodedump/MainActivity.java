@@ -382,7 +382,17 @@ public class MainActivity extends AppCompatActivity {
                     >
             */
 
+        // Sample 36: external fonts
+            /*
+                1.
+            */
+            /*
+                Notes:
+                    >must set size of trademark to wrap_content or else it won't move!
+            */
+
         /*
+
         video notes TODO
                     >external fonts
                         >new resource directory -> choose font type directory
