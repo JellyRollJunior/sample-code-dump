@@ -391,6 +391,7 @@ public class MainActivity extends AppCompatActivity {
                     a. font folder -> new font resource file
                     b. specify: font, fontStyle, fontWeight for each
                 5. select style with android:textStyle="bold/italic/etc."
+                6. set font in java using btn.setTypeface(Typeface)
             */
             /*
                 Notes:
