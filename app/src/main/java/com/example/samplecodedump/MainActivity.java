@@ -384,22 +384,22 @@ public class MainActivity extends AppCompatActivity {
 
         // Sample 36: external fonts
             /*
-                1.
+                1. res -> new android resource directory -> resource type : font
+                2. copy external fonts to this folder (no uppercase, no spaces)
+                3. use with android:fontFamily="@font/fontName"
+                4. create your own font family
+                    a. font folder -> new font resource file
+                    b. specify: font, fontStyle, fontWeight for each
+                5. select style with android:textStyle="bold/italic/etc."
             */
             /*
                 Notes:
-                    >must set size of trademark to wrap_content or else it won't move!
+                    >can also use google fonts
+                        >UI component -> fontFamily -> more fonts -> select desired font
+                            >create downloadable font : people need internet to download font
+                            >add to project : download to apk so its included with app
             */
 
-        /*
-
-        video notes TODO
-                    >external fonts
-                        >new resource directory -> choose font type directory
-                        >android:fontFamily="reference your font"
-                        >downloadable font (use online font (not good)) / add font to project
-                        >create you own -> right click font -> create new font resource file
-        */
     }
 
     private void sampleThirtyFourCardView() {
