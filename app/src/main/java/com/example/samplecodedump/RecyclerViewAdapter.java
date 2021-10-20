@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
@@ -53,6 +54,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
             Toast.makeText(context, "You clicked on position: " + position, Toast.LENGTH_LONG).show();
         });
+
+        // GLIDE
+        String imageURL = recycledStrings.get(position).getThird();
+        Glide.with(context)
+                .asBitmap()
+                .load(imageURL)
+                .into(holder.ivBot);
     }
 
     // show how many items to populate

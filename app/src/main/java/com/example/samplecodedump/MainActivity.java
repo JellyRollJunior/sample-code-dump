@@ -364,26 +364,26 @@ public class MainActivity extends AppCompatActivity {
         // Sample 34: Card view
         sampleThirtyFourCardView();
 
-        // Sample 35: Recycler view (2) + Glide
+        // Sample 35: Recycler view (2) + Glide + internet permission
             /*
                 1.
+                2. Glide :
+                    a. give context
+                    b. specify file type
+                    c. give URL (ending with png / jpg / etc.)
+                    d. give UI component
+                3. Permissions :
+                    a. some permissions require approval, others are automatically given
             */
             /*
                 Notes:
                     >put notifyDataSetChanged() in setter to let recycler view know to refresh data
                     >if unable to see elevation -> increase layout_margin of content layout resource xml
+                    >
             */
 
         /*
         video notes TODO
-                    >glide external library : load images from the internet
-                        >Glide.with(context)
-                        >    .asBitmap()
-                        >    .load(image URL ending with jpg or png)
-                        >    .into(image view / image holder)
-                    >requesting permissions
-                        >may not be able to see permissions because once you update manifest file, must
-                        >uninstall and reinstall app for everything to work properly
                     >external fonts
                         >new resource directory -> choose font type directory
                         >android:fontFamily="reference your font"
@@ -695,8 +695,16 @@ public class MainActivity extends AppCompatActivity {
         */
 
         // populate StringHolder
-        myStringHolderSampleEleven.add(new StringHolder("Sample 11", "11", "11"));
-        myStringHolderSampleEleven.add(new StringHolder("hello", "world", "!!!"));
+        String mabelURL = "https://dodo.ac/np/images/8/80/Mabel_NH.png";
+        String sabelURL = "https://dodo.ac/np/images/1/19/Sable_NH.png";
+        myStringHolderSampleEleven.add(new StringHolder(
+                "Sample 11",
+                "11",
+                mabelURL));
+        myStringHolderSampleEleven.add(new StringHolder(
+                "hello",
+                "world",
+                sabelURL));
 
         // link recyclerview to adapter
         RecyclerView rvSampleEleven = findViewById(R.id.rvSampleEleven);
