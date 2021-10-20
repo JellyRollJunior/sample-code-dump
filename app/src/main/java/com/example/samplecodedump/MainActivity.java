@@ -33,9 +33,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -271,7 +273,7 @@ public class MainActivity extends AppCompatActivity {
                     >disabled("message") : functionally the same as ignore but with different label (i think)
                     >Assert types: true, assertFalse, assertNotNull, assertThrows
                         >assertThrows(yourException.class, () -> myObject.methodThatThrowsException)
-                            > () -> is a lamda function
+                            > () -> is a lambda function
                     >JUnit5 New Additions
                         >assertAll
                             >assertAll("test header",
@@ -359,28 +361,63 @@ public class MainActivity extends AppCompatActivity {
         // Sample 33: Snackbars - toast messages which can prompt actions
         sampleThirtyThreeSnackbar();
 
+        // Sample 34: Card view
+        sampleThirtyFourCardView();
+
+        // Sample 35: Recycler view (2) + Glide + internet permission
+            /*
+                1.
+                2. Glide :
+                    a. give context
+                    b. specify file type
+                    c. give URL (ending with png / jpg / etc.)
+                    d. give UI component
+                3. Permissions :
+                    a. some permissions require approval, others are automatically given
+            */
+            /*
+                Notes:
+                    >put notifyDataSetChanged() in setter to let recycler view know to refresh data
+                    >if unable to see elevation -> increase layout_margin of content layout resource xml
+                    >
+            */
+
+        // Sample 36: external fonts
+            /*
+                1. res -> new android resource directory -> resource type : font
+                2. copy external fonts to this folder (no uppercase, no spaces)
+                3. use with android:fontFamily="@font/fontName"
+                4. create your own font family
+                    a. font folder -> new font resource file
+                    b. specify: font, fontStyle, fontWeight for each
+                5. select style with android:textStyle="bold/italic/etc."
+            */
+            /*
+                Notes:
+                    >can also use google fonts
+                        >UI component -> fontFamily -> more fonts -> select desired font
+                            >create downloadable font : people need internet to download font
+                            >add to project : download to apk so its included with app
+            */
+
+    }
+
+    private void sampleThirtyFourCardView() {
         /*
-        video notes TODO
-                    >card view (material.io)
-                        >card corner radius
-                        >car elevation
-                    >RV (2) part 1
-                        >notifyDataSetChanged()
-                    >card view (native androidx dependency)
-                    >glide external library : load images from the internet
-                        >Glide.with(context)
-                        >    .asBitmap()
-                        >    .load(image URL ending with jpg or png)
-                        >    .into(image view / image holder)
-                    >requesting permissions
-                        >may not be able to see permissions because once you update manifest file, must
-                        >uninstall and reinstall app for everything to work properly
-                    >external fonts
-                        >new resource directory -> choose font type directory
-                        >android:fontFamily="reference your font"
-                        >downloadable font (use online font (not good)) / add font to project
-                        >create you own -> right click font -> create new font resource file
+            1. create card view in XML
+            2. add layout into card view
+            3. add ui components
+            4. reference card view in java to functions
         */
+        /*
+            Notes:
+                >native and material card view both work (androidx)
+                >card functions : cornerRadius, elevation, etc.
+        */
+        MaterialCardView cardViewSample34 = findViewById(R.id.cvSample34);
+        cardViewSample34.setOnClickListener(view -> {
+            Toast.makeText(MainActivity.this, "you clicked me!", Toast.LENGTH_SHORT).show();
+        });
     }
 
     private void sampleThirtyThreeSnackbar() {
@@ -453,7 +490,7 @@ public class MainActivity extends AppCompatActivity {
         */
         /*
             Notes:
-                >Color class provides preset colors if youre too lazy to choose your own
+                >Color class provides preset colors if you're too lazy to choose your own
         */
         TextView tvLeft = findViewById(R.id.tvLeftSample28);
         tvLeft.setBackgroundColor(Color.GREEN);
@@ -668,19 +705,29 @@ public class MainActivity extends AppCompatActivity {
         */
 
         // populate StringHolder
-        myStringHolderSampleEleven.add(new StringHolder("Sample 11", "11", "11"));
-        myStringHolderSampleEleven.add(new StringHolder("hello", "world", "!!!"));
+        String mabelURL = "https://dodo.ac/np/images/8/80/Mabel_NH.png";
+        String sabelURL = "https://dodo.ac/np/images/1/19/Sable_NH.png";
+        myStringHolderSampleEleven.add(new StringHolder(
+                "Sample 11",
+                "11",
+                mabelURL));
+        myStringHolderSampleEleven.add(new StringHolder(
+                "hello",
+                "world",
+                sabelURL));
 
         // link recyclerview to adapter
         RecyclerView rvSampleEleven = findViewById(R.id.rvSampleEleven);
         RecyclerViewAdapter rvAdapter = new RecyclerViewAdapter(MainActivity.this, myStringHolderSampleEleven);
         rvSampleEleven.setAdapter(rvAdapter);
 
-        // LinearLayoutManager allows setting of vertical/horizontal/etc recycler views
-        //      LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false)
-        // if passing linear -> telling android to display out items in a linear fashion
-        // useful: GridLayoutManager(this, numCols,
-        rvSampleEleven.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        /*
+        LinearLayoutManager allows setting of vertical/horizontal/etc recycler views
+            new GridLayoutManager(this, numCols)
+            new LinearLayoutManager(MainActivity.this) -> displays items in a linear fashion
+            new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false)
+         */
+        rvSampleEleven.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
     }
 
     private void sampleTenListViewCustomLayout() {
