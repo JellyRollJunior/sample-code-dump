@@ -379,7 +379,6 @@ public class MainActivity extends AppCompatActivity {
                 Notes:
                     >put notifyDataSetChanged() in setter to let recycler view know to refresh data
                     >if unable to see elevation -> increase layout_margin of content layout resource xml
-                    >
             */
 
         // Sample 36: external fonts
@@ -401,6 +400,8 @@ public class MainActivity extends AppCompatActivity {
                             >add to project : download to apk so its included with app
             */
 
+        //expandable card view
+        //scroll view
     }
 
     private void sampleThirtyFourCardView() {
