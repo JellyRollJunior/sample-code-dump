@@ -366,7 +366,10 @@ public class MainActivity extends AppCompatActivity {
 
         // Sample 35: Recycler view (2) + Glide + internet permission
             /*
-                1.
+                1. RecyclerView notes
+                    a. create adapter class
+                    b. create ViewHolder subclass
+                    c. extend
                 2. Glide :
                     a. give context
                     b. specify file type
