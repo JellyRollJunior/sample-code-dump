@@ -334,7 +334,7 @@ public class MainActivity extends AppCompatActivity {
                     >
             */
 
-        // Sample 31: Trademark
+        // Sample 32: Trademark
             /*
                 1. create trademark layout
                 2. put into desired layout using include
@@ -344,7 +344,7 @@ public class MainActivity extends AppCompatActivity {
                     >must set size of trademark to wrap_content or else it won't move!
             */
 
-        // Sample 32: Material Design.io
+        // Sample 33: Material Design.io
             /*
                 1. set up dependency
                     a. build.gradle (project) -> make sure taking in google repositories
@@ -358,13 +358,13 @@ public class MainActivity extends AppCompatActivity {
                             >ex: button styles (@style/Widget.MaterialComponents.Button.OutlinedButton)
             */
 
-        // Sample 33: Snackbars - toast messages which can prompt actions
+        // Sample 34: Snackbars - toast messages which can prompt actions
         sampleThirtyThreeSnackbar();
 
-        // Sample 34: Card view
+        // Sample 35: Card view
         sampleThirtyFourCardView();
 
-        // Sample 35: Recycler view (2) + Glide + internet permission
+        // Sample 36: Recycler view (2) + Glide + internet permission
             /*
                 1. RecyclerView notes
                     a. create adapter class
@@ -384,7 +384,7 @@ public class MainActivity extends AppCompatActivity {
                     >if unable to see elevation -> increase layout_margin of content layout resource xml
             */
 
-        // Sample 36: external fonts
+        // Sample 37: external fonts
             /*
                 1. res -> new android resource directory -> resource type : font
                 2. copy external fonts to this folder (no uppercase, no spaces)
